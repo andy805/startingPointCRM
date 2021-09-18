@@ -1,0 +1,41 @@
+
+
+.dashboard {
+    height: 100vh;
+    width: 100vh;
+    display: grid;
+    grid-template-columns: 60% Auto;
+    grid-template-rows: 10% 10% Auto;
+} 
+
+.card-button-area {
+    grid-row-start: 3;
+    grid-column-end: 2;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto auto;
+}
+
+.card-grid-cell-one-one {
+    grid-area: 1 / 1 / 2 / 2;
+}
+.card-grid-cell-one-two {
+    grid-area: 1 / 2 / 2 / 2;
+}
+.card-grid-cell-one-three {
+    grid-area: 1 / 3 / 2 / 4;
+}
+.card-grid-cell-two-one {
+    grid-area: 2 / 1 / 2 / 2;
+}
+.card-grid-cell-two-two {
+    grid-area: 2 / 2 / 3 / 3;
+}
+.card-grid-cell-two-three {
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+.card-grid-cell-center {
+    justify-self: center;
+    align-self: center;
+}

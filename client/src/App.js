@@ -1,15 +1,20 @@
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
 import Dashboard from './pages/Dashboard.js';
 import Accounts from './pages/Accounts.js';
 import Contacts from './pages/Contacts';
 import {Router, Switch, Route, Link, BrowserRouter, useHistory} from 'react-router-dom';
+import React from 'react';
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faUsers} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faUsers);
 
 const AppWrapper = () => {
 
   return(
 
-      <App></App>
+      <App className={styles["App-size"]}></App>
   )
 }
 
@@ -18,7 +23,7 @@ function App() {
   let history = useHistory();
 
   return (
-    <div>
+    <React.Fragment>
         <Switch>
 
           <Route path ="/Accounts">
@@ -33,7 +38,7 @@ function App() {
         
 
         </Switch>
-    </div>
+    </React.Fragment>
 
 
 
