@@ -1,5 +1,12 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-mongoose.connect(process.env.Database_Url,{ useNewUrlParser: true})
 
-mongoose.connection.on('connected', fun)
+mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true})
+
+const db= mongoose.connection
+
+mongoose.connection.on('connected', function(){
+console.log(`Mongoose connect to: ${process.env.DATABASE_URL}`)
+})
+ 
+module.exports = mongoose
