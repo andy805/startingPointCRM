@@ -1,0 +1,11 @@
+.masterDetail{
+    border: 3px; 
+    background-color:  grey;
+    width:15%;
+    height: 90vh;
+    
+}
+li{
+    padding-top: 5px;
+    list-style: none;
+}
