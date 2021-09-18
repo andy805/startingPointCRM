@@ -1,18 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
 import Dashboard from './pages/Dashboard.js';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import Accounts from './pages/Accounts.js';
+import Contacts from './pages/Contacts';
+import {Router, Switch, Route, Link, BrowserRouter, useHistory} from 'react-router-dom';
+
+const AppWrapper = () => {
+
+  return(
+
+      <App></App>
+  )
+}
 
 function App() {
+
+  let history = useHistory();
+
   return (
-    <Switch>
+    <div>
+        <Switch>
 
-      <Route path="/">
-        <Dashboard />
-      </Route>
+          <Route path ="/Accounts">
+            <Accounts />
+          </Route>
+          <Route path ="/Contacts">
+            <Contacts />
+          </Route>
+          <Route path="/">
+            <Dashboard historyLayout={history}/>
+          </Route>
+        
 
-
-    </Switch>
+        </Switch>
+    </div>
 
 
 
@@ -21,4 +42,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppWrapper;
