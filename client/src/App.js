@@ -6,9 +6,9 @@ import Contacts from './pages/Contacts';
 import {Router, Switch, Route, Link, BrowserRouter, useHistory} from 'react-router-dom';
 import React from 'react';
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {faUsers} from '@fortawesome/free-solid-svg-icons'
+import {faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faUsers);
+library.add(faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar);
 
 const AppWrapper = () => {
 
