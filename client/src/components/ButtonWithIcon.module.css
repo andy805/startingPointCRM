@@ -1,0 +1,43 @@
+
+.whole-button {
+    width: auto;
+    height: auto;
+}
+
+.label-block {
+
+    display: block;
+    padding-top: 10px;
+    text-align: center;   
+    font-size: 1.5em;
+}
+
+.dashboard {
+
+    /*width: 80%;
+    height: 80%;*/
+    border-radius: 10%;
+    padding: 15% 15%;
+    margin: 8px;
+    background-color: #0779E4;
+    color: white;
+    border-style: none;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.card-grid-cell-center {
+    padding-top: 15px;
+    width: 100% !important; /* used to overwrite front aweseoms width rules */
+    display: inline-block;
+    text-align: center;
+    font-size: 4em;
+    align-content: center;
+    
+}
+
+.fa-w-20 {
+    width: 100%
+}
