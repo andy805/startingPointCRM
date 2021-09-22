@@ -1,11 +1,12 @@
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styles from 'ButtonWithIcon.module.css';
+import styles from './ButtonWithIcon.module.css';
 
 const ButtonWithIcon = (props) => {
 
-    const classes = styles.dashboard + " " + props.className
+    const classes = /*styles["whole-button"] + */" " + styles.dashboard + " " + props.className ;
+    //const dashboardIcon = "3x";
 
     const goToPage = () => {
         let path = props.path;
@@ -13,9 +14,13 @@ const ButtonWithIcon = (props) => {
     }
     return (
 
-        <div onClick={goToPage}>
-            <FontAwesomeIcon icon={props.icon}></FontAwesomeIcon>
-            {props.label}
+        <div className={classes} onClick={goToPage}>
+            <FontAwesomeIcon size={"9x"} className={styles["card-grid-cell-center"]} icon={props.icon} color="white"></FontAwesomeIcon>
+            <label className={styles["label-block"]}>{props.label}</label>
+            
         </div>
     )
 }
+
+
+export default ButtonWithIcon;
