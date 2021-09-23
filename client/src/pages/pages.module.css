@@ -4,7 +4,7 @@
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 20% 35% 45%;
+    grid-template-columns: 25% 30% 45%;
     grid-template-rows: 6% Auto;
     grid-column-gap: 14px;
 }
