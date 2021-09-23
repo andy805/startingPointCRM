@@ -1,59 +1,53 @@
-.portalRow{
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, .30),
-                -2px -2px 10px rgba(0, 0, 0, 0.3);
+.portalRow {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3),
+        -2px -2px 10px rgba(0, 0, 0, 0.3);
 
     border-radius: 10px;
     margin: 2vh;
     background-color: #ffffff;
     display: grid;
-    grid-template-columns:10% 90%;
-    grid-template-rows: 25% 50% 25%
-
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 25% 50% 25%;
 }
 
-.status{
-
-grid-column: 1/1;
-grid-row: 1/4;
-font-size: smaller;
-border: 1px solid  grey;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-
+.status {
+    grid-column: 1/1;
+    grid-row: 1/4;
+    font-size: smaller;
+    border: 1px solid grey;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.headerLabel{
+.headerLabel {
     font-size: x-small;
     grid-column: 2;
     grid-row: 1/2;
     align-self: center;
 }
-.mainLabel{
+.mainLabel {
     grid-column: 2;
     grid-row: 2/3;
     font-weight: bolder;
-   justify-self: center;
-   align-self: center;
-   padding-top: 2%;
+    justify-self: center;
+    align-self: center;
+    padding-top: 2%;
 }
 
-.subLabel{
+.subLabel {
     grid-column: 2;
     grid: row 3px;
     font-size: smaller;
 }
-.statusText{
+.statusText {
     transform: rotate(-90deg);
-   grid-row: 4;
-   justify-content: last baseline;
+    grid-row: 4;
+    justify-content: last baseline;
 }
-.statusActive{
-background-color: green;
-color: white;
-border-radius: 5px;
-
-
-
+.statusActive {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
 }
