@@ -46,8 +46,26 @@
     grid-row: 4;
     justify-content: last baseline;
 }
-.statusActive {
-    background-color: green;
+
+.statusBackground {
     color: white;
     border-radius: 5px;
+}
+
+/* Attribute selectors change background color on left edge of portal row */
+.statusBackground[status = 'Active'] {
+    background-color: #66B131;
+}
+
+.statusBackground[status = 'Inactive'] {
+    background-color: #D80B00;
+}
+
+.statusBackground[status = 'Disregard'] {
+    background-color: #9A9A9A;
+}
+
+.statusBackground[status = 'New'] {
+    background-color: #F2EB00;
+    color: #000000;
 }
