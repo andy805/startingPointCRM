@@ -6,17 +6,19 @@
     margin: 2vh;
     background-color: #ffffff;
     display: grid;
-    grid-template-columns:25% 75%;
+    grid-template-columns:10% 90%;
     grid-template-rows: 25% 50% 25%
 
 }
 
 .status{
-transform: rotate(-90deg);
+
 grid-column: 1/1;
 grid-row: 1/4;
 font-size: smaller;
-justify-self: center;
+border: 1px solid  grey;
+height: 100%;
+
 
 }
 
@@ -39,4 +41,17 @@ justify-self: center;
     grid-column: 2;
     grid: row 3px;
     font-size: smaller;
+}
+.statusText{
+    transform: rotate(-90deg);
+   grid-row: 4;
+   justify-content: last baseline;
+}
+.statusActive{
+background-color: green;
+color: white;
+border-radius: 5px;
+
+
+
 }
