@@ -4,7 +4,7 @@ import style from './Masterdetail.module.css'
 import PortalRow from './PortalRow'
 
 const Masterdetail = () => {
-const [masterRecords, setmasterRecords] = useState(['adam', 'mark', 'joe'])
+const [masterRecords, setmasterRecords] = useState(['adam', 'mark', 'joe','adam', 'mark', 'joe','joe','joe','joe','joe','joe','joe','joe','joe','joe','joe'])
 
     return(
         <div className={style.masterDetail}>
