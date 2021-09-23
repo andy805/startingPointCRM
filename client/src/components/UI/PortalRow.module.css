@@ -18,7 +18,9 @@ grid-row: 1/4;
 font-size: smaller;
 border: 1px solid  grey;
 height: 100%;
-
+display: flex;
+justify-content: center;
+align-items: center;
 
 }
 
