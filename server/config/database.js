@@ -1,12 +1,19 @@
-const mongoose = require("mongoose");
+import Mongoose  from "mongoose";
+// const Mongoose = require("mongoose");
 
 
-mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true})
 
-const db= mongoose.connection
+// Mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true})
+console.log(process.env);
+Mongoose.connect(process.env.DATABASE_URL)
 
-mongoose.connection.on('connected', function(){
+
+// const db= Mongoose.connection
+
+Mongoose.connection.on('connected', function(){
 console.log(`Mongoose connect to: ${process.env.DATABASE_URL}`)
 })
  
-module.exports = mongoose
+export default Mongoose
+
+// module.exports = Mongoose
