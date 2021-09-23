@@ -3,6 +3,8 @@ import styles from './App.module.css';
 import Dashboard from './pages/Dashboard.js';
 import Accounts from './pages/Accounts.js';
 import Contacts from './pages/Contacts';
+import Invoices from './pages/Invoices';
+import Products from './pages/Products';
 import {Router, Switch, Route, Link, BrowserRouter, useHistory} from 'react-router-dom';
 import React from 'react';
 import {library} from '@fortawesome/fontawesome-svg-core'
@@ -31,6 +33,12 @@ function App() {
           </Route>
           <Route path ="/Contacts">
             <Contacts />
+          </Route>
+          <Route path ="/Invoices">
+            <Invoices />
+          </Route>
+          <Route path ="/Products">
+            <Products />
           </Route>
           <Route path="/">
             <Dashboard historyLayout={history}/>
