@@ -36,6 +36,8 @@
     transform: rotate(360deg);
   }
 }
-.masterDetail{
-  height: 100%;
+
+.App-size {
+  width: 100vh;
+  height: 100vh;
 }

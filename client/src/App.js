@@ -1,15 +1,22 @@
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
 import Dashboard from './pages/Dashboard.js';
 import Accounts from './pages/Accounts.js';
 import Contacts from './pages/Contacts';
+import Invoices from './pages/Invoices';
+import Products from './pages/Products';
 import {Router, Switch, Route, Link, BrowserRouter, useHistory} from 'react-router-dom';
+import React from 'react';
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar);
 
 const AppWrapper = () => {
 
   return(
 
-      <App></App>
+      <App className={styles["App-size"]}></App>
   )
 }
 
@@ -18,7 +25,7 @@ function App() {
   let history = useHistory();
 
   return (
-    <div>
+    <React.Fragment>
         <Switch>
 
           <Route path ="/Accounts">
@@ -27,13 +34,19 @@ function App() {
           <Route path ="/Contacts">
             <Contacts />
           </Route>
+          <Route path ="/Invoices">
+            <Invoices />
+          </Route>
+          <Route path ="/Products">
+            <Products />
+          </Route>
           <Route path="/">
             <Dashboard historyLayout={history}/>
           </Route>
         
 
         </Switch>
-    </div>
+    </React.Fragment>
 
 
 
