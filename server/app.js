@@ -6,7 +6,7 @@ import express from "express";
 import db from './config/database.js';
 
 //schemas
-import accountSchema from './models/accounts.js';
+import {Account} from './models/accounts.js';
 
 //routes
 import {accountRouter} from './routes/accounts.js'
@@ -16,7 +16,7 @@ import {accountRouter} from './routes/accounts.js'
 
 
 // const mongoose = require('./config/database')
-const Account = db.model('Account', accountSchema);
+// const Account = db.model('Account', accountSchema);
 
 
 const app = express()
@@ -25,11 +25,9 @@ const port = 3000
 const account1 = new Account ({accountName: "RCC", status:"Inactive", category:"Company", type:"Company", phone1:"123-1234-456"});
 await account1.save();
 
-app.use('/', (req, res) => {
-    res.send('Hello World')
-})
 
-app.use('/accounts', accountRouter)
+
+app.use('/', accountRouter)
 
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)

@@ -28,4 +28,4 @@ const accountSchema = new Schema({
 
 }, {timestamps: true});
 
-export default accountSchema;
+export const Account = Mongoose.model("account", accountSchema)

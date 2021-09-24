@@ -1,8 +1,8 @@
-import accountSchema from "../models/accounts.js";
+import {Account} from "../models/accounts.js";
 
 const index = (req, res) => {
   console.log('hit')
-    accountSchema.find({}, (err, Accounts) => {
+    Account.find({}, (err, Accounts) => {
       if (err) {
         return err;
       } else {
