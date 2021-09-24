@@ -14,11 +14,11 @@
     grid-column: 1/1;
     grid-row: 1/4;
     font-size: smaller;
-    border: 1px solid grey;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 13px;
 }
 
 .headerLabel {
@@ -42,6 +42,9 @@
     font-size: smaller;
 }
 .statusText {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
     transform: rotate(-90deg);
     grid-row: 4;
     justify-content: last baseline;
@@ -49,7 +52,7 @@
 
 .statusBackground {
     color: white;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
 }
 
 /* Attribute selectors change background color on left edge of portal row */
