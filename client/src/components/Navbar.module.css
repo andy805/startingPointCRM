@@ -22,7 +22,7 @@
 }
 
 .active {
-    border-bottom: 3px solid #4497F1;
+    border-bottom: 3px solid var(--fmsp-blue);
     text-decoration: none;
     font-size: 25px;
     color: black;
