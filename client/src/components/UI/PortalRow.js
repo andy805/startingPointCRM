@@ -2,9 +2,7 @@ import react, { useState } from "react";
 import Card from "./Card";
 import styles from "./PortalRow.module.css";
 
-const PortalRow = () => {
-    // TODO: Status should probably come from redux or some shit not useState
-    const [status, setStatus] = useState(["Inactive"]);
+const PortalRow = ({status, headerLabel, mainLabel, phone1}) => {
 
     return (
         <div className={styles.portalRow}>
@@ -17,11 +15,11 @@ const PortalRow = () => {
 
             <div className={styles.labelContainer}>
                 <div className={styles.headerLabel}>
-                    {`ACT001 > Company > Santa Clara (CA)`}
+                    {headerLabel}
                 </div>
 
-                <div className={styles.mainLabel}>Carl's Jr. Consulting</div>
-                <div className={styles.subLabel}>(666) 420-6969</div>
+                <div className={styles.mainLabel}>{mainLabel}</div>
+                <div className={styles.subLabel}>{phone1}</div>
             </div>
         </div>
     );
