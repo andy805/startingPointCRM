@@ -1,3 +1,8 @@
+/* global css variables */
+:root {
+  --fmsp-blue: #4497F1;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
