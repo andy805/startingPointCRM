@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: 10% 90%;
     grid-template-rows: 25% 50% 25%;
+    width: 256px;
     height: 63px;
 }
 
@@ -62,11 +63,12 @@
 }
 
 .statusBackground[status = 'Inactive'] {
-    background-color: #D80B00;
+    background-color: #9A9A9A;
+    font-style: italic;
 }
 
 .statusBackground[status = 'Disregard'] {
-    background-color: #9A9A9A;
+    background-color: #D80B00;
 }
 
 .statusBackground[status = 'New'] {

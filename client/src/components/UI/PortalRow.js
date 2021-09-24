@@ -3,15 +3,16 @@ import Card from "./Card";
 import styles from "./PortalRow.module.css";
 
 const PortalRow = () => {
-
     // TODO: Status should probably come from redux or some shit not useState
     const [status, setStatus] = useState(["Inactive"]);
 
     return (
         <div className={styles.portalRow}>
-
-            {/* status attribute changes css classes for background color */}
-            <div className={`${styles.status} ${styles.statusBackground}`} status={status}>
+            
+            <div
+                className={`${styles.status} ${styles.statusBackground}`}
+                status={status} // changes css classes for left edge of portal row
+            >
                 <div className={styles.statusText}>{status}</div>
             </div>
 
@@ -21,7 +22,6 @@ const PortalRow = () => {
 
             <div className={styles.mainLabel}>Main text</div>
             <div className={styles.subLabel}>some text underneath</div>
-
         </div>
     );
 };
