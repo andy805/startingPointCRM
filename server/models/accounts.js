@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import Mongoose  from "mongoose";
+const Schema = Mongoose.Schema;
 
 const accountSchema = new Schema({
 
-    user: { type: Schema.Types.ObjectId, ref: User },
+   // user: { type: Schema.Types.ObjectId, ref: User },
     pk: Schema.Types.ObjectId,
-    notes: [{ type: Schema.Types.ObjectId, ref: Note }],
-    contacts: [{ type: Schema.Types.ObjectId, ref: Contact }],
+   // notes: [{ type: Schema.Types.ObjectId, ref: Note }],
+  //  contacts: [{ type: Schema.Types.ObjectId, ref: Contact }],
     accountName: String,
     category: String,
     status: String,
@@ -23,4 +23,9 @@ const accountSchema = new Schema({
     shippingAddress2: String,
     shippingCity: String,
     shippingState: String,
-})
+    createdBy: String,
+    modifiedBy: String
+
+}, {timestamps: true});
+
+export const Account = Mongoose.model("account", accountSchema)
