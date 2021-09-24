@@ -8,7 +8,6 @@ const PortalRow = () => {
 
     return (
         <div className={styles.portalRow}>
-            
             <div
                 className={`${styles.status} ${styles.statusBackground}`}
                 status={status} // changes css classes for left edge of portal row
@@ -16,12 +15,14 @@ const PortalRow = () => {
                 <div className={styles.statusText}>{status}</div>
             </div>
 
-            <div className={styles.headerLabel}>
-                this should be small text above
-            </div>
+            <div className={styles.labelContainer}>
+                <div className={styles.headerLabel}>
+                    {`ACT001 > Company > Santa Clara (CA)`}
+                </div>
 
-            <div className={styles.mainLabel}>Main text</div>
-            <div className={styles.subLabel}>some text underneath</div>
+                <div className={styles.mainLabel}>Carl's Jr. Consulting</div>
+                <div className={styles.subLabel}>(666) 420-6969</div>
+            </div>
         </div>
     );
 };
