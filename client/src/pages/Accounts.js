@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import Masterdetail from "../components/UI/Masterdetail"
 import styles from "./pages.module.css"
@@ -13,6 +13,18 @@ const navItems = [ {label: "Accounts" , path: "/Accounts", active: true},
 
 
 const Accounts = () => {
+    const [accounts, setAccounts] = useState({})
+    useEffect (() =>{
+        
+        async function accountCall(){
+            console.log('hit')
+        const request =  fetch('/localhost:3000')
+        console.log(request)
+        setAccounts({...request})
+    }
+},[]
+
+)
 
     return(
         <div className={styles.page}>
