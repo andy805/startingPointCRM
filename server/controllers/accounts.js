@@ -7,7 +7,7 @@ const index = (req, res) => {
         return err;
       } else {
         console.log(Accounts)
-        res.render("Accounts/", {
+        res.json( {
           Accounts,
         });
       }
