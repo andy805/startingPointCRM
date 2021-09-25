@@ -1,6 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /* global css variables */
 :root {
   --fmsp-blue: #4497F1;
+  --fmsp-gray: #9A9A9A;
 }
 
 body {
@@ -15,4 +21,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Global style for the box shadow of components */
+.boxshadow {
+  -webkit-box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.15); 
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.15);
 }

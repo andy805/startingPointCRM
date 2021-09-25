@@ -5,7 +5,7 @@ import styles from "./PortalRow.module.css";
 const PortalRow = ({status, headerLabel, mainLabel, phone1}) => {
 
     return (
-        <div className={styles.portalRow}>
+        <div className={`${styles.portalRow} ${'boxshadow'}`}>
             <div
                 className={`${styles.status} ${styles.statusBackground}`}
                 status={status} // changes css classes for left edge of portal row

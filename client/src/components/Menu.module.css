@@ -1,0 +1,52 @@
+.menu {
+    width: 333px;
+    height: 158px;
+    margin: 18px 0 0 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #ffffff;
+    padding: 21px 11px 17px 11px;
+}
+
+.menu > label {
+    margin-left: 9px;
+    color: var(--fmsp-gray);
+    font-family: Helvetica;
+    font-size: 9px;
+}
+
+.menu > label,
+.menu > input,
+.menu > select,
+.menu > .menu__buttons,
+.menu__buttons > button 
+ {
+    width: 100%;
+}
+
+.menu > .menu__buttons {
+    border: 1px solid var(--fmsp-blue);
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+
+.menu__buttons > button {
+    background-color: #ffffff;
+    border: 0;
+}
+
+.menu__middleButton {
+    border-left: 1px solid var(--fmsp-blue) !important;
+    border-right: 1px solid var(--fmsp-blue) !important;
+}
+
+.menu,
+.menu > .menu__buttons {
+    border-radius: 5px;
+}
+
