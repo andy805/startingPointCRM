@@ -27,7 +27,7 @@ const Accounts = () => {
           const response = await axios.get("http://localhost:3000")
         console.log('hit', response.data)
         setAccounts([...response.data])  
-        await console.log(accounts)
+        
 
       }
       fetchAccounts()

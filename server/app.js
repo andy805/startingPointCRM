@@ -1,12 +1,10 @@
-import dotenv from "dotenv";
-// dotenv.config({db: process.env.DATABASE_URL });
-import express from "express";
-// const dbURI = dotenv.config('.env').parsed.DATABASE_URL;
-// console.log(dotenv.config('.env').parsed.DATABASE_URL);
-import db from './config/database.js';
 
-//schemas
-import {Account} from './models/accounts.js';
+//modules
+import dotenv from "dotenv";
+import express from "express";
+import db from './config/database.js';
+import cors from "cors"
+
 
 //routes
 import {accountRouter} from './routes/accounts.js'
@@ -22,8 +20,10 @@ import {accountRouter} from './routes/accounts.js'
 const app = express()
 const port = 3000
 
-const account1 = new Account ({accountName: "RCC", status:"Inactive", category:"Company", type:"Company", phone1:"123-1234-456"});
-await account1.save();
+//midleware
+app.use(cors())
+
+
 
 
 

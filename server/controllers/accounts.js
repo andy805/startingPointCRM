@@ -7,9 +7,9 @@ const index = (req, res) => {
         return err;
       } else {
         console.log(Accounts)
-        res.json( {
+        res.json( 
           Accounts,
-        });
+        );
       }
     });
    
