@@ -3,13 +3,15 @@ import styles from "./Menu.module.css";
 
 export default function Menu() {
     return (
-        <div className={`${styles.menu} ${"boxshadow"} ${"flex-center"}`}>
+        <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
             <label>Name</label>
             <input type="text" />
             <div className={styles.menu__lineBreak} />
 
             <label>Type</label>
-            <select name="" id="" placeholder="Choose..."></select>
+            <select>
+                <option className={styles.menu__chooseOption}>Choose...</option>
+            </select>
             <div className={styles.menu__lineBreak} />
 
             <div className={styles.menu__buttons}>
