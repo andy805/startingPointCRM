@@ -54,7 +54,7 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Menu/>
+            <Menu />
             <Masterdetail masterRecords={masterRecords} />
         </div>
     );
