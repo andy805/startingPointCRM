@@ -5,7 +5,7 @@ export default function Menu() {
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
             <label>Name</label>
-            <input type="text" />
+            <input type="text" placeholder="New Account" />
             <div className={styles.menu__lineBreak} />
 
             <label>Type</label>
