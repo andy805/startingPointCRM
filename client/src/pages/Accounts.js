@@ -24,15 +24,17 @@ const Accounts = () => {
 
       const fetchAccounts = async ()=>{
           
-          const response = await axios.get("http://localhost:3000")
+        const response = await axios.get("http://localhost:3000")
         console.log('hit', response.data)
-        setAccounts([...response.data])  
+        const check = response.data
+        console.log(check)
+       setAccounts(check)
         
-
       }
       fetchAccounts()
     },[])
 
+    
     return(
         <div className={styles.page}>
             <TopNav className={styles.navbar}>
