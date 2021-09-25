@@ -1,43 +1,38 @@
 .menu {
     width: 333px;
     height: 158px;
-    margin: 18px 0 0 0;
-
-    display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
-
-    background-color: #ffffff;
-    padding: 21px 11px 17px 11px;
+    padding: 11px 11px 17px 11px;
+    margin-top: 18px;
 }
 
 .menu > label {
-    margin-left: 9px;
     color: var(--fmsp-gray);
     font-family: Helvetica;
     font-size: 9px;
 }
 
-.menu > label,
-.menu > input,
-.menu > select,
-.menu > .menu__buttons,
-.menu__buttons > button 
- {
-    width: 100%;
+.menu__lineBreak {
+    border: 1px solid var(--fmsp-light-gray);
 }
 
-.menu > .menu__buttons {
+.menu__buttons {
     border: 1px solid var(--fmsp-blue);
-    display: flex;
     justify-content: center;
     height: 30px;
 }
 
 .menu__buttons > button {
-    background-color: #ffffff;
     border: 0;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+.menu__buttons > button:focus {
+    background-color: var(--fmsp-blue);
+    color: #ffffff;
 }
 
 .menu__middleButton {
@@ -46,7 +41,25 @@
 }
 
 .menu,
-.menu > .menu__buttons {
+.menu__buttons > button {
+    background-color: #ffffff;
+}
+
+.menu,
+.menu__buttons {
+    display: flex;
     border-radius: 5px;
 }
 
+.menu__buttons,
+.menu__buttons > button {
+    width: 100%;
+}
+
+.menu > label,
+.menu > input,
+.menu > select {
+    padding-left: 5px;
+    border: none;
+    width: 100%;
+}
