@@ -10,6 +10,7 @@ import React from 'react';
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons'
 
+
 library.add(faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar);
 
 const AppWrapper = () => {
