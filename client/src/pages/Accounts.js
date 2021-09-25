@@ -1,17 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from "react-router";
 import Masterdetail from "../components/UI/Masterdetail"
 import styles from "./pages.module.css"
 import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
+import axios from 'axios'
 
 const navItems = [ {label: "Accounts" , path: "/Accounts", active: true}, 
 {label: "Contacts" , path: "/Contacts", active: false} ,{label: "Invoices" , path: "/Invoices", active: false}, 
 {label: "Products" , path: "/Products", active: false} 
 ]
 
-
-
+// fetches accounts
+const accountArray = []
 const Accounts = () => {
+    
+    const [accounts, setAccounts] = useState(accountArray)
+    
+   
+    
+    useEffect (() =>{
+
+
+      const fetchAccounts = async ()=>{
+          
+          const response = await axios.get("http://localhost:3000")
+        console.log('hit', response.data)
+        setAccounts([...response.data])  
+        
+
+      }
+      fetchAccounts()
+    },[])
 
     // Dummy JSON until database is ready
     const [masterRecords] = useState([
