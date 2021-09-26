@@ -18,44 +18,48 @@ const accountArray = [];
 const Accounts = () => {
     const [accounts, setAccounts] = useState(accountArray);
 
+    //place holder untill we chaing ids 
+    const [currentAccount, setcurrentAccount = useState(accounts[0])]
+    
+    
+
     useEffect(() => {
         const fetchAccounts = async () => {
-            const response = await axios.get("http://localhost:3000");
-            console.log("hit", response.data);
+            const response = await axios.get("http://localhost:3000/accounts");
+            
             setAccounts([...response.data]);
         };
         fetchAccounts();
     }, []);
-
     // Dummy JSON until database is ready
-    const [masterRecords] = useState([
-        {
-            status: "Active",
-            accountInfo: "ACT001 > Company > Santa Clara (CA)",
-            accountName: "Carl's Jr. Consulting",
-            phone1: "(243) 932-5834",
-        },
-        {
-            status: "Inactive",
-            accountInfo: "ACT002 > Company > Los Angeles (CA)",
-            accountName: "Molestie Sed Foundation",
-            phone1: "(666) 420-6969",
-        },
-        {
-            status: "Disregard",
-            accountInfo: "ACT003 > Company > Las Vegas (NV)",
-            accountName: "Arcu Sed Institute",
-            phone1: "(437) 890-4563",
-        },
-    ]);
+    // const [masterRecords] = useState([
+    //     {
+    //         status: "Active",
+    //         accountInfo: "ACT001 > Company > Santa Clara (CA)",
+    //         accountName: "Carl's Jr. Consulting",
+    //         phone1: "(243) 932-5834",
+    //     },
+    //     {
+    //         status: "Inactive",
+    //         accountInfo: "ACT002 > Company > Los Angeles (CA)",
+    //         accountName: "Molestie Sed Foundation",
+    //         phone1: "(666) 420-6969",
+    //     },
+    //     {
+    //         status: "Disregard",
+    //         accountInfo: "ACT003 > Company > Las Vegas (NV)",
+    //         accountName: "Arcu Sed Institute",
+    //         phone1: "(437) 890-4563",
+    //     },
+    // ]);
 
     return (
         <div className={styles.page}>
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Menu />
-            <Masterdetail masterRecords={masterRecords} />
+            <Menu accounts={accounts}/>
+            <Masterdetail masterRecords={accounts} />
         </div>
     );
 };
