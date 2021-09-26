@@ -2,13 +2,12 @@ import React from "react";
 import styles from "./Menu.module.css";
 import Ellipsis from "./UI/Ellipsis";
 
-export default function Menu(account) {
-    console.log(account.account[0].accountName)
-
+export default function Menu({ account }) {
+    // console.log(account[0].accountName);
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
             <label>Name </label>
-            <input type="text" value={account.account[0].accountName} />
+            <input type="text" value={account[0].accountName} />
             <div className={styles.menu__lineBreak} />
 
             <label>Type</label>
