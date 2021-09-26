@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "./Menu.module.css";
+import Ellipsis from "./UI/Ellipsis";
 
 export default function Menu() {
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
             <label>Name</label>
             <input type="text" placeholder="New Account" />
+            <Ellipsis />
             <div className={styles.menu__lineBreak} />
 
             <label>Type</label>
