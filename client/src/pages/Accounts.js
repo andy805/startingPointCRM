@@ -54,13 +54,12 @@ const Accounts = () => {
     //         phone1: "(437) 890-4563",
     //     },
     // ]);
-    console.log(accounts)
     return (
         <div className={styles.page}>
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Menu account={accounts[0]}/>
+            <Menu account={accounts}/>
             <Masterdetail masterRecords={accounts} />
         </div>
     );
