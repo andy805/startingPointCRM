@@ -1,12 +1,11 @@
 import React from "react";
 import styles from "./Menu.module.css";
 
-export default function Menu({accounts}=this.state) {
-    console.log("menu", accounts[0])
+export default function Menu({account}) {
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
             <label>Name </label>
-            <input type="text" value={accounts[0].accountName}/>
+            <input type="text"/>
             <div className={styles.menu__lineBreak} />
 
             <label>Type</label>

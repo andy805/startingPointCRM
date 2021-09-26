@@ -15,11 +15,12 @@ const navItems = [
 
 // fetches accounts
 const accountArray = [];
+const firstAccount = [];
 const Accounts = () => {
     const [accounts, setAccounts] = useState(accountArray);
-
+    
     //place holder untill we chaing ids 
-    const [currentAccount, setcurrentAccount = useState(accounts[0])]
+    // const [currentAccount,setCurrentAccount ] = useState(firstAccount)
     
     
 
@@ -31,6 +32,7 @@ const Accounts = () => {
         };
         fetchAccounts();
     }, []);
+
     // Dummy JSON until database is ready
     // const [masterRecords] = useState([
     //     {
@@ -52,13 +54,13 @@ const Accounts = () => {
     //         phone1: "(437) 890-4563",
     //     },
     // ]);
-
+    console.log(accounts)
     return (
         <div className={styles.page}>
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Menu accounts={accounts}/>
+            <Menu account={accounts[0]}/>
             <Masterdetail masterRecords={accounts} />
         </div>
     );
