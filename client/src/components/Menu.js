@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Menu.module.css";
+import Ellipsis from "./UI/Ellipsis";
 
 export default function Menu({account}) {
     return (
