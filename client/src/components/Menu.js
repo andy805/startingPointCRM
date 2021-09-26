@@ -7,8 +7,10 @@ export default function Menu({ account }) {
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
             <label>Name </label>
-            <input type="text" value={account[0].accountName} />
+            <input type="text" value={account[0]?.accountName} />
             <div className={styles.menu__lineBreak} />
+
+            <Ellipsis />
 
             <label>Type</label>
             <select>

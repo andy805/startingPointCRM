@@ -50,6 +50,11 @@
     border-right: 1px solid var(--fmsp-blue) !important;
 }
 
+.menu > svg[data-icon="ellipsis-h"] {
+    position: absolute;
+    margin-left: 306px;
+}
+
 .menu,
 .menu__buttons {
     display: flex;
