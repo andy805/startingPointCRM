@@ -2,9 +2,27 @@ import react, { useState } from "react";
 import Card from "./Card";
 import styles from "./PortalRow.module.css";
 
-const PortalRow = ({ status, headerLabel, mainLabel, phone1 }) => {
+const PortalRow = ({status, headerLabel, mainLabel, phone1, state, rowNumber, setPortalRowState, cardClick}) => {
+
+    const [statusAccount, setStatusAccount] = useState(status);
+    const [activeRow , setActiveRow] = useState(state);
+
+    // console.log("index", index);
+    // console.log("props", props);
+
+    // const setActivePortalRow = () => {
+    //     setActiveRow("active");
+    //     props.setPortalRowState(Number(props.rowNumber));
+    //     console.log("test",Number(props.rowNumber));
+
+    // }
+
+    const rowOnClickHandler = (ev) => {
+        cardClick(rowNumber);
+    }
+
     return (
-        <div className={`${styles.portalRow} ${"box-shadow"}`}>
+        <div className={state === "active" ? styles.portalRow : styles.portalRowInactive} onClick={rowOnClickHandler} >
             <div
                 className={`${styles.status} ${styles.statusBackground}`}
                 status={status} // changes css classes for left edge of portal row
@@ -13,7 +31,9 @@ const PortalRow = ({ status, headerLabel, mainLabel, phone1 }) => {
             </div>
 
             <div className={styles.labelContainer}>
-                <div className={styles.headerLabel}>{headerLabel}</div>
+                <div className={styles.headerLabel}>
+                    {headerLabel}
+                </div>
 
                 <div className={styles.mainLabel}>{mainLabel}</div>
                 <div className={styles.subLabel}>{phone1}</div>
