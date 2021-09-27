@@ -13,24 +13,24 @@ const navItems = [ {label: "Accounts" , path: "/Accounts", active: true},
 
 // fetches accounts
 const accountArray = [ 
-        // {
-        //     status: "Active",
-        //     accountInfo: "ACT001 > Company > Santa Clara (CA)",
-        //     accountName: "Carl's Jr. Consulting",
-        //     phone1: "(243) 932-5834"
-        // },
-        // {
-        //     status: "Inactive",
-        //     accountInfo: "ACT002 > Company > Los Angeles (CA)",
-        //     accountName: "Molestie Sed Foundation",
-        //     phone1: "(666) 420-6969"
-        // },
-        // {
-        //     status: "Disregard",
-        //     accountInfo: "ACT003 > Company > Las Vegas (NV)",
-        //     accountName: "Arcu Sed Institute",
-        //     phone1: "(437) 890-4563"
-        // }
+        {
+            status: "Active",
+            accountInfo: "ACT001 > Company > Santa Clara (CA)",
+            accountName: "Carl's Jr. Consulting",
+            phone1: "(243) 932-5834"
+        },
+        {
+            status: "Inactive",
+            accountInfo: "ACT002 > Company > Los Angeles (CA)",
+            accountName: "Molestie Sed Foundation",
+            phone1: "(666) 420-6969"
+        },
+        {
+            status: "Disregard",
+            accountInfo: "ACT003 > Company > Las Vegas (NV)",
+            accountName: "Arcu Sed Institute",
+            phone1: "(437) 890-4563"
+        }
     ]
 
 
