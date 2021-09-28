@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
-import Masterdetail from "../components/UI/Masterdetail"
+import axios from 'axios'
+
 import styles from "./pages.module.css"
+import Masterdetail from "../components/UI/Masterdetail"
 import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
-import axios from 'axios'
+import Menu from '../components/Menu'
 
 const navItems = [ {label: "Accounts" , path: "/Accounts", active: true}, 
 {label: "Contacts" , path: "/Contacts", active: false} ,{label: "Invoices" , path: "/Invoices", active: false}, 
@@ -36,8 +38,8 @@ const accountArray = [
 
 const Accounts = () => {
     
-    const [masterRecords, setMasterRecords] = useState({data: accountArray , active: 0});
-    
+    const [masterRecords, setMasterRecords] = useState({data: accountArray, active: 0});
+    const [activeRecord, setActiveRecord]= useState([{}])
     const addAccounts = (accounts) => {                               
                  setMasterRecords(prevState => ({
                       ...prevState, data: [...prevState.data , ...accounts]
@@ -47,15 +49,20 @@ const Accounts = () => {
         setMasterRecords(prevState => ({
             ...prevState , active: i
         }));
+        setActiveRecord(masterRecords.data[i])
+        
     }
-    
+    console.log(activeRecord)
+    // const setSelectedDocument= ()=>{
+    //     set
+    // }
     useEffect (() =>{
 
 
       const fetchAccounts = async ()=>{
           
           const response = await axios.get("http://localhost:3000/accounts")
-        console.log('hit', response.data)
+        
         addAccounts(response.data)
         
 
@@ -64,7 +71,7 @@ const Accounts = () => {
     },[])
 
     // Dummy JSON until database is ready
-    console.log(masterRecords)
+
 
     return(
         <div className={styles.page}>
@@ -73,6 +80,7 @@ const Accounts = () => {
             </TopNav>
             <h1>Accounts</h1>
             <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler}/>
+            <Menu account={masterRecords} activeRecord={activeRecord}/>
         </div>
     )
 

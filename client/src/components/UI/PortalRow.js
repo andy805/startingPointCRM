@@ -19,6 +19,7 @@ const PortalRow = ({status, headerLabel, mainLabel, phone1, state, rowNumber, se
 
     const rowOnClickHandler = (ev) => {
         cardClick(rowNumber);
+        console.log(rowNumber)
     }
 
     return (
