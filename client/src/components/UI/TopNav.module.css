@@ -1,6 +1,6 @@
 
 .topnav {
-    border-bottom: 3px solid #EAEAEA;
+    border-bottom: 3px solid var(--fmsp-light-gray);
     background-color: white;
     
 }

@@ -1,0 +1,14 @@
+svg[data-icon="ellipsis-h"] {
+    font-size: 13px;
+    background-color: #f2f2f2;
+    color: var(--fmsp-blue);
+
+    /* This --width variable lets you dynamically change size of circle */
+    --width: 6px;
+    padding: var(--width);
+    border-radius: calc(9px + var(--width));
+}
+
+svg[data-icon="ellipsis-h"]:hover {
+    background-color: #eeeeee;
+}

@@ -1,6 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /* global css variables */
 :root {
-  --fmsp-blue: #4497F1;
+    --fmsp-blue: #4497f1;
+    --fmsp-gray: #9a9a9a;
+    --fmsp-light-gray: #eaeaea;
+    --fmsp-placeholder-text-color: #d7d7d7;
 }
 
 body {
@@ -15,4 +23,27 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Global style for the box shadow of components */
+.box-shadow {
+    -webkit-box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Global styles for color of placeholder text */
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--fmsp-placeholder-text-color);
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: var(--fmsp-placeholder-text-color);
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: var(--fmsp-placeholder-text-color);
 }

@@ -27,7 +27,7 @@ app.use(cors())
 
 
 
-app.use('/', accountRouter)
+app.use('/accounts', accountRouter)
 
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)
