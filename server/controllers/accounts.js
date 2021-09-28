@@ -15,4 +15,37 @@ const index = (req, res) => {
    
   };
 
-export default index
+  const createAccount = (req, res)=>{
+    console.log('hit newAccount')
+    const newAccount = new Account({
+
+      accoaccountName: "Spread Operateor",
+      category: "Menance to society",
+      status: "disregard",
+      phone1: "805911444",
+      phone2: "String",
+      fax: "String",
+      email: "email@email.com",
+      website: "String",
+      billingAddress1: "String",
+      billingAaddress2: "String",
+      billingCity: "String",
+      billingState: "String",
+      shippingAddress1: "String",
+      shippingAddress2: "String",
+      shippingCity: "String",
+      shippingState: "String",
+      createdBy: "String",
+      modifiedBy: "String"
+
+    })
+    console.log(newAccount)
+    newAccount.save()
+    res.json(
+       newAccount.accoaccountName
+    )
+
+  }
+
+
+export {index, createAccount }

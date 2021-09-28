@@ -2,10 +2,27 @@ import react, { useState } from "react";
 import Card from "./Card";
 import styles from "./PortalRow.module.css";
 
-const PortalRow = ({status, headerLabel, mainLabel, phone1}) => {
+const PortalRow = ({status, headerLabel, mainLabel, phone1, state, rowNumber, setPortalRowState, cardClick}) => {
+
+    const [statusAccount, setStatusAccount] = useState(status);
+    const [activeRow , setActiveRow] = useState(state);
+
+    // console.log("index", index);
+    // console.log("props", props);
+
+    // const setActivePortalRow = () => {
+    //     setActiveRow("active");
+    //     props.setPortalRowState(Number(props.rowNumber));
+    //     console.log("test",Number(props.rowNumber));
+
+    // }
+
+    const rowOnClickHandler = (ev) => {
+        cardClick(rowNumber);
+    }
 
     return (
-        <div className={styles.portalRow}>
+        <div className={state === "active" ? styles.portalRow : styles.portalRowInactive} onClick={rowOnClickHandler} >
             <div
                 className={`${styles.status} ${styles.statusBackground}`}
                 status={status} // changes css classes for left edge of portal row
