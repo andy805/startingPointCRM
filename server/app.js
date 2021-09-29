@@ -25,8 +25,6 @@ app.use(cors())
 
 
 
-
-
 app.use('/accounts', accountRouter)
 
 app.listen(port, () => {
