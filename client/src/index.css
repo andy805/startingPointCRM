@@ -47,3 +47,13 @@ code {
     /* Microsoft Edge */
     color: var(--fmsp-placeholder-text-color);
 }
+
+/* Global styling for FontAwesome plus icon */
+svg[data-icon="plus"] {
+  color: var(--fmsp-blue);
+  font-size: 13px;
+}
+
+svg[data-icon="plus"]:hover {
+  color: #70B4FF;
+}
