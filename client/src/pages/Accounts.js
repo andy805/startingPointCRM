@@ -7,6 +7,7 @@ import Masterdetail from "../components/UI/Masterdetail"
 import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
 import Menu from '../components/Menu'
+import CreateButton from '../components/UI/CreateButton'
 
 const navItems = [ {label: "Accounts" , path: "/Accounts", active: true}, 
 {label: "Contacts" , path: "/Contacts", active: false} ,{label: "Invoices" , path: "/Invoices", active: false}, 
@@ -81,6 +82,8 @@ const Accounts = () => {
             <h1>Accounts</h1>
             <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler}/>
             <Menu account={masterRecords} activeRecord={activeRecord}/>
+            <CreateButton/>
+            
         </div>
     )
 

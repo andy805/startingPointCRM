@@ -19,7 +19,7 @@ const index = (req, res) => {
     console.log('hit newAccount')
     const newAccount = new Account({
 
-      accoaccountName: "Spread Operateor",
+      accoaccountName: "Testing cors post",
       category: "Menance to society",
       status: "disregard",
       phone1: "805911444",
