@@ -20,27 +20,31 @@ const accountArray = [
             status: "Active",
             accountInfo: "ACT001 > Company > Santa Clara (CA)",
             accountName: "Carl's Jr. Consulting",
-            phone1: "(243) 932-5834"
+            phone1: "(243) 932-5834",
+            category: "Company"
         },
         {
             status: "Inactive",
             accountInfo: "ACT002 > Company > Los Angeles (CA)",
             accountName: "Molestie Sed Foundation",
-            phone1: "(666) 420-6969"
+            phone1: "(666) 420-6969",
+            category: "non-profit"
         },
         {
             status: "Disregard",
             accountInfo: "ACT003 > Company > Las Vegas (NV)",
             accountName: "Arcu Sed Institute",
-            phone1: "(437) 890-4563"
+            phone1: "(437) 890-4563",
+            category: "small business"
+
         }
     ]
 
 
 const Accounts = () => {
     
-    const [masterRecords, setMasterRecords] = useState({data: accountArray, active: 0});
-    const [activeRecord, setActiveRecord]= useState([{}])
+    const [masterRecords, setMasterRecords] = useState({data: accountArray, active: 0, currDocument: accountArray[0]});
+    const [activeRecord, setActiveRecord]= useState({});
     const addAccounts = (accounts) => {                               
                  setMasterRecords(prevState => ({
                       ...prevState, data: [...prevState.data , ...accounts]
@@ -79,10 +83,10 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <h1>Accounts</h1>
             <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler}/>
             <Menu account={masterRecords} activeRecord={activeRecord}/>
             <CreateButton/>
+            <h1>Accounts</h1>
             
         </div>
     )

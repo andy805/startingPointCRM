@@ -40,9 +40,19 @@
     background: 0;
 }
 
-.menu__buttons > button:focus {
+/* .menu__buttons > button:focus {
     background-color: var(--fmsp-blue);
     color: #ffffff;
+} */
+
+.button__focus {
+    background-color: var(--fmsp-blue);
+    color: #ffffff;
+}
+
+.menu__buttons > .button__focus {
+    background-color: var(--fmsp-blue) !important;
+    color: #ffffff !important;
 }
 
 .menu__middleButton {
