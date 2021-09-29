@@ -19,24 +19,24 @@ const index = (req, res) => {
     console.log('hit newAccount')
     const newAccount = new Account({
 
-      accountName: "Testing cors post",
-      category: "Menance to society",
-      status: "disregard",
-      phone1: "805911444",
-      phone2: "String",
-      fax: "String",
-      email: "email@email.com",
-      website: "String",
-      billingAddress1: "String",
-      billingAaddress2: "String",
-      billingCity: "String",
-      billingState: "String",
-      shippingAddress1: "String",
-      shippingAddress2: "String",
-      shippingCity: "String",
-      shippingState: "String",
-      createdBy: "String",
-      modifiedBy: "String"
+      accountName: "New Account",
+      category: "",
+      status: "New",
+      phone1: "",
+      phone2: "",
+      fax: "",
+      email: "",
+      website: "",
+      billingAddress1: "",
+      billingAaddress2: "",
+      billingCity: "",
+      billingState: "",
+      shippingAddress1: "",
+      shippingAddress2: "",
+      shippingCity: "",
+      shippingState: "",
+      createdBy: "",
+      modifiedBy: ""
 
     })
     console.log(newAccount)
