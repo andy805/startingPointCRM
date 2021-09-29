@@ -17,7 +17,7 @@ export default function Menu( {activeRecord} ) {
 
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
-            <label>Name </label>
+            <label on>Name </label>
             <input type="text" value={activeRecord.accountName} />
             <div className={styles.menu__lineBreak} />
 

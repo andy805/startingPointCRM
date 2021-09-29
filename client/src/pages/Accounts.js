@@ -8,6 +8,8 @@ import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
 import Menu from '../components/Menu'
 import CreateButton from '../components/UI/CreateButton'
+import Accordion from '../components/Accordion';
+import CommunicationForm from '../components/CommunicationForm';
 
 const navItems = [ {label: "Accounts" , path: "/Accounts", active: true}, 
 {label: "Contacts" , path: "/Contacts", active: false} ,{label: "Invoices" , path: "/Invoices", active: false}, 
@@ -84,7 +86,12 @@ const Accounts = () => {
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
             <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler}/>
-            <Menu account={masterRecords} activeRecord={activeRecord}/>
+            <div className={styles.accordion__comms}>
+                <Menu account={masterRecords} activeRecord={activeRecord}/>
+                <Accordion>
+                    <CommunicationForm></CommunicationForm>
+                </Accordion>
+            </div>
             <CreateButton/>
             <h1>Accounts</h1>
             
