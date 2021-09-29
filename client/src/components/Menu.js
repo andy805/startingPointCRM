@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Menu.module.css";
 import Ellipsis from "./UI/Ellipsis";
 import { useState } from "react";
+import EditBox from "./UI/EditBox";
 
 
 export default function Menu( {activeRecord} ) {
@@ -17,10 +18,10 @@ export default function Menu( {activeRecord} ) {
 
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
-            <label>Name </label>
-            <input type="text" value={activeRecord.accountName} />
-            <div className={styles.menu__lineBreak} />
 
+            {/* Width prop lets you change width of EditBox */}
+            {/* If no width is specified it defaults to 100% width */}
+            <EditBox activeRecord={activeRecord} width={{width: "270px"}}/>
             <Ellipsis />
 
             <label>Type</label>
