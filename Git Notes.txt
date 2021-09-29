@@ -1,0 +1,17 @@
+Git Aliases
+    alias.co checkout
+    alias.m merge
+    alias.f fetch --all
+    alias.discard stash && stash drop
+    alias.cob checkout backend
+    alias.cof checkout frontend
+    alias.com checkout main
+    alias.mf merge frontend
+    alias.mm merge main
+    alias.mb merge backend
+    alias.pa 'git push --all origin'
+    alias.fa 'git com && git mf && git cob && git mm'
+
+When frontend is ahead
+    git fa
+    git pa
