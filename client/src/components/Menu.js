@@ -1,20 +1,17 @@
 import React from "react";
 import styles from "./Menu.module.css";
-import Ellipsis from "./UI/Ellipsis";
 import { useState } from "react";
 import EditBox from "./UI/EditBox";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Menu( {activeRecord} ) {
 
     const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
-    // const [currRecord, setCurrRecord] = useState(account);
-
     console.log(activeRecord.category);
     const [selectState, setSelectState] = useState(activeRecord.category);
-
-    
 
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
@@ -22,7 +19,8 @@ export default function Menu( {activeRecord} ) {
             {/* Width prop lets you change width of EditBox */}
             {/* If no width is specified it defaults to 100% width */}
             <EditBox activeRecord={activeRecord} width={{width: "270px"}}/>
-            <Ellipsis />
+            <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
+
 
             <label>Type</label>
             <select value={activeRecord.category}>
