@@ -16,51 +16,61 @@ const navItems = [ {label: "Accounts" , path: "/Accounts", active: true},
 
 // fetches accounts
 const accountArray = [ 
-        {
-            status: "Active",
-            accountInfo: "ACT001 > Company > Santa Clara (CA)",
-            accountName: "Carl's Jr. Consulting",
-            phone1: "(243) 932-5834",
-            category: "Company"
-        },
-        {
-            status: "Inactive",
-            accountInfo: "ACT002 > Company > Los Angeles (CA)",
-            accountName: "Molestie Sed Foundation",
-            phone1: "(666) 420-6969",
-            category: "non-profit"
-        },
-        {
-            status: "Disregard",
-            accountInfo: "ACT003 > Company > Las Vegas (NV)",
-            accountName: "Arcu Sed Institute",
-            phone1: "(437) 890-4563",
-            category: "small business"
+        // {
+        //     status: "Active",
+        //     accountInfo: "ACT001 > Company > Santa Clara (CA)",
+        //     accountName: "Carl's Jr. Consulting",
+        //     phone1: "(243) 932-5834",
+        //     category: "Company"
+        // },
+        // {
+        //     status: "Inactive",
+        //     accountInfo: "ACT002 > Company > Los Angeles (CA)",
+        //     accountName: "Molestie Sed Foundation",
+        //     phone1: "(666) 420-6969",
+        //     category: "non-profit"
+        // },
+        // {
+        //     status: "Disregard",
+        //     accountInfo: "ACT003 > Company > Las Vegas (NV)",
+        //     accountName: "Arcu Sed Institute",
+        //     phone1: "(437) 890-4563",
+        //     category: "small business"
 
-        }
+        // }
     ]
 
 
 const Accounts = () => {
-    
+
+    //state
+    const [refetch, setRefetch] = useState(0)
+    const [activeIndex, setActiveIndex] = useState(0)
     const [masterRecords, setMasterRecords] = useState({data: accountArray, active: 0, currDocument: accountArray[0]});
     const [activeRecord, setActiveRecord]= useState({});
+    
     const addAccounts = (accounts) => {                               
                  setMasterRecords(prevState => ({
-                      ...prevState, data: [...prevState.data , ...accounts]
+                      ...prevState, data: [ , ...accounts]
                  }));
              }
     const changeActiveStateHandler = (i) => {
         setMasterRecords(prevState => ({
             ...prevState , active: i
         }));
+        setActiveIndex(i)
         setActiveRecord(masterRecords.data[i])
         
     }
-    console.log(activeRecord)
-    // const setSelectedDocument= ()=>{
-    //     set
-    // }
+    const refetchSetter = () => {
+        if (refetch===0) {
+            setRefetch(1)
+        }else{
+            setRefetch(0)
+        }
+    }
+  
+    
     useEffect (() =>{
 
 
@@ -73,7 +83,7 @@ const Accounts = () => {
 
       }
       fetchAccounts()
-    },[])
+    },[refetch])
 
     // Dummy JSON until database is ready
 
@@ -83,9 +93,9 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler}/>
+            <Masterdetail masterRecords={masterRecords} activeIndex={activeIndex} cardClick={changeActiveStateHandler}/>
             <Menu account={masterRecords} activeRecord={activeRecord}/>
-            <CreateButton/>
+            <CreateButton changeActive={changeActiveStateHandler} fetchAccounts={refetchSetter} masterRecords={masterRecords}/>
             <h1>Accounts</h1>
             
         </div>
