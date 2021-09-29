@@ -1,8 +1,14 @@
 .masterDetail{
     border: 3px; 
-    
     grid-column: 1/2;
     grid-row: 2/3;
     overflow-y: auto;
 }
 
+.masterDetail__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    margin-right: 25px;
+}
