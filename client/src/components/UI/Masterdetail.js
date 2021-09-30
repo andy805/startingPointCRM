@@ -1,5 +1,6 @@
 import react, { useState } from "react";
 import Card from "./Card";
+import CreateButton from "./CreateButton";
 import style from "./Masterdetail.module.css";
 import PortalRow from "./PortalRow";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +11,7 @@ import PushButton from "./PushButton";
 import ListViewSVG from "../SVG/ListViewSVG";
 import DetailViewSVG from "../SVG/DetailViewSVG";
 
-const Masterdetail = ({ masterRecords, cardClick }) => {
+const Masterdetail = ({ masterRecords, cardClick, newAccount }) => {
     // Dummy variables for bottom menu
     const bottomMenuData = {
         activeRecordNumber: 1,
@@ -39,7 +40,11 @@ const Masterdetail = ({ masterRecords, cardClick }) => {
                     {bottomMenuData.sortState}
                 </div>
                 <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                <CreateButton
+                    changeActive={cardClick}
+                    masterRecords={masterRecords}
+                    newAccount={newAccount}
+                />
             </div>
 
             {masterRecords.data.map((masterRecord, index) => (
