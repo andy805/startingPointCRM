@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
 import styles from "./EditBox.module.css";
 
-function EditBox( {fieldName, fieldData, activeRecord, width = {width: "100%"}} ) {
+function EditBox({
+    fieldName,
+    fieldData,
+    activeRecord,
+    width = { width: "100%" },
+    lineBreak = true,
+}) {
     return (
         <div className={styles.editBox}>
             <label className={styles.label}>{fieldName}</label>
@@ -10,9 +16,9 @@ function EditBox( {fieldName, fieldData, activeRecord, width = {width: "100%"}} 
                 value={activeRecord?.accountName}
                 style={width}
             />
-            <div className={styles.editBox__lineBreak} />
+            <div className={lineBreak ? styles.editBox__lineBreak : ""} />
         </div>
-    )
+    );
 }
 
-export default EditBox
+export default EditBox;
