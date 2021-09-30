@@ -1,3 +1,4 @@
+import Mongoose from "mongoose";
 import {Account} from "../models/accounts.js";
 
 const index = (req, res) => {
@@ -46,6 +47,12 @@ const index = (req, res) => {
      res.send(newAccount)
 
   }
+  const updateAccount = async(req, res)=>{
+    console.log(req.body)
+    const query = req.body.id
+ await  Account.findByIdAndUpdate(query, {accountName:"updated"})
+ res.send('updated')
+    
+  }
 
-
-export {index, createAccount }
+export {index, createAccount, updateAccount }

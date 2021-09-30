@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 import express from "express";
 import db from './config/database.js';
 import cors from "cors"
-
+import methodOverride from "method-override"
+import multer from "multer"
 
 //routes
 import {accountRouter} from './routes/accounts.js'
@@ -19,9 +20,14 @@ import {accountRouter} from './routes/accounts.js'
 
 const app = express()
 const port = 3000
+const upload = multer()
 
 //midleware
 app.use(cors())
+app.use(upload.none())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'))
 
 
 
