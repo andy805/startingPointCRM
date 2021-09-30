@@ -1,0 +1,18 @@
+.pushButton {
+    width: 54px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
+}
+
+.pushButton > svg {
+    width: 23px;
+}
+
+svg path {
+    /* fill: #b3b3b3; */
+}
