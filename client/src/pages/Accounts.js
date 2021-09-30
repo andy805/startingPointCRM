@@ -10,6 +10,9 @@ import Menu from '../components/Menu'
 import CreateButton from '../components/UI/CreateButton'
 import Accordion from '../components/Accordion';
 import CommunicationForm from '../components/CommunicationForm';
+import BillingForm from '../components/BillingForm';
+import ShippingForm from '../components/ShippingForm';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const navItems = [ {label: "Accounts" , path: "/Accounts", active: true}, 
 {label: "Contacts" , path: "/Contacts", active: false} ,{label: "Invoices" , path: "/Invoices", active: false}, 
@@ -88,8 +91,14 @@ const Accounts = () => {
             <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler}/>
             <div className={styles.accordion__comms}>
                 <Menu account={masterRecords} activeRecord={activeRecord}/>
-                <Accordion>
-                    <CommunicationForm></CommunicationForm>
+                <Accordion label={"Communication"} icon={faChevronDown}>
+                    <CommunicationForm activeRecord={activeRecord}></CommunicationForm>
+                </Accordion>
+                <Accordion label={"Billing"} icon={faChevronDown}>
+                    <BillingForm activeRecord={activeRecord}/>
+                </Accordion>
+                <Accordion label={"Shipping"} icon={faChevronDown}>
+                    <ShippingForm activeRecord={activeRecord}/>
                 </Accordion>
             </div>
             <CreateButton/>
