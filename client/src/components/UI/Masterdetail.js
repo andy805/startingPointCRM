@@ -7,6 +7,8 @@ import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import PushButton from "./PushButton";
+import ListViewSVG from "../SVG/ListViewSVG";
+import DetailViewSVG from "../SVG/DetailViewSVG";
 
 const Masterdetail = ({ masterRecords, cardClick }) => {
     // Dummy variables for bottom menu
@@ -24,7 +26,8 @@ const Masterdetail = ({ masterRecords, cardClick }) => {
     return (
         <div className={style.masterDetail}>
             <div className={style.masterDetail__topMenu}>
-                <PushButton />
+                <PushButton svgElement={<DetailViewSVG />} />
+                <PushButton svgElement={<ListViewSVG />} />
             </div>
 
             <div className={style.masterDetail__bottomMenu}>
