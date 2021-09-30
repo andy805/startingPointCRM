@@ -5,10 +5,23 @@
     overflow-y: auto;
 }
 
-.masterDetail__buttons {
-    display: flex;
-    justify-content: flex-end;
+.masterDetail__bottomMenu {
+    display: grid;
+    grid-template-columns: 35px 188px 33px 10px;
     align-items: center;
-    gap: 6px;
-    margin-right: 25px;
+    padding: 10px 0 10px;
 }
+
+.masterDetail__record {
+    padding: 7px 25px 0 0;
+    color: #9A9A9A;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+svg[data-icon="circle-notch"] {
+    color: var(--fmsp-blue);
+    margin-left: 12px;
+    font-size: 18px;
+  }
+  
