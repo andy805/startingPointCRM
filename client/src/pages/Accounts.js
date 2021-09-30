@@ -8,6 +8,8 @@ import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
 import Menu from '../components/Menu'
 import CreateButton from '../components/UI/CreateButton'
+import Accordion from '../components/Accordion';
+import CommunicationForm from '../components/CommunicationForm';
 
 const navItems = [ {label: "Accounts" , path: "/Accounts", active: true}, 
 {label: "Contacts" , path: "/Contacts", active: false} ,{label: "Invoices" , path: "/Invoices", active: false}, 
@@ -65,9 +67,7 @@ const Accounts = () => {
 
     const newAccount = (account)=>{
         const oldAccounts = masterRecords.data
-        console.log('old length', oldAccounts.length)
         const newAccounts = [account, ...oldAccounts]
-        console.log(newAccounts.length)
         setMasterRecords(prevState=>({
             ...prevState, data:newAccounts
         }))
@@ -105,8 +105,13 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Masterdetail masterRecords={masterRecords} activeIndex={activeIndex} cardClick={changeActiveStateHandler}/>
-            <Menu account={masterRecords} activeRecord={activeRecord}/>
+            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount}/>
+            <div className={styles.accordion__comms}>
+                <Menu account={masterRecords} activeRecord={activeRecord}/>
+                <Accordion>
+                    <CommunicationForm></CommunicationForm>
+                </Accordion>
+            </div>
             <CreateButton changeActive={changeActiveStateHandler} fetchAccounts={refetchSetter} masterRecords={masterRecords} newAccount={newAccount}/>
             <h1>Accounts</h1>
             

@@ -7,7 +7,7 @@ const Card = (props) => {
     const classes = styles.card +" "+ props.className
 
     return (
-        <div className={classes}>
+        <div className={`${classes} ${"box-shadow"}`}>
             {props.children}
         </div>
     )
