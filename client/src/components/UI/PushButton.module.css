@@ -5,14 +5,29 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    -webkit-box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
 }
 
 .pushButton > svg {
     width: 23px;
 }
 
+.pushButton:hover path {
+    fill: #9a9a9a;
+}
+
+.pushButton__active {
+    -webkit-box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
+}
+
 svg path {
-    /* fill: #b3b3b3; */
+    fill: #b3b3b3;
+}
+
+.pushButton__active path {
+    fill: black;
+}
+
+.pushButton__active:hover path {
+    fill: black;
 }
