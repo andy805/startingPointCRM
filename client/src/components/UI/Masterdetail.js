@@ -5,9 +5,9 @@ import PortalRow from "./PortalRow";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import CreateButton from './CreateButton'
 
-
-const Masterdetail = ({ masterRecords , cardClick}) => {
+const Masterdetail = ({ masterRecords , cardClick, newAccount,  }) => {
 
     const cardClickMaster = id => {
         cardClick(id);
@@ -19,7 +19,8 @@ const Masterdetail = ({ masterRecords , cardClick}) => {
             {/* This class name could be better, let me know if you have suggestions */}
             <div className={style.masterDetail__buttons}>
               <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
-              <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+              
+              <CreateButton changeActive={cardClick} masterRecords={masterRecords} newAccount={newAccount}/>
             </div>
 
             {masterRecords.data.map((masterRecord, index) => (
