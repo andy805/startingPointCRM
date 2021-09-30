@@ -18,7 +18,11 @@ export default function Menu( {activeRecord} ) {
 
             {/* Width prop lets you change width of EditBox */}
             {/* If no width is specified it defaults to 100% width */}
-            <EditBox activeRecord={activeRecord} width={{width: "270px"}}/>
+            <EditBox
+                fieldName={"Account"}
+                activeRecord={activeRecord}
+                width={{ width: "270px" }}
+            />
             <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
 
 
