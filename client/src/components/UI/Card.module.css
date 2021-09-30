@@ -1,6 +1,7 @@
 .card {
     margin: 2vh 0;
     background-color: #ffffff;
+    padding: 3px 10px 5px 10px;
 }
 
 .card,

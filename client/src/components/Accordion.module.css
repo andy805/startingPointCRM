@@ -2,10 +2,26 @@
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
     background-color: #FFFFFF;
-    color: #444;
+    color: var(--fmsp-blue);
     cursor: pointer;
     padding: 20px;
-    width: 80%;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+
+  .accordionTest {
+
+    display: flex;
+    /* grid-template-columns: 15% 85%; */
+    background-color: #FFFFFF;
+    color: var(--fmsp-blue);
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
     text-align: left;
     border: none;
     outline: none;
@@ -27,23 +43,52 @@
 
   .panelOpen {
 
-    padding: 0 18px;
     background-color: white;
     display: block;
-    overflow: hidden;
 
   }
 
   .accordion:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
-    color: #777;
+    color: var(--fmsp-blue);
+    background-color: var(--fmsp-blue);
     float: right;
     margin-left: 5px;
+  }
+
+  .label {
+
+    color: var(--fmsp-blue);
+    user-select: none;
   }
   
   .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 10% auto;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    padding-bottom: 30px;
+  }
+
+  .field-container{
+    display: flex;
+    flex-direction: column;
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    gap: 10px;
+  }
+
+  .icon {
+    justify-self: center;
+    color: var(--fmsp-blue);
   }
 
   
