@@ -19,6 +19,7 @@ const accountSchema = new Schema({
     billingAaddress2: String,
     billingCity: String,
     billingState: String,
+    billingZipcode: String,
     billingCountry: String,
     shippingAddress1: String,
     shippingAddress2: String,
