@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Accordion.module.css';
 import {useState} from 'react';
 import Card from './UI/Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const Accordion = (props) => {
@@ -11,15 +12,17 @@ const Accordion = (props) => {
 
     const slide = (ev) => {
         
-        console.log(ev.target.nextElementSibling.style.display);
+        // console.log(ev.target.nextElementSibling.style.display);
         // ev.target.nextElementSibling.style.display ="block";
         setSlideOpen(prevState => !prevState);
     }
 
     return (
-        <Card >
-            <button className={styles.accordion} onClick={slide}>Section 1</button>
-            <div className={!slideOpen ? styles.panelClose : styles.PanelOpen}>
+        <Card className={styles.card}>
+            {/* <button className={styles.accordion} onClick={slide}>{props.label}</button> */}
+            <label className={styles.label} onClick={slide}>{props.label}</label>
+            <FontAwesomeIcon onClick={slide} className={styles.icon} icon={props.icon} ></FontAwesomeIcon>
+            <div className={!slideOpen ? styles.panelClose : styles.panelOpen + " " + styles['field-container']}>
             {props.children}
             </div>
         </Card>
