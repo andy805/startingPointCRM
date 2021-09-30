@@ -11,6 +11,10 @@
     width: 23px;
 }
 
+.pushButton > svg path {
+    fill: #b3b3b3;
+}
+
 .pushButton:hover path {
     fill: #9a9a9a;
 }
@@ -20,12 +24,8 @@
     box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
 }
 
-svg path {
-    fill: #b3b3b3;
-}
-
 .pushButton__active path {
-    fill: black;
+    fill: black !important;
 }
 
 .pushButton__active:hover path {
