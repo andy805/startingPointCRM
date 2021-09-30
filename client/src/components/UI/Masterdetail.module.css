@@ -12,6 +12,10 @@
     padding: 10px 0 10px;
 }
 
+.masterDetail__topMenu {
+    display: flex;
+}
+
 .masterDetail__record {
     padding: 7px 25px 0 0;
     color: #9a9a9a;
