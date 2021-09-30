@@ -51,7 +51,7 @@ const Accounts = () => {
     
     const addAccounts = (accounts) => {                               
                  setMasterRecords(prevState => ({
-                      ...prevState, data: [ , ...accounts]
+                      ...prevState, data: [ ...prevState.data,...accounts]
                  }));
              }
     const changeActiveStateHandler = (i) => {
@@ -62,11 +62,23 @@ const Accounts = () => {
         setActiveRecord(masterRecords.data[i])
         
     }
+
+    const newAccount = (account)=>{
+        const oldAccounts = masterRecords.data
+        console.log('old length', oldAccounts.length)
+        const newAccounts = [account, ...oldAccounts]
+        console.log(newAccounts.length)
+        setMasterRecords(prevState=>({
+            ...prevState, data:newAccounts
+        }))
+        
+    }
+
     const refetchSetter = () => {
         if (refetch===0) {
             setRefetch(1)
         }else{
-            setRefetch(0)
+            // setRefetch(0)
         }
     }
   
@@ -83,7 +95,7 @@ const Accounts = () => {
 
       }
       fetchAccounts()
-    },[refetch])
+    },[])
 
     // Dummy JSON until database is ready
 
@@ -95,7 +107,7 @@ const Accounts = () => {
             </TopNav>
             <Masterdetail masterRecords={masterRecords} activeIndex={activeIndex} cardClick={changeActiveStateHandler}/>
             <Menu account={masterRecords} activeRecord={activeRecord}/>
-            <CreateButton changeActive={changeActiveStateHandler} fetchAccounts={refetchSetter} masterRecords={masterRecords}/>
+            <CreateButton changeActive={changeActiveStateHandler} fetchAccounts={refetchSetter} masterRecords={masterRecords} newAccount={newAccount}/>
             <h1>Accounts</h1>
             
         </div>
