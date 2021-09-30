@@ -15,11 +15,11 @@ const index = (req, res) => {
    
   };
 
-  const createAccount = (req, res)=>{
+  const createAccount = async (req, res)=>{
     console.log('hit newAccount')
     const newAccount = new Account({
 
-      accountName: "New Account",
+      accountName: "Should show up at top",
       category: "",
       status: "New",
       phone1: "",
@@ -40,10 +40,10 @@ const index = (req, res) => {
 
     })
     console.log(newAccount)
-    newAccount.save()
-    res.json(
-       newAccount.accoaccountName
-    )
+    
+    await newAccount.save()
+
+     res.send(newAccount)
 
   }
 
