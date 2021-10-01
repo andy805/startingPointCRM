@@ -48,9 +48,11 @@ const index = (req, res) => {
 
   }
   const updateAccount = async(req, res)=>{
-    console.log(req.body)
-    const query = req.body.id
- await  Account.findByIdAndUpdate(query, {accountName:"updated"})
+   
+    console.log('body', req.body)
+    // console.log("id", query)
+    console.log("billing adress", req.body.billingAddress1)
+ await  Account.findByIdAndUpdate(req.body._id, {billingAddress1:req.body.billingAddress1})
  res.send('updated')
     
   }
