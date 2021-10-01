@@ -8,7 +8,7 @@ const BillingForm = (props) => {
             <EditBox fieldName={"Address 2"} fieldData={props.activeRecord.billingAddress2} />
             <EditBox fieldName={"City"} fieldData={props.activeRecord.billingCity} />
             <EditBox fieldName={"State"} fieldData={props.activeRecord.billingState} />
-            <EditBox fieldName={"Postal Code"} fieldData={props.activeRecord.billingZipcode} />
+            <EditBox fieldName={"Postal Code"} fieldData={props.activeRecord.billingZipCode} />
             <EditBox fieldName={"Country"} fieldData={props.activeRecord.billingCountry} lineBreak={false}/>
         </>
     )
