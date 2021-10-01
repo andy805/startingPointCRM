@@ -29,7 +29,7 @@ const index = (req, res) => {
       email: "",
       website: "",
       billingAddress1: "",
-      billingAaddress2: "",
+      billingAddress2: "",
       billingCity: "",
       billingState: "",
       shippingAddress1: "",
