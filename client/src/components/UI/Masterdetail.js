@@ -10,6 +10,7 @@ import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import PushButton from "./PushButton";
 import ListViewSVG from "../SVG/ListViewSVG";
 import DetailViewSVG from "../SVG/DetailViewSVG";
+import SearchBar from "./SearchBar";
 
 const Masterdetail = ({ masterRecords, cardClick, newAccount }) => {
     // Dummy variables for bottom menu
@@ -29,6 +30,7 @@ const Masterdetail = ({ masterRecords, cardClick, newAccount }) => {
             <div className={style.masterDetail__topMenu}>
                 <PushButton svgElement={<DetailViewSVG />} />
                 <PushButton svgElement={<ListViewSVG />} />
+                <SearchBar />
             </div>
 
             <div className={style.masterDetail__bottomMenu}>
