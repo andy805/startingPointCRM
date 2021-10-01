@@ -1,0 +1,44 @@
+.searchBar {
+    width: 138px;
+    height: 32px;
+    margin-left: auto;
+    background-color: #efefef;
+    border-radius: 5px;
+    display: flex;
+
+    /* this stops container from moving when input is in focus */
+    border: 1px solid transparent;
+}
+
+/* Selects .searchBar class when one of its descendants is focused */
+.searchBar:focus-within {
+    border: 1px solid var(--fmsp-blue);
+}
+
+.searchBar__searchIcon {
+    width: 22px;
+    margin: auto;
+    font-size: 12px;
+    color: var(--fmsp-gray);
+}
+
+.searchBar__input {
+    border: none;
+    width: 92px;
+    background-color: transparent;
+}
+
+.searchBar__input:focus {
+    outline: none;
+}
+
+.searchBar__input::placeholder {
+    color: var(--fmsp-gray);
+}
+
+.searchBar__clearButton {
+    width: 22px;
+    margin: auto;
+    font-size: 13px;
+    color: var(--fmsp-gray);
+}
