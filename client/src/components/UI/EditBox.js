@@ -19,6 +19,7 @@ const EditBox = ({
                 type="text"
                 name={keyName}
                 style={width}
+                value={fieldData}
             />
             <div className={lineBreak ? styles.editBox__lineBreak : ""} />
         </div>
