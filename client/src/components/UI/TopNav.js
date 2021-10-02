@@ -9,9 +9,17 @@ const TopNav = (props) => {
 
     return (
         <div className={classes}>
-            {/* <HomeSVG /> */}
-            {/* <CalendarSVG /> */}
-            {/* <ToDoSVG /> */}
+            <div className={styles.topNav__buttons}>
+                <div className={styles.topNav__buttonBackground}>
+                    <HomeSVG />
+                </div>
+                <div className={styles.topNav__buttonBackground}>
+                    <CalendarSVG />
+                </div>
+                <div className={styles.topNav__buttonBackground}>
+                    <ToDoSVG />
+                </div>
+            </div>
             {props.children}
         </div>
     );
