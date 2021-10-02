@@ -1,8 +1,9 @@
 .masterDetail {
-    border: 3px;
+    border-right: 1px solid var(--fmsp-light-gray);
     grid-column: 1/2;
     grid-row: 2/3;
     overflow-y: auto;
+    width: 278px;
 }
 
 .masterDetail__bottomMenu {

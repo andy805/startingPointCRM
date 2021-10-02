@@ -5,7 +5,7 @@
 
     /* width of master detail in UI-UX design file is 278px + grid-column-gap = 292px */
     grid-template-columns: 292px 361px auto;
-    grid-template-rows: 6% Auto;
+    grid-template-rows: 55px Auto;
     grid-column-gap: 14px;
 }
 
