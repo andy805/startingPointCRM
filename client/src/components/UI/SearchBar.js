@@ -10,7 +10,10 @@ const SearchBar = ({ width }) => {
                 className={styles.searchBar__searchIcon}
                 icon={faSearch}
             />
-            <input className={styles.searchBar__input} />
+            <input
+                className={styles.searchBar__input}
+                placeholder="Search..."
+            />
             <FontAwesomeIcon
                 className={styles.searchBar__clearButton}
                 icon={faTimesCircle}

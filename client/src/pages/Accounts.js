@@ -143,11 +143,8 @@ const Accounts = () => {
                 </Accordion>
             </div>
             <CreateButton changeActive={changeActiveStateHandler} fetchAccounts={refetchSetter} masterRecords={masterRecords} newAccount={newAccount} />
-            <h1>Accounts</h1>
-
         </div>
     )
-
 }
 
 export default Accounts;
