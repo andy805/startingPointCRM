@@ -30,7 +30,7 @@ const Masterdetail = ({ masterRecords, cardClick, newAccount }) => {
             <div className={style.masterDetail__topMenu}>
                 <PushButton svgElement={<DetailViewSVG />} />
                 <PushButton svgElement={<ListViewSVG />} />
-                <SearchBar />
+                <SearchBar width={"138px"} />
             </div>
 
             <div className={style.masterDetail__bottomMenu}>
