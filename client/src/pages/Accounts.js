@@ -131,7 +131,7 @@ const Accounts = () => {
             </TopNav>
             <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} />
             <div className={styles.accordion__comms}>
-                <Menu account={masterRecords} activeRecord={activeRecord} />
+                <Menu account={masterRecords} activeRecord={activeRecord} handleChange={handleChange}/>
                 <Accordion label={"Communication"} icon={faChevronDown}>
                     <CommunicationForm activeRecord={activeRecord} handleChange={handleChange}></CommunicationForm>
                 </Accordion>
