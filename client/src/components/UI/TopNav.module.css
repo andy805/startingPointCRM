@@ -1,6 +1,29 @@
-
 .topnav {
-    border-bottom: 3px solid var(--fmsp-light-gray);
+    border-bottom: 1px solid var(--fmsp-light-gray);
     background-color: white;
-    
+    height: 55px;
+}
+
+.topNav__buttons,
+.topNav__buttonBackground {
+    display: flex;
+}
+
+.topNav__buttons {
+    justify-content: left;
+    align-items: center;
+}
+
+.topNav__buttonBackground {
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    background-color: var(--fmsp-light-gray);
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.topNav__buttonBackground > SVG {
+    width: 18px;
 }
