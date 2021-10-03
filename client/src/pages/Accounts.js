@@ -142,7 +142,6 @@ const Accounts = () => {
                     <ShippingForm activeRecord={activeRecord} handleChange={handleChange} />
                 </Accordion>
             </div>
-            <CreateButton changeActive={changeActiveStateHandler} fetchAccounts={refetchSetter} masterRecords={masterRecords} newAccount={newAccount} />
         </div>
     )
 }
