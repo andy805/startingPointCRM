@@ -1,11 +1,8 @@
-import react, { useState } from "react";
-import Card from "./Card";
 import CreateButton from "./CreateButton";
 import style from "./Masterdetail.module.css";
 import PortalRow from "./PortalRow";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import PushButton from "./PushButton";
 import ListViewSVG from "../SVG/ListViewSVG";
@@ -34,14 +31,14 @@ const Masterdetail = ({ masterRecords, cardClick, newAccount, find }) => {
             </div>
 
             <div className={style.masterDetail__bottomMenu}>
-                <FontAwesomeIcon icon={faCircleNotch}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faCircleNotch} />
                 <div className={style.masterDetail__record}>
                     {bottomMenuData.activeRecordNumber} /{" "}
                     {bottomMenuData.foundCount} Found (
                     {bottomMenuData.totalRecordCount} Total){" "}
                     {bottomMenuData.sortState}
                 </div>
-                <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faEllipsisH} />
                 <CreateButton
                     changeActive={cardClick}
                     masterRecords={masterRecords}
