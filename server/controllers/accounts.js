@@ -15,7 +15,18 @@ const index = (req, res) => {
     });
    
   };
+const find = async (req, res)=>{
+  console.log(req.body.accountName)
+await Account.find({'accountName' : req.body.accountName}, (err, Accounts)=>{
+  if (err){
+    return err
+  }else{
+    console.log(Accounts)
+    res.json(Accounts)
+  }
+})
 
+}
   const createAccount = async (req, res)=>{
     console.log('hit newAccount')
     const newAccount = new Account({
@@ -57,4 +68,4 @@ const index = (req, res) => {
     
   }
 
-export {index, createAccount, updateAccount }
+export {index, createAccount, updateAccount, find }
