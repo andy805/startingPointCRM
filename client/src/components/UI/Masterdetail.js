@@ -12,7 +12,7 @@ import ListViewSVG from "../SVG/ListViewSVG";
 import DetailViewSVG from "../SVG/DetailViewSVG";
 import SearchBar from "./SearchBar";
 
-const Masterdetail = ({ masterRecords, cardClick, newAccount }) => {
+const Masterdetail = ({ masterRecords, cardClick, newAccount, find }) => {
     // Dummy variables for bottom menu
     const bottomMenuData = {
         activeRecordNumber: 1,
@@ -30,7 +30,7 @@ const Masterdetail = ({ masterRecords, cardClick, newAccount }) => {
             <div className={style.masterDetail__topMenu}>
                 <PushButton svgElement={<DetailViewSVG />} />
                 <PushButton svgElement={<ListViewSVG />} />
-                <SearchBar width={"138px"} />
+                <SearchBar width={"138px"} find={find} />
             </div>
 
             <div className={style.masterDetail__bottomMenu}>

@@ -94,7 +94,7 @@ const Accounts = () => {
 
         })
        
-        axios.put("http://localhost:3000/accounts/update",activeRecord)
+       await axios.put("http://localhost:3000/accounts/update",activeRecord)
        
     }
 
@@ -106,7 +106,14 @@ const Accounts = () => {
         }
     }
 
-
+    const find = async (query) =>{
+       const response = await axios.get("https://localhost:3000/accounts/find", 
+       {data:{
+           accountName:query
+       }}
+       )
+        addAccounts(response.data)
+    }
     useEffect(() => {
 
 
@@ -129,7 +136,7 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} />
+            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} find={find}/>
             <div className={styles.accordion__comms}>
                 <Menu account={masterRecords} activeRecord={activeRecord} handleChange={handleChange}/>
                 <Accordion label={"Communication"} icon={faChevronDown}>
