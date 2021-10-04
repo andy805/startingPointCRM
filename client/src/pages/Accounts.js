@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from "react-router";
 import axios from 'axios'
-
 import styles from "./pages.module.css"
 import Masterdetail from "../components/UI/Masterdetail"
 import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
 import Menu from '../components/Menu'
-import CreateButton from '../components/UI/CreateButton'
 import Accordion from '../components/Accordion';
 import CommunicationForm from '../components/CommunicationForm';
 import BillingForm from '../components/BillingForm';
 import ShippingForm from '../components/ShippingForm';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-
+import AccordionButton from '../components/UI/AccordionButton';
+import PhoneSVG from '../components/SVG/PhoneSVG'
+import EmailSVG from '../components/SVG/EmailSVG';
+import WebsiteSVG from '../components/SVG/WebsiteSVG';
 //this broke my build what is it for?
 // import { STATES } from 'mongoose';
 
@@ -126,14 +126,31 @@ const Accounts = () => {
 
     return (
         <div className={styles.page}>
+
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
             <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} />
             <div className={styles.accordion__comms}>
-                <Menu account={masterRecords} activeRecord={activeRecord} handleChange={handleChange}/>
-                <Accordion label={"Communication"} icon={faChevronDown}>
-                    <CommunicationForm activeRecord={activeRecord} handleChange={handleChange}></CommunicationForm>
+                <Menu
+                    account={masterRecords}
+                    activeRecord={activeRecord}
+                    handleChange={handleChange}
+                />
+
+                <Accordion 
+                    label={"Communication"} 
+                    icon={faChevronDown} 
+                    buttons={[
+                        <AccordionButton icon={<PhoneSVG/>} label={'Call Primary'}/>,
+                        <AccordionButton icon={<EmailSVG/>} label={'Send Email'}/>, 
+                        <AccordionButton icon={<WebsiteSVG/>} label={'Visit Website'}/>
+                    ]}
+                >
+                    <CommunicationForm
+                        activeRecord={activeRecord}
+                        handleChange={handleChange}
+                    />
                 </Accordion>
                 <Accordion label={"Billing"} icon={faChevronDown}>
                     <BillingForm activeRecord={activeRecord} handleChange={handleChange} />

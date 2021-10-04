@@ -19,11 +19,15 @@ const Accordion = (props) => {
 
     return (
         <Card className={styles.card}>
-            {/* <button className={styles.accordion} onClick={slide}>{props.label}</button> */}
-            <label className={styles.label} onClick={slide}>{props.label}</label>
-            <FontAwesomeIcon onClick={slide} className={styles.icon} icon={props.icon} ></FontAwesomeIcon>
+            <div className={styles.card__header}>
+                <label className={styles.label} onClick={slide}>{props.label}</label>
+                <FontAwesomeIcon onClick={slide} className={styles.icon} icon={props.icon} ></FontAwesomeIcon>
+            </div>
             <div className={!slideOpen ? styles.panelClose : styles.panelOpen + " " + styles['field-container']}>
             {props.children}
+            </div>
+            <div className={styles.card__buttons}>
+                {!slideOpen ? props.buttons: ""}
             </div>
         </Card>
     )
