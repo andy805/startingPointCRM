@@ -14,6 +14,22 @@ import AccordionButton from '../components/UI/AccordionButton';
 import PhoneSVG from '../components/SVG/PhoneSVG'
 import EmailSVG from '../components/SVG/EmailSVG';
 import WebsiteSVG from '../components/SVG/WebsiteSVG';
+import MapSVG from '../components/SVG/MapSVG';
+
+const billingTextElement = (
+    <div className={styles.card__text}>
+        <p>Ap #886-1276 Feugiat Rd.</p>
+        <p>Augusta, MD 54655</p>
+    </div>
+);
+
+const shippingTextElement = (
+    <div className={styles.card__text}>
+        <p>709-6634 Lorem Rd.</p>
+        <p>South Portland, MS 26987</p>
+    </div>
+);
+
 //this broke my build what is it for?
 // import { STATES } from 'mongoose';
 
@@ -159,10 +175,26 @@ const Accounts = () => {
                         handleChange={handleChange}
                     />
                 </Accordion>
-                <Accordion label={"Billing"} icon={faChevronDown}>
+
+                <Accordion 
+                    label={"Billing"} 
+                    icon={faChevronDown}
+                    buttons={[
+                        <AccordionButton icon={<MapSVG/>} label={'Open in Map'}/>
+                    ]}
+                    text={billingTextElement}
+                >
                     <BillingForm activeRecord={activeRecord} handleChange={handleChange} />
                 </Accordion>
-                <Accordion label={"Shipping"} icon={faChevronDown}>
+
+                <Accordion 
+                    label={"Shipping"} 
+                    icon={faChevronDown}
+                    buttons={[
+                        <AccordionButton icon={<MapSVG/>} label={'Open in Map'}/>
+                    ]}
+                    text={shippingTextElement}                
+                >
                     <ShippingForm activeRecord={activeRecord} handleChange={handleChange} />
                 </Accordion>
             </div>

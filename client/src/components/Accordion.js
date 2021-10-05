@@ -26,9 +26,12 @@ const Accordion = (props) => {
             <div className={!slideOpen ? styles.panelClose : styles.panelOpen + " " + styles['field-container']}>
             {props.children}
             </div>
+            {!slideOpen && (
             <div className={styles.card__buttons}>
-                {!slideOpen ? props.buttons: ""}
+                    {props.buttons}
+                    {props.text}
             </div>
+            )}
         </Card>
     )
 
