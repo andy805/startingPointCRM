@@ -72,7 +72,7 @@ const Accounts = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const [masterRecords, setMasterRecords] = useState({ data: accountArray, active: 0, currDocument: accountArray[0] });
     const [activeRecord, setActiveRecord] = useState({});
-    
+
     // possible way to get keys 
     // const [activeRecordKeys, setActiveRecordKeys] = usestate([])
 
@@ -80,7 +80,7 @@ const Accounts = () => {
         setMasterRecords(prevState => ({
             ...prevState, data: [...prevState.data, ...accounts]
         }));
-        
+
     }
 
     const changeActiveStateHandler = (i) => {
@@ -109,9 +109,9 @@ const Accounts = () => {
             [e.target.name]: e.target.value
 
         })
-       
-       await axios.put("http://localhost:3000/accounts/update",activeRecord)
-       
+
+        await axios.put("http://localhost:3000/accounts/update", activeRecord)
+
     }
 
     const refetchSetter = () => {
@@ -122,12 +122,14 @@ const Accounts = () => {
         }
     }
 
-    const find = async (query) =>{
-       const response = await axios.get("https://localhost:3000/accounts/find", 
-       {data:{
-           accountName:query
-       }}
-       )
+    const find = async (query) => {
+        const response = await axios.get("http://localhost:3000/accounts/find",
+            {
+                data: {
+                    accountName: query
+                }
+            }
+        )
         addAccounts(response.data)
     }
     useEffect(() => {
@@ -153,7 +155,7 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} find={find}/>
+            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} find={find} />
             <div className={styles.accordion__comms}>
                 <Menu
                     account={masterRecords}
@@ -161,13 +163,13 @@ const Accounts = () => {
                     handleChange={handleChange}
                 />
 
-                <Accordion 
-                    label={"Communication"} 
-                    icon={faChevronDown} 
+                <Accordion
+                    label={"Communication"}
+                    icon={faChevronDown}
                     buttons={[
-                        <AccordionButton icon={<PhoneSVG/>} label={'Call Primary'}/>,
-                        <AccordionButton icon={<EmailSVG/>} label={'Send Email'}/>, 
-                        <AccordionButton icon={<WebsiteSVG/>} label={'Visit Website'}/>
+                        <AccordionButton icon={<PhoneSVG />} label={'Call Primary'} />,
+                        <AccordionButton icon={<EmailSVG />} label={'Send Email'} />,
+                        <AccordionButton icon={<WebsiteSVG />} label={'Visit Website'} />
                     ]}
                 >
                     <CommunicationForm
@@ -176,24 +178,24 @@ const Accounts = () => {
                     />
                 </Accordion>
 
-                <Accordion 
-                    label={"Billing"} 
+                <Accordion
+                    label={"Billing"}
                     icon={faChevronDown}
                     buttons={[
-                        <AccordionButton icon={<MapSVG/>} label={'Open in Map'}/>
+                        <AccordionButton icon={<MapSVG />} label={'Open in Map'} />
                     ]}
                     text={billingTextElement}
                 >
                     <BillingForm activeRecord={activeRecord} handleChange={handleChange} />
                 </Accordion>
 
-                <Accordion 
-                    label={"Shipping"} 
+                <Accordion
+                    label={"Shipping"}
                     icon={faChevronDown}
                     buttons={[
-                        <AccordionButton icon={<MapSVG/>} label={'Open in Map'}/>
+                        <AccordionButton icon={<MapSVG />} label={'Open in Map'} />
                     ]}
-                    text={shippingTextElement}                
+                    text={shippingTextElement}
                 >
                     <ShippingForm activeRecord={activeRecord} handleChange={handleChange} />
                 </Accordion>
