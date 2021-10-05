@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from "react"
 import styles from "./SearchBar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPray, faSearch, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = ({ width, find }) => {
     const [search, setSearch] = useState("")
@@ -25,14 +25,14 @@ const SearchBar = ({ width, find }) => {
                 icon={faSearch}
             />
             <form onSubmit={handleSubmit}>
-            <input
-                name={"search"}
-                className={styles.searchBar__input}
-                placeholder="Search..."
-                value={search}
-                onChange={handleChange}
-                onSubmit={handleSubmit}
-            />
+                <input
+                    name={"search"}
+                    className={styles.searchBar__input}
+                    placeholder="Search..."
+                    value={search}
+                    onChange={handleChange}
+                    onSubmit={handleSubmit}
+                />
             </form>
             <FontAwesomeIcon
                 className={styles.searchBar__clearButton}
