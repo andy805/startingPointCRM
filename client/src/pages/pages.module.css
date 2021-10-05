@@ -25,3 +25,9 @@
     gap: 20px;
     width: 350px;
 }
+
+.card__text {
+    font-size: 13px;
+    font-weight: 500;
+    width: 182px;
+}
