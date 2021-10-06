@@ -13,7 +13,7 @@ const SearchBar = ({ width, find }) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        console.log('search submit hit')
+        console.log('search submit hit', search)
         find(search)
     }
 
