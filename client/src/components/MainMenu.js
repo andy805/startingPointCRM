@@ -8,14 +8,14 @@ const MainMenu = () => {
     return (
         <div className={`${styles.mainMenu} ${'box-shadow'}`}>
             <div className={styles.mainMenu__buttons}>
-                <PushButton svgElement={<DetailViewSVG />} />
-                <PushButton svgElement={<DetailViewSVG />} />
-                <PushButton svgElement={<DetailViewSVG />} />
-                <PushButton svgElement={<DetailViewSVG />} />
-                <PushButton svgElement={<DetailViewSVG />} />
-                <PushButton svgElement={<DetailViewSVG />} />
-                <PushButton svgElement={<DetailViewSVG />} />
-                <PushButton svgElement={<DetailViewSVG />} />
+                <PushButton svgElement={<DetailViewSVG />} width={"73px"} height={"61px"}/>
+                <PushButton svgElement={<DetailViewSVG />} width={"73px"} height={"61px"}/>
+                <PushButton svgElement={<DetailViewSVG />} width={"73px"} height={"61px"}/>
+                <PushButton svgElement={<DetailViewSVG />} width={"73px"} height={"61px"}/>
+                <PushButton svgElement={<DetailViewSVG />} width={"73px"} height={"61px"}/>
+                <PushButton svgElement={<DetailViewSVG />} width={"73px"} height={"61px"}/>
+                <PushButton svgElement={<DetailViewSVG />} width={"73px"} height={"61px"}/>
+                <PushButton svgElement={<DetailViewSVG />} width={"73px"} height={"61px"}/>
             </div>
         </div>        
     )
