@@ -15,6 +15,7 @@ import PhoneSVG from '../components/SVG/PhoneSVG'
 import EmailSVG from '../components/SVG/EmailSVG';
 import WebsiteSVG from '../components/SVG/WebsiteSVG';
 import MapSVG from '../components/SVG/MapSVG';
+import MainMenu from '../components/MainMenu';
 
 const billingTextElement = (
     <div className={styles.card__text}>
@@ -198,6 +199,7 @@ const Accounts = () => {
                     <ShippingForm activeRecord={activeRecord} handleChange={handleChange} />
                 </Accordion>
             </div>
+            <MainMenu />
         </div>
     )
 }

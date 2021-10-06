@@ -1,0 +1,19 @@
+.mainMenu {
+    width: 603px;
+    height: 631px;
+    margin-top: 18px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.mainMenu__buttons {
+    border: 1px solid red;
+    width: 585px;
+    height: 61px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
