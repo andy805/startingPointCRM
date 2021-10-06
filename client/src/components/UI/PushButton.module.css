@@ -9,11 +9,13 @@
     width: 23px;
 }
 
-.pushButton > svg path {
+.pushButton > svg path,
+.pushButton > svg polygon {
     fill: #b3b3b3;
 }
 
-.pushButton:hover path {
+.pushButton:hover path,
+.pushButton:hover polygon {
     fill: #9a9a9a;
 }
 
@@ -22,10 +24,12 @@
     box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
 }
 
-.pushButton__active path {
+.pushButton__active path,
+.pushButton__active polygon {
     fill: black !important;
 }
 
-.pushButton__active:hover path {
+.pushButton__active:hover path,
+.pushButton__active:hover polygon {
     fill: black;
 }
