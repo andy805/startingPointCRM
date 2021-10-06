@@ -5,6 +5,7 @@
     flex-direction: column;
     border-radius: 5px;
     font-size: 10px;
+    user-select: none;
     --default-color: #b3b3b3;
     --hover-color: #9a9a9a;
     --active-color: #000;
