@@ -2,21 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     border-radius: 5px;
+    font-size: 10px;
+    --default-color: #b3b3b3;
+    --hover-color: #9a9a9a;
+    --active-color: #000;
 }
 
 .pushButton > svg {
     width: 23px;
 }
 
-.pushButton > svg path,
-.pushButton > svg polygon {
-    fill: #b3b3b3;
-}
-
-.pushButton:hover path,
-.pushButton:hover polygon {
-    fill: #9a9a9a;
+.pushButton__label {
+    margin-top: 2px;
 }
 
 .pushButton__active {
@@ -24,12 +23,24 @@
     box-shadow: inset 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
 }
 
-.pushButton__active path,
-.pushButton__active polygon {
-    fill: black !important;
+.pushButton > svg path,
+.pushButton > svg polygon,
+.pushButton__label {
+    fill: var(--default-color);
+    color: var(--default-color);
 }
 
-.pushButton__active:hover path,
-.pushButton__active:hover polygon {
-    fill: black;
+.pushButton:hover path,
+.pushButton:hover polygon,
+.pushButton:hover .pushButton__label{
+    fill: var(--hover-color);
+    color: var(--hover-color);
+}
+
+/* stop color change on hover when active */
+.pushButton__active path,
+.pushButton__active polygon,
+.pushButton__active .pushButton__label {
+    fill: var(--active-color) !important;
+    color: var(--active-color) !important;
 }

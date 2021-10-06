@@ -15,7 +15,7 @@ const MainMenu = () => {
     return (
         <div className={`${styles.mainMenu} ${'box-shadow'}`}>
             <div className={styles.mainMenu__buttons}>
-                <PushButton svgElement={<ContactsSVG />} width={"73px"} height={"61px"}/>
+                <PushButton svgElement={<ContactsSVG />} width={"73px"} height={"61px"} title={"Contacts"} counterField={0} />
                 <PushButton svgElement={<EstimatesSVG />} width={"73px"} height={"61px"}/>
                 <PushButton svgElement={<InvoicesSVG />} width={"73px"} height={"61px"}/>
                 <PushButton svgElement={<ProjectsSVG />} width={"73px"} height={"61px"}/>

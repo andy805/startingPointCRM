@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./PushButton.module.css";
 
-function PushButton({ svgElement, width, height }) {
+function PushButton({ svgElement, width, height, title, counterField }) {
     // state to determine whether component is in focus
     const [focus, setFocus] = useState(false);
 
@@ -22,6 +22,9 @@ function PushButton({ svgElement, width, height }) {
     return (
         <div className={computedClassName} onClick={changeStyle} style={{ width, height}}>
             {svgElement}
+            <div className={styles.pushButton__label}>
+                {title && `${title} (${counterField})`}
+            </div>
         </div>
     );
 }
