@@ -2,12 +2,10 @@ import Mongoose from "mongoose";
 import {Account} from "../models/accounts.js";
 
 const index = (req, res) => {
-  console.log('hit')
     Account.find({}, (err, Accounts) => {
       if (err) {
         return err;
       } else {
-        console.log(Accounts)
         res.json( 
           Accounts,
         );
@@ -16,8 +14,8 @@ const index = (req, res) => {
    
   };
 const find = async (req, res)=>{
-  console.log(req.body.accountName)
-await Account.find({'accountName' : req.body.accountName}, (err, Accounts)=>{
+  console.log(req.query)
+await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accounts)=>{
   if (err){
     return err
   }else{

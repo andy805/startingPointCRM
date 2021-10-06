@@ -123,14 +123,18 @@ const Accounts = () => {
     }
 
     const find = async (query) => {
+        console.log(query)
         const response = await axios.get("http://localhost:3000/accounts/find",
             {
-                data: {
+                params: {
                     accountName: query
                 }
             }
         )
-        addAccounts(response.data)
+        console.log(response)
+        setMasterRecords(prevState => ({
+            ...prevState, data: [response.data]
+        })); 
     }
     useEffect(() => {
 
