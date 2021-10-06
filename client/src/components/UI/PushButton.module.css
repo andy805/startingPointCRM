@@ -32,7 +32,7 @@
 
 .pushButton:hover path,
 .pushButton:hover polygon,
-.pushButton:hover .pushButton__label{
+.pushButton:hover .pushButton__label {
     fill: var(--hover-color);
     color: var(--hover-color);
 }
