@@ -3,7 +3,6 @@
     margin-left: auto;
     background-color: #efefef;
     border-radius: 5px;
-    display: flex;
 
     /* this stops container from moving when input is in focus */
     border: 1px solid transparent;
@@ -40,4 +39,9 @@
     margin: auto;
     font-size: 13px;
     color: var(--fmsp-gray);
+}
+
+.searchBar,
+form {
+    display: flex;
 }

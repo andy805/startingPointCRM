@@ -22,7 +22,6 @@
     grid-column: 2/3;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     width: 350px;
 }
 
