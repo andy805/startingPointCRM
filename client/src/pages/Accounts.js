@@ -133,8 +133,10 @@ const Accounts = () => {
         )
         console.log(response)
         setMasterRecords(prevState => ({
-            ...prevState, data: [response.data]
-        })); 
+           ...prevState, data: response.data        })); 
+        console.log(masterRecords)
+        refetchSetter()
+        
     }
     useEffect(() => {
 
@@ -148,7 +150,7 @@ const Accounts = () => {
 
         }
         fetchAccounts()
-    }, [])
+    }, [refetch])
 
     // Dummy JSON until database is ready
 
