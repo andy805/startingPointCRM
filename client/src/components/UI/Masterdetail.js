@@ -25,8 +25,8 @@ const Masterdetail = ({ masterRecords, cardClick, newAccount, find }) => {
     return (
         <div className={style.masterDetail}>
             <div className={style.masterDetail__topMenu}>
-                <PushButton svgElement={<DetailViewSVG />} />
-                <PushButton svgElement={<ListViewSVG />} />
+                <PushButton svgElement={<DetailViewSVG />} width={"54px"} height={"46px"}/>
+                <PushButton svgElement={<ListViewSVG />} width={"54px"} height={"46px"}/>
                 <SearchBar width={"138px"} find={find} />
             </div>
 
