@@ -5,7 +5,7 @@ import ContactsSVG from './SVG/ContactsSVG'
 import EstimatesSVG from './SVG/EstimatesSVG'
 import InvoicesSVG from './SVG/InvoicesSVG'
 import ProjectsSVG from './SVG/ProjectsSVG'
-import TasksSVG from './SVG/TasksSVG'
+import ToDoSVG from './SVG/ToDoSVG'
 import ProductsSVG from './SVG/ProductsSVG'
 import NotesSVG from './SVG/NotesSVG'
 import FilesSVG from './SVG/FilesSVG'
@@ -19,7 +19,7 @@ const MainMenu = () => {
                 <PushButton svgElement={<EstimatesSVG />} width={"73px"} height={"61px"} title={"Estimates"} counterField={0} />
                 <PushButton svgElement={<InvoicesSVG />} width={"73px"} height={"61px"} title={"Invoices"} counterField={0} />
                 <PushButton svgElement={<ProjectsSVG />} width={"73px"} height={"61px"} title={"Projects"} counterField={0} />
-                <PushButton svgElement={<TasksSVG />} width={"73px"} height={"61px"} title={"Tasks"} counterField={0} />
+                <PushButton svgElement={<ToDoSVG />} width={"73px"} height={"61px"} title={"Tasks"} counterField={0} />
                 <PushButton svgElement={<ProductsSVG />} width={"73px"} height={"61px"} title={"Products"} counterField={0} />
                 <PushButton svgElement={<NotesSVG />} width={"73px"} height={"61px"} title={"Notes"} counterField={0} />
                 <PushButton svgElement={<FilesSVG />} width={"73px"} height={"61px"} title={"Files"} counterField={0} />
