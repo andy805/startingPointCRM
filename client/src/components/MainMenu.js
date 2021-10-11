@@ -9,6 +9,7 @@ import ToDoSVG from './SVG/ToDoSVG'
 import ProductsSVG from './SVG/ProductsSVG'
 import NotesSVG from './SVG/NotesSVG'
 import FilesSVG from './SVG/FilesSVG'
+import CreateButton from "./UI/CreateButton";
 
 
 const MainMenu = () => {
@@ -23,6 +24,12 @@ const MainMenu = () => {
                 <PushButton svgElement={<ProductsSVG />} width={"73px"} height={"61px"} title={"Products"} counterField={0} />
                 <PushButton svgElement={<NotesSVG />} width={"73px"} height={"61px"} title={"Notes"} counterField={0} />
                 <PushButton svgElement={<FilesSVG />} width={"73px"} height={"61px"} title={"Files"} counterField={0} />
+            </div>
+
+            <div className={styles.mainMenu__addButton}>
+                <CreateButton /> 
+                <span>Add Contacts</span>
+                <div className={styles.mainMenu__lineBreak}></div>
             </div>
         </div>        
     )
