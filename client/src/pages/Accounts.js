@@ -134,21 +134,19 @@ const Accounts = () => {
         )
         console.log(response)
         setMasterRecords(prevState => ({
-           ...prevState, data: response.data        })); 
+            ...prevState, data: response.data
+        }));
         console.log(masterRecords)
         refetchSetter()
-        
+
     }
     useEffect(() => {
 
 
         const fetchAccounts = async () => {
-
+            
             const response = await axios.get("http://localhost:3000/accounts")
-
             addAccounts(response.data)
-
-
         }
         fetchAccounts()
     }, [refetch])

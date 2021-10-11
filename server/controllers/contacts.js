@@ -1,5 +1,5 @@
-import Mongoose from "mongoose"
-import { Contact } from '../models/contacts'
+
+import { Contact } from '../models/contacts.js'
 
 const index = (req, res) => {
     Contact.find({}, (err, Contacts) => {
@@ -12,3 +12,5 @@ const index = (req, res) => {
         }
     })
 }
+
+export {index}
