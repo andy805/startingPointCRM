@@ -1,8 +1,47 @@
 .mainMenuPortalRow {
     height: 62px;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    --gray: #D8D8D8;
 }
 
 .mainMenuPortalRow__deleteButton {
     fill: var(--fmsp-blue);
     width: 13px;
+}
+
+.mainMenuPortalRow__initials {
+    border: 1px solid var(--gray);
+    color: var(--gray);
+    border-radius: 100%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.mainMenuPortalRow__nameTitle,
+.mainMenuPortalRow__addressPhone {
+    display: flex;
+    flex-direction: column;
+}
+
+/* All text in portal row */
+.mainMenuPortalRow span {
+    font-size: 13px;
+}
+
+/* Black text on top */
+.mainMenuPortalRow__nameTitle span:nth-child(1),
+.mainMenuPortalRow__addressPhone span:nth-child(1) {
+}
+
+/* Gray text on bottom */
+.mainMenuPortalRow__nameTitle span:nth-child(2),
+.mainMenuPortalRow__addressPhone span:nth-child(2) {
+   color: var(--fmsp-gray);
 }
