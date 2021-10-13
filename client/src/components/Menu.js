@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function Menu( {activeRecord, handleChange} ) {
+export default function Menu( {activeRecord, handleChange, handleChangeClient} ) {
 
     const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
@@ -25,6 +25,8 @@ export default function Menu( {activeRecord, handleChange} ) {
                 keyName={"accountName"}
                 fieldData={activeRecord.accountName}
                 handleChange={handleChange}
+                handleChangeClient={handleChangeClient}
+
             />
             <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
 

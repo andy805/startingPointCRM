@@ -4,12 +4,12 @@ import EditBox from './UI/EditBox';
 const ShippingForm = (props) => {
     return (
         <>
-            <EditBox fieldName={"Address 1"} fieldData={props.activeRecord.shippingAddress1} />
-            <EditBox fieldName={"Address 2"} fieldData={props.activeRecord.shippingAddress2} />
-            <EditBox fieldName={"City"} fieldData={props.activeRecord.shippingCity} />
-            <EditBox fieldName={"State"} fieldData={props.activeRecord.shippingState} />
-            <EditBox fieldName={"Postal Code"} fieldData={props.activeRecord.shippingZipcode} />
-            <EditBox fieldName={"Country"} fieldData={props.activeRecord.shippingCountry} lineBreak={false}/>
+            <EditBox handleChangeClient={props.handleChangeClient} fieldName={"Address 1"} fieldData={props.activeRecord.shippingAddress1} />
+            <EditBox handleChangeClient={props.handleChangeClient} fieldName={"Address 2"} fieldData={props.activeRecord.shippingAddress2} />
+            <EditBox handleChangeClient={props.handleChangeClient} fieldName={"City"} fieldData={props.activeRecord.shippingCity} />
+            <EditBox handleChangeClient={props.handleChangeClient} fieldName={"State"} fieldData={props.activeRecord.shippingState} />
+            <EditBox handleChangeClient={props.handleChangeClient} fieldName={"Postal Code"} fieldData={props.activeRecord.shippingZipcode} />
+            <EditBox handleChangeClient={props.handleChangeClient} fieldName={"Country"} fieldData={props.activeRecord.shippingCountry} lineBreak={false}/>
         </>
     )
 }
