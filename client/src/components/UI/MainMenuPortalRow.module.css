@@ -1,3 +1,8 @@
 .mainMenuPortalRow {
-    border: 1px solid red;
+    height: 62px;
+}
+
+.mainMenuPortalRow__deleteButton {
+    fill: var(--fmsp-blue);
+    width: 13px;
 }
