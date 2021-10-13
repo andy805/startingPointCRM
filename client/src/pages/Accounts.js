@@ -103,6 +103,15 @@ const Accounts = () => {
 
     }
 
+    const handleChangeClient = (e) => {
+        console.log('hit handlechange client')
+        setActiveRecord({
+            ...activeRecord,
+            [e.target.name]: e.target.value
+
+        })
+    }
+
     const handleChange = async (e) => {
         console.log('hit handlechange')
         setActiveRecord({
@@ -112,6 +121,16 @@ const Accounts = () => {
         })
 
         await axios.put("http://localhost:3000/accounts/update", activeRecord)
+        const id = activeRecord._id;
+        let i = 0;
+        while(i < masterRecords.data.length){
+            if(masterRecords.data[i]._id === id){
+                let newObj = JSON.stringify(activeRecord);
+                masterRecords.data[i] = JSON.parse(newObj)
+            }
+            i++;
+        }
+        
 
     }
 
@@ -166,6 +185,7 @@ const Accounts = () => {
                     account={masterRecords}
                     activeRecord={activeRecord}
                     handleChange={handleChange}
+                    handleChangeClient={handleChangeClient}
                 />
 
                 <Accordion
@@ -180,6 +200,7 @@ const Accounts = () => {
                     <CommunicationForm
                         activeRecord={activeRecord}
                         handleChange={handleChange}
+                        handleChangeClient={handleChangeClient}
                     />
                 </Accordion>
 
@@ -191,7 +212,12 @@ const Accounts = () => {
                     ]}
                     text={billingTextElement}
                 >
-                    <BillingForm activeRecord={activeRecord} handleChange={handleChange} />
+                    <BillingForm 
+                        activeRecord={activeRecord} 
+                        handleChange={handleChange} 
+                        handleChangeClient={handleChangeClient}
+                    />
+
                 </Accordion>
 
                 <Accordion
@@ -202,7 +228,11 @@ const Accounts = () => {
                     ]}
                     text={shippingTextElement}
                 >
-                    <ShippingForm activeRecord={activeRecord} handleChange={handleChange} />
+                    <ShippingForm 
+                    activeRecord={activeRecord} 
+                    handleChange={handleChange} 
+                    handleChangeClient={handleChangeClient}
+                    />
                 </Accordion>
             </div>
             <MainMenu />
