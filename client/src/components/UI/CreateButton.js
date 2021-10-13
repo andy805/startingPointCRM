@@ -4,7 +4,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CreateButton = ({fetchAccounts, changeActive, masterRecords, newAccount})=> {
-   console.log(masterRecords.data.length)
+   // console.log(masterRecords.data.length)
     const createRecord = async ()=>{
       
         const response = await axios.post("http://localhost:3000/accounts/create")

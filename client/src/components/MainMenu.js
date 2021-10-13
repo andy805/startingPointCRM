@@ -10,7 +10,7 @@ import ProductsSVG from './SVG/ProductsSVG'
 import NotesSVG from './SVG/NotesSVG'
 import FilesSVG from './SVG/FilesSVG'
 import CreateButton from "./UI/CreateButton";
-
+import MainMenuPortal from './UI/MainMenuPortal'
 
 const MainMenu = () => {
     return (
@@ -31,6 +31,9 @@ const MainMenu = () => {
                 <span>Add Contacts</span>
                 <div className={styles.mainMenu__lineBreak}></div>
             </div>
+            
+            <MainMenuPortal />
+
         </div>        
     )
 }
