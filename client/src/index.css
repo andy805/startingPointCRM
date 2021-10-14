@@ -8,6 +8,7 @@
     --fmsp-blue: #4497f1;
     --fmsp-gray: #9a9a9a;
     --fmsp-light-gray: #eaeaea;
+    --fmsp-gray-3: hsl(0, 0%, 95%);
     --fmsp-placeholder-text-color: #d7d7d7;
 }
 
@@ -60,7 +61,7 @@ svg[data-icon="plus"]:hover {
 
 svg[data-icon="ellipsis-h"] {
   font-size: 13px;
-  background-color: #f2f2f2;
+  background-color: var(--fmsp-gray-3);
   color: var(--fmsp-blue);
   padding: 6px;
   border-radius: 100%;
