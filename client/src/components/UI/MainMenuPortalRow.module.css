@@ -45,3 +45,18 @@
 .mainMenuPortalRow__addressPhone span:nth-child(2) {
    color: var(--fmsp-gray);
 }
+
+.mainMenuPortalRow__emailButton {
+    width: 31px;
+    height: 31px;
+    border-radius: 100%;
+    background-color: var(--fmsp-gray-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainMenuPortalRow__emailButton > svg {
+    width: 13px;
+    fill: var(--fmsp-blue);
+}
