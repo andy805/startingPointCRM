@@ -10,6 +10,7 @@ import DetailViewSVG from "../SVG/DetailViewSVG";
 import SearchBar from "./SearchBar";
 
 const Masterdetail = ({ masterRecords, cardClick, newAccount, find }) => {
+    
     // Dummy variables for bottom menu
     const bottomMenuData = {
         activeRecordNumber: 1,
@@ -21,7 +22,7 @@ const Masterdetail = ({ masterRecords, cardClick, newAccount, find }) => {
     const cardClickMaster = (id) => {
         cardClick(id);
     };
-
+    console.log(masterRecords)
     return (
         <div className={style.masterDetail}>
             <div className={style.masterDetail__topMenu}>
@@ -61,7 +62,7 @@ const Masterdetail = ({ masterRecords, cardClick, newAccount, find }) => {
                 />
             ))}
         </div>
-    );
+    )
 };
 
 export default Masterdetail;

@@ -15,22 +15,27 @@ const navItems = [ {label: "Accounts" , path: "/Accounts", active: false},
 
 
 const Contacts = () => {
-const [masterRecords, setMasterRecords] = useState([])
+    const [masterRecords, setMasterRecords] = useState({ data: []})
 
-const addContacts = (contacts)=>{
-    setMasterRecords(contacts)
+const addContacts = (contacts) => {''
+    setMasterRecords(prevState => ({
+        ...prevState, data: [...prevState.data, ...contacts]
+    }));
+
 }
 
 useEffect(()=>{
-
+    console.log('hit fetch')
     const fetchContacts = async ()=>{
         const response = await axios.get("http://localhost:3000/contacts")  
+        console.log('hit', response)
         addContacts(response.data)
     }
   
 fetchContacts()
 },[])
-console.log(masterRecords)
+
+
     return(
         <div className={styles.page}>
             <TopNav className={styles.navbar}>
