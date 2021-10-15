@@ -1,6 +1,7 @@
 .mainMenuPortalRow {
     height: 62px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 29px 56px 242px 215px 37px 100%;
     /* justify-content: space-between; */
     align-items: center;
     --gray: #D8D8D8;
@@ -9,6 +10,7 @@
 .mainMenuPortalRow__deleteButton {
     fill: var(--fmsp-blue);
     width: 13px;
+    padding-left: 5px;
 }
 
 .mainMenuPortalRow__initials {
@@ -44,4 +46,24 @@
 .mainMenuPortalRow__nameTitle span:nth-child(2),
 .mainMenuPortalRow__addressPhone span:nth-child(2) {
    color: var(--fmsp-gray);
+}
+
+.mainMenuPortalRow__emailButton {
+    width: 31px;
+    height: 31px;
+    border-radius: 100%;
+    background-color: var(--fmsp-gray-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainMenuPortalRow__emailButton > svg {
+    width: 13px;
+    fill: var(--fmsp-blue);
+}
+
+.mainMenuPortalRow__chevronRight > svg {
+    height: 8px;
+    fill: var(--fmsp-blue);
 }
