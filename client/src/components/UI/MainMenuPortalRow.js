@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./MainMenuPortalRow.module.css";
 import DeleteSVG from "./../SVG/DeleteSVG";
 import MailSVG from "../SVG/MailSVG";
+import ChevronRightSVG from "../SVG/ChevronRightSVG";
 
 const MainMenuPortalRow = () => {
     return (
@@ -24,6 +25,10 @@ const MainMenuPortalRow = () => {
 
             <div className={styles.mainMenuPortalRow__emailButton}>
                 <MailSVG />
+            </div>
+
+            <div className={styles.mainMenuPortalRow__chevronRight}>
+                <ChevronRightSVG />
             </div>
         </div>
     );
