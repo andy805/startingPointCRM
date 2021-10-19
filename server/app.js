@@ -20,8 +20,11 @@ import {contactRouter} from './routes/contacts.js'
 
 
 const app = express()
-const port = 3000
 const upload = multer()
+let port = process.env.PORT;
+if(port == null || port == "") {
+    port = 8000;
+}
 
 //midleware
 app.use(cors())
