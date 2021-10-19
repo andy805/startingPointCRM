@@ -13,6 +13,12 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient} )
     console.log(activeRecord.category);
     const [selectState, setSelectState] = useState(activeRecord.category);
 
+    const handleButtonClick = (e) => {
+
+        let value = e.target.innerHTML;
+        handleChangeClient(e, 'status', value);
+    }
+
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
 
@@ -38,7 +44,7 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient} )
             <div className={styles.menu__lineBreak} />
 
             <div className={styles.menu__buttons}>
-                <button className={activeRecord.status === "Active" ? styles['button__focus'] : "" }>Active</button>
+                <button onClick={handleButtonClick} className={activeRecord.status === "Active" ? styles['button__focus'] : "" }>Active</button>
                 <button className={inactive + " " +styles.menu__middleButton}>Inactive</button>
                 <button className={activeRecord.status === "Disregard" ? styles['button__focus'] : ""} >Disregard</button>
             </div>
