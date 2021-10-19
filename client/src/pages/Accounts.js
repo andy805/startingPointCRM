@@ -33,6 +33,7 @@ const shippingTextElement = (
 
 //this broke my build what is it for?
 // import { STATES } from 'mongoose';
+const basePath = "https://shielded-oasis-43540.herokuapp.com/"
 
 const navItems = [{ label: "Accounts", path: "/Accounts", active: true },
 { label: "Contacts", path: "/Contacts", active: false }, { label: "Invoices", path: "/Invoices", active: false },
@@ -103,13 +104,27 @@ const Accounts = () => {
 
     }
 
-    const handleChangeClient = (e) => {
-        console.log('hit handlechange client')
-        setActiveRecord({
-            ...activeRecord,
-            [e.target.name]: e.target.value
+    const handleChangeClient = (e, fieldName, value) => {
+        console.log(fieldName);
+        console.log(value);
+        if(fieldName == null){
+        console.log('hit handleclient');
+            setActiveRecord({
+                ...activeRecord,
+                [e.target.name]: e.target.value
 
-        })
+            })
+        }
+        else {
+        console.log('hit handlechange client test');
+
+            setActiveRecord({
+                ...activeRecord,
+                [e.target.fieldName]: value
+
+            })
+
+        }
     }
 
     const handleChange = async (e) => {
@@ -120,7 +135,7 @@ const Accounts = () => {
 
         })
 
-        await axios.put("https://shielded-oasis-43540.herokuapp.com/ ", activeRecord)
+        await axios.put(basePath+"accounts/update", activeRecord)
         const id = activeRecord._id;
         let i = 0;
         while(i < masterRecords.data.length){
@@ -134,6 +149,10 @@ const Accounts = () => {
 
     }
 
+    const handleButtonStatus = (e) => {
+
+    }
+
     const refetchSetter = () => {
         if (refetch === 0) {
             setRefetch(1)
@@ -144,7 +163,7 @@ const Accounts = () => {
 
     const find = async (query) => {
         console.log(query)
-        const response = await axios.get("https://shielded-oasis-43540.herokuapp.com/",
+        const response = await axios.get(basePath+"accounts/find",
             {
                 params: {
                     accountName: query
@@ -164,13 +183,12 @@ const Accounts = () => {
 
         const fetchAccounts = async () => {
             
-            const response = await axios.get("https://shielded-oasis-43540.herokuapp.com/")
+            const response = await axios.get(basePath+"accounts")
             addAccounts(response.data)
         }
         fetchAccounts()
     }, [refetch])
 
-    // Dummy JSON until database is ready
 
 
     return (

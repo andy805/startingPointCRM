@@ -7,6 +7,8 @@ import styles from "./pages.module.css"
 import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
 
+const basePath = "https://shielded-oasis-43540.herokuapp.com/"
+
 const navItems = [ {label: "Accounts" , path: "/Accounts", active: false}, 
 {label: "Contacts" , path: "/Contacts", active: true} ,{label: "Invoices" , path: "/Invoices", active: false}, 
 {label: "Products" , path: "/Products", active: false} 
@@ -27,7 +29,7 @@ const addContacts = (contacts) => {''
 useEffect(()=>{
     console.log('hit fetch')
     const fetchContacts = async ()=>{
-        const response = await axios.get("http://localhost:3000/contacts")  
+        const response = await axios.get(basePath+"/contacts")  
         console.log('hit', response)
         addContacts(response.data)
     }
