@@ -120,7 +120,7 @@ const Accounts = () => {
 
         })
 
-        await axios.put("http://localhost:3000/accounts/update", activeRecord)
+        await axios.put("https://shielded-oasis-43540.herokuapp.com/ ", activeRecord)
         const id = activeRecord._id;
         let i = 0;
         while(i < masterRecords.data.length){
@@ -144,7 +144,7 @@ const Accounts = () => {
 
     const find = async (query) => {
         console.log(query)
-        const response = await axios.get("http://localhost:3000/accounts/find",
+        const response = await axios.get("https://shielded-oasis-43540.herokuapp.com/",
             {
                 params: {
                     accountName: query
@@ -164,7 +164,7 @@ const Accounts = () => {
 
         const fetchAccounts = async () => {
             
-            const response = await axios.get("http://localhost:3000/accounts")
+            const response = await axios.get("https://shielded-oasis-43540.herokuapp.com/")
             addAccounts(response.data)
         }
         fetchAccounts()
