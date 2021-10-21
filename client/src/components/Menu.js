@@ -4,6 +4,7 @@ import { useState } from "react";
 import EditBox from "./UI/EditBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import Popover from "../pages/Popover";
 
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient} ) {
@@ -24,18 +25,25 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient} )
 
             {/* Width prop lets you change width of EditBox */}
             {/* If no width is specified it defaults to 100% width */}
-            <EditBox
-                fieldName={"Account"}
-                activeRecord={activeRecord}
-                width={{ width: "270px" }}
-                keyName={"accountName"}
-                fieldData={activeRecord.accountName}
-                handleChange={handleChange}
-                handleChangeClient={handleChangeClient}
+            <div>
+                <EditBox
+                    fieldName={"Account"}
+                    activeRecord={activeRecord}
+                    width={{ width: "270px" }}
+                    keyName={"accountName"}
+                    fieldData={activeRecord.accountName}
+                    handleChange={handleChange}
+                    handleChangeClient={handleChangeClient}
 
-            />
-            <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
-
+                />
+                {/* <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon> */}
+                <Popover icon={faEllipsisH}>
+                    {/* any thing in between the popover will be in the menu */}
+                    <h1>Hello </h1>
+                    <button className={styles.button__popup}>Duplicate</button>
+                    <button className={styles.button__popup}> delete</button>
+                </Popover>
+            </div>
 
             <label>Type</label>
             <select value={activeRecord.category}>
@@ -45,8 +53,8 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient} )
 
             <div className={styles.menu__buttons}>
                 <button onClick={handleButtonClick} className={activeRecord.status === "Active" ? styles['button__focus'] : "" }>Active</button>
-                <button className={inactive + " " +styles.menu__middleButton}>Inactive</button>
-                <button className={activeRecord.status === "Disregard" ? styles['button__focus'] : ""} >Disregard</button>
+                <button onClick={handleButtonClick} className={inactive + " " +styles.menu__middleButton}>Inactive</button>
+                <button onClick={handleButtonClick} className={activeRecord.status === "Disregard" ? styles['button__focus'] : ""} >Disregard</button>
             </div>
         </div>
     );

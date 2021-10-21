@@ -3,6 +3,7 @@ import styles from './TopNav.module.css';
 import HomeSVG from "../SVG/HomeSVG";
 import CalendarSVG from "../SVG/CalendarSVG";
 import ToDoSVG from "../SVG/ToDoSVG";
+import {Link} from 'react-router-dom'
 
 const TopNav = (props) => {
     const classes = styles.topnav + " " + props.className;
@@ -10,9 +11,9 @@ const TopNav = (props) => {
     return (
         <div className={classes}>
             <div className={styles.topNav__buttons}>
-                <div className={styles.topNav__buttonBackground}>
+                <Link to={'/'} className={styles.topNav__buttonBackground}>
                     <HomeSVG />
-                </div>
+                </Link>
                 <div className={styles.topNav__buttonBackground}>
                     <CalendarSVG />
                 </div>

@@ -9,8 +9,9 @@ import ListViewSVG from "../SVG/ListViewSVG";
 import DetailViewSVG from "../SVG/DetailViewSVG";
 import SearchBar from "./SearchBar";
 
-const Masterdetail = ({ masterRecords, cardClick, newAccount, find }) => {
+const Masterdetail = ({ masterRecords, basePath, cardClick, newAccount, find }) => {
     
+    let createPath = basePath + "accounts/create"
     // Dummy variables for bottom menu
     const bottomMenuData = {
         activeRecordNumber: 1,
@@ -44,6 +45,7 @@ const Masterdetail = ({ masterRecords, cardClick, newAccount, find }) => {
                     changeActive={cardClick}
                     masterRecords={masterRecords}
                     newAccount={newAccount}
+                    path={createPath}
                 />
             </div>
 
