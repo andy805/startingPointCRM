@@ -29,7 +29,7 @@ await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accou
     console.log('hit newAccount')
     const newAccount = new Account({
 
-      accountName: "Should show up at top",
+      accountName: "New Account",
       category: "",
       status: "New",
       phone1: "",
@@ -60,10 +60,14 @@ await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accou
    
     console.log('body', req.body)
     // console.log("id", query)
-    console.log("billing adress", req.body.billingAddress1)
  await  Account.findByIdAndUpdate(req.body._id, req.body)
  res.send('updated')
     
   }
 
-export {index, createAccount, updateAccount, find }
+  const deleteAccount = async(req, res)=>{
+    await Account.deleteOne(req.body._id)
+  }
+
+
+export {index, createAccount, updateAccount, find, deleteAccount }
