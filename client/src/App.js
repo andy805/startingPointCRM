@@ -8,7 +8,7 @@ import Products from './pages/Products';
 import {Router, Switch, Route, Link, BrowserRouter, useHistory} from 'react-router-dom';
 import React from 'react';
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar, faChevronDown} from '@fortawesome/free-solid-svg-icons'
+import {faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar, faChevronDown, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 
 
 library.add(faUsers, faCog, faUser, faBoxes, faFileInvoiceDollar, faChevronDown);
