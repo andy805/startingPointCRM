@@ -5,6 +5,7 @@
     /* justify-content: space-between; */
     align-items: center;
     --gray: #D8D8D8;
+    border-bottom: 1px solid var(--fmsp-light-gray);
 }
 
 .mainMenuPortalRow__deleteButton {
