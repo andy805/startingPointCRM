@@ -18,4 +18,5 @@
 
 .div__button {
     display: inline !important;
+    cursor: pointer;
 }

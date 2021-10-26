@@ -1,0 +1,17 @@
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.textContainer {
+    display: flex;
+}
+
+.header {
+    
+}
+
+.description {
+
+}
