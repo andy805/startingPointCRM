@@ -82,10 +82,25 @@
     color: var(--fmsp-blue);
 }
 
-.button__popup {
+.button__popup__delete {
     border-radius: 10px;
-    border-style: solid;
+    border-style: none;
     color: red;
     padding: 10px;
     margin: 10px;
+    background-color: white;
+}
+.button__popup {
+    border-radius: 10px;
+    border-style: none;
+    color: var(--fmsp-blue);
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.button__popup:hover, .button__popup__delete:hover {
+
+    background-color: #f6f6f6;
+    cursor: pointer;
 }
