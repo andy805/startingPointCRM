@@ -1,0 +1,16 @@
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    -webkit-box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.15); 
+    box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.15);
+    width: 400px;
+    height: 400px;
+    z-index: 2;
+}
+
+.dropdown__invisible {
+    display: none;
+}
