@@ -21,7 +21,7 @@ const Invoices = () => {
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
             <h1>Invoices</h1>
-            <Masterdetail/>
+            {/* <Masterdetail/> */}
         </div>
     )
 

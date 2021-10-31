@@ -4,6 +4,7 @@
     grid-row: 2/3;
     overflow-y: auto;
     width: 278px;
+    padding-right: 15px;
 }
 
 .masterDetail__bottomMenu {

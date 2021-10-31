@@ -36,3 +36,8 @@
     margin-top: 18px;
     border: 1px solid var(--fmsp-light-gray);
 }
+
+.button__popup {
+    border-radius: 10px;
+    border-style: solid;
+}

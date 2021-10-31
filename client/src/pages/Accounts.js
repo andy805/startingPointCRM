@@ -105,10 +105,9 @@ const Accounts = () => {
     }
 
     const handleChangeClient = (e, fieldName, value) => {
-        console.log(fieldName);
-        console.log(value);
+        /* fieldname and value are optional paramters */
         if(fieldName == null){
-        console.log('hit handleclient');
+            /* this is default case. this run when we are updated the fields(input tags) */
             setActiveRecord({
                 ...activeRecord,
                 [e.target.name]: e.target.value
@@ -116,15 +115,24 @@ const Accounts = () => {
             })
         }
         else {
-        console.log('hit handlechange client test');
-
+            /* this used when we cant get the field to update as quickly
+             * primary example is with the buttons in the menu. if they click active, inactive
+             * then we the field name to update and the value */
             setActiveRecord({
                 ...activeRecord,
-                [e.target.fieldName]: value
+                [fieldName]: value
 
             })
+            const newData = masterRecords.data
+            newData[activeIndex][fieldName] = value;
+            setMasterRecords(prevState => ({
+                ...prevState, 
+                data: newData 
+            }));
 
-        }
+            axios.put(basePath+"accounts/update", activeRecord)
+
+            }
     }
 
     const handleChange = async (e) => {
@@ -197,7 +205,7 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} find={find} />
+            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} find={find} basePath={basePath} />
             <div className={styles.accordion__comms}>
                 <Menu
                     account={masterRecords}
