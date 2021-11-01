@@ -197,6 +197,11 @@ const Accounts = () => {
         fetchAccounts()
     }, [refetch])
 
+    const deleteRecord = async () => {
+        const deleteRecord = await axios.delete(basePath+"accounts/delete", {
+            data: {_id: activeRecord._id}
+        })
+    }
 
 
     return (
