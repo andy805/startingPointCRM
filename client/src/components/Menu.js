@@ -3,12 +3,14 @@ import styles from "./Menu.module.css";
 import { useState } from "react";
 import EditBox from "./UI/EditBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { faCopy, faEllipsisH, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import Popover from "../pages/Popover";
+import ButtonHeaderDescription from "./UI/ButtonHeaderDescription";
 
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient} ) {
 
+    let dupButtonDescription = "Click here to duplicate the current account";
     const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
     console.log(activeRecord.category);
@@ -39,8 +41,8 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient} )
                 {/* <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon> */}
                 <Popover icon={faEllipsisH}>
                     {/* any thing in between the popover will be in the menu */}
-                    <h1>Hello </h1>
-                    <button className={styles.button__popup}>Duplicate</button>
+                    <ButtonHeaderDescription icon={faCopy} header={"Duplicate"} description={dupButtonDescription} />
+                    <ButtonHeaderDescription icon={faTrashAlt} color={"red"} header={"Delete " +activeRecord.accountName}  />
                     <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
                 </Popover>
             </div>

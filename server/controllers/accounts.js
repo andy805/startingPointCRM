@@ -29,7 +29,7 @@ await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accou
     console.log('hit newAccount')
     const newAccount = new Account({
 
-      accountName: "Should show up at top",
+      accountName: "New Account",
       category: "",
       status: "New",
       phone1: "",

@@ -8,6 +8,7 @@ router.get('/', index)
 router.post('/create', createAccount )
 router.put('/update', updateAccount )
 router.get('/find', find)
+router.delete('/delete')
 
 
 export {router as accountRouter}
