@@ -74,7 +74,7 @@ await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accou
       console.log("delete record _id: " + req.body._id)
     }
     catch(err) {
-      err.stackl
+      err.stack
       res.send("error in deleting record")
     }
     res.send("delete record")
