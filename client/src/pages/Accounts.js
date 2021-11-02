@@ -226,6 +226,10 @@ const Accounts = () => {
         }
     }
 
+    /**************************************
+     * json array that holds the icon name and the name for the icon
+     * used in main menu, it is the butto
+     */
 
     return (
         <div className={styles.page}>

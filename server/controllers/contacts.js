@@ -1,4 +1,4 @@
-
+import  Mongoose  from 'mongoose'
 import { Contact } from '../models/contacts.js'
 
 const index = (req, res) => {
