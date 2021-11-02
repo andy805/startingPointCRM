@@ -41,7 +41,7 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient} )
                     {/* any thing in between the popover will be in the menu */}
                     <h1>Hello </h1>
                     <button className={styles.button__popup}>Duplicate</button>
-                    <button className={styles.button__popup}> delete</button>
+                    <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
                 </Popover>
             </div>
 
