@@ -200,10 +200,10 @@ const Accounts = () => {
 
     const deleteRecord = async () => {
         const currIndex = masterRecords.active;
-        // const res = await axios.delete(basePath+"accounts/delete", {
-        //     data: {_id: activeRecord._id}
-        // })
-        // console.log(res);
+        const res = await axios.delete(basePath+"accounts/delete", {
+            data: {_id: activeRecord._id}
+        })
+        console.log(res);
         let newArray = masterRecords.data.splice(masterRecords.active, 1);
         /* three cases 
          * 1. delete the last element
