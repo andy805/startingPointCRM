@@ -17,7 +17,7 @@ export const accountSchema = new Schema({
     fax: String,
     email: String,
     website: String,
-    billingAddress1: String,
+    billingAddress1: String, 
     billingAddress2: String,
     billingCity: String,
     billingState: String,
