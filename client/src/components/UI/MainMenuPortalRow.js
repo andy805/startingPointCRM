@@ -4,23 +4,23 @@ import DeleteSVG from "./../SVG/DeleteSVG";
 import MailSVG from "../SVG/MailSVG";
 import ChevronRightSVG from "../SVG/ChevronRightSVG";
 
-const MainMenuPortalRow = () => {
+const MainMenuPortalRow = ({firstName, lastName, position, address, phone}) => {
     return (
         <div className={styles.mainMenuPortalRow}>
             <div className={styles.mainMenuPortalRow__deleteButton}>
                 <DeleteSVG />
             </div>
 
-            <div className={styles.mainMenuPortalRow__initials}>LC</div>
+            <div className={styles.mainMenuPortalRow__initials}>{firstName[0]}{lastName[0]}</div>
 
             <div className={styles.mainMenuPortalRow__nameTitle}>
-                <span>Chaney, Lani</span>
-                <span>Supervisor (Payroll)</span>
+                <span>{lastName}, {firstName}</span>
+                <span>{position}</span>
             </div>
 
             <div className={styles.mainMenuPortalRow__addressPhone}>
-                <span>8310 Iaculis Ave, Annapolis, MD</span>
-                <span>(365) 494-3176</span>
+                <span>{address}</span>
+                <span>{phone}</span>
             </div>
 
             <div className={styles.mainMenuPortalRow__emailButton}>
