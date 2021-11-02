@@ -68,7 +68,6 @@ await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accou
 
   const deleteAccount = async (req, res) => {
     console.log('body', req.body)
-    await Account.deleteOne()
 
     try{
       await Account.deleteOne({_id: req.body._id}).exec()

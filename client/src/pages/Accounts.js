@@ -33,8 +33,8 @@ const shippingTextElement = (
 
 //this broke my build what is it for?
 // import { STATES } from 'mongoose';
-// const basePath = "https://shielded-oasis-43540.herokuapp.com/"
- const basePath = "http://localhost:3000/"
+const basePath = "https://shielded-oasis-43540.herokuapp.com/"
+//  const basePath = "http://localhost:3000/"
 
 const navItems = [{ label: "Accounts", path: "/Accounts", active: true },
 { label: "Contacts", path: "/Contacts", active: false }, { label: "Invoices", path: "/Invoices", active: false },
