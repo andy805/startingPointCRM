@@ -1,13 +1,17 @@
 import  Mongoose  from "mongoose";
+import { contactSchema, Contact } from "./contacts.js";
+import { accountSchema, Account } from "./accounts.js";
 const Schema = Mongoose.Schema;
 
-export const notesSchema = new Schema({
+export const noteSchema = new Mongoose.Schema({
 
     _id_account: Schema.Types.ObjectId,
     _id_contact: Schema.Types.ObjectId,
     _id_project: Schema.Types.ObjectId,
     _id_product: Schema.Types.ObjectId,
     _id_invoice: Schema.Types.ObjectId,
+    accounts: [{type: Schema.Types.ObjectId, ref: 'contact'}],
+    contacts: [{type: Schema.Types.ObjectId, ref: 'account'}],
     name_account: String,
     name_contact: String,
     name_project: String,
@@ -17,6 +21,6 @@ export const notesSchema = new Schema({
     note: String,
     note_type: String
 
-});
+}, {timestamps: true});
 
-export const Notes = Mongoose.model("note", notesSchema);
+export const Note = Mongoose.model("note", noteSchema);

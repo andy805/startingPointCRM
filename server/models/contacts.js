@@ -1,19 +1,18 @@
 import Mongoose from "mongoose"
-import {Account} from "./accounts.js";
-
+import { Note, noteSchema } from "./notes.js";
+import {accountSchema, Account} from './accounts.js';
 const Schema = Mongoose.Schema
 
-const contactSchema = new Schema({
+export const contactSchema = new Schema({
     _idContact: Schema.Types.ObjectId,
-    _idAccount: {type: Schema.Types.ObjectId, ref:Account},
+    /*ref has to point to the model name*/
+    notes: [{type:Schema.Types.ObjectId, ref:'note'}],
+    account: {type:Schema.Types.ObjectId , ref: 'account'},//[accountSchema]
     firstName:String,
     lastName:String,
     phone1:String,
     phone2:String,
-    email: String,
+    email: String
+} , {timestamps: true});
 
-
-
-})
-
-export const Contact = Mongoose.model("contact", contactSchema)
+export const Contact = Mongoose.model("contact", contactSchema);
