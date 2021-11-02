@@ -65,9 +65,19 @@ await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accou
     
   }
 
-  const deleteAccount = async(req, res)=>{
-    await Account.deleteOne(req.body._id)
-  }
+  const deleteAccount = async (req, res) => {
+    console.log('body', req.body)
+    await Account.deleteOne()
 
+    try{
+      await Account.deleteOne({_id: req.body._id}).exec()
+      console.log("delete record _id: " + req.body._id)
+    }
+    catch(err) {
+      err.stackl
+      res.send("error in deleting record")
+    }
+    res.send("delete record")
+  }
 
 export {index, createAccount, updateAccount, find, deleteAccount }

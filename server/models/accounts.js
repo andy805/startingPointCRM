@@ -1,12 +1,14 @@
 import Mongoose  from "mongoose";
+import {notesSchema} from './notes.js';
+
 const Schema = Mongoose.Schema;
 
 const accountSchema = new Schema({
 
    // user: { type: Schema.Types.ObjectId, ref: User },
     pk: Schema.Types.ObjectId,
-   // notes: [{ type: Schema.Types.ObjectId, ref: Note }],
-  //  contacts: [{ type: Schema.Types.ObjectId, ref: Contact }],
+    notes: [notesSchema],
+    // contacts: [Contacts],
     accountName: String,
     category: String,
     status: String,

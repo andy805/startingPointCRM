@@ -1,5 +1,6 @@
 import Mongoose from "mongoose"
 import {Account} from "./accounts.js";
+
 const Schema = Mongoose.Schema
 
 const contactSchema = new Schema({
