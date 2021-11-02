@@ -60,7 +60,6 @@ await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accou
    
     console.log('body', req.body)
     // console.log("id", query)
-    console.log("billing adress", req.body.billingAddress1)
  await  Account.findByIdAndUpdate(req.body._id, req.body)
  res.send('updated')
     
