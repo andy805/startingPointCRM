@@ -33,7 +33,8 @@ const shippingTextElement = (
 
 //this broke my build what is it for?
 // import { STATES } from 'mongoose';
-const basePath = "https://shielded-oasis-43540.herokuapp.com/"
+// const basePath = "https://shielded-oasis-43540.herokuapp.com/"
+ const basePath = "http://localhost:3000/"
 
 const navItems = [{ label: "Accounts", path: "/Accounts", active: true },
 { label: "Contacts", path: "/Contacts", active: false }, { label: "Invoices", path: "/Invoices", active: false },
@@ -198,9 +199,31 @@ const Accounts = () => {
     }, [refetch])
 
     const deleteRecord = async () => {
-        const deleteRecord = await axios.delete(basePath+"accounts/delete", {
-            data: {_id: activeRecord._id}
-        })
+        const currIndex = masterRecords.active;
+        // const res = await axios.delete(basePath+"accounts/delete", {
+        //     data: {_id: activeRecord._id}
+        // })
+        // console.log(res);
+        let newArray = masterRecords.data.splice(masterRecords.active, 1);
+        /* three cases 
+         * 1. delete the last element
+         * 2. delete the first element
+         * 3. delete the only element
+         */ 
+        if (masterRecords.active === 0 && masterRecords.data.length === 1) {
+            /* we are deleting the only element in the array */
+        }
+        else if(masterRecords.active === 0) {
+            setActiveIndex(0);
+            setActiveRecord(masterRecords.data[0]);
+            setMasterRecords({data: masterRecords.data, active: 0, currDocument: masterRecords.data[0]})
+        }
+        else
+        {
+            setActiveIndex(currIndex-1);
+            setActiveRecord(masterRecords.data[currIndex-1]);
+            setMasterRecords({data:masterRecords.data, active: currIndex-1, currDocument: masterRecords.data[currIndex-1]})
+        }
     }
 
 
@@ -217,6 +240,7 @@ const Accounts = () => {
                     activeRecord={activeRecord}
                     handleChange={handleChange}
                     handleChangeClient={handleChangeClient}
+                    deleteHandler={deleteRecord}
                 />
 
                 <Accordion
