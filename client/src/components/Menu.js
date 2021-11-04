@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faEllipsisH, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import Popover from "../pages/Popover";
 import ButtonHeaderDescription from "./UI/Buttons/ButtonHeaderDescription.js";
+import DuplicateSVG from "./SVG/DuplicateSVG";
 
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler} ) {
@@ -39,8 +40,8 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
 
             <Popover icon={faEllipsisH}>
                 {/* any thing in between the popover will be in the menu */}
-                <ButtonHeaderDescription icon={faCopy} header={"Duplicate"} description={dupButtonDescription} />
-                <ButtonHeaderDescription function={deleteHandler} icon={faTrashAlt} color={"red"} header={"Delete " +activeRecord.accountName}  />
+                <ButtonHeaderDescription icon={<DuplicateSVG/>} header={"Duplicate"} description={dupButtonDescription} />
+                {/* <ButtonHeaderDescription function={deleteHandler} icon={faTrashAlt} color={"red"} header={"Delete " +activeRecord.accountName}  /> */}
                 <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
             </Popover>
 
