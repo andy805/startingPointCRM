@@ -6,7 +6,7 @@ const ButtonHeaderDescription = (props) => {
 
     return (
         <div className={styles.buttonContainer} onClick={props.function}>
-            <FontAwesomeIcon className={styles.buttonIcon} icon={props.icon} />
+            <div>{props.icon}</div>
             <div className={styles.textContainer}>
                 <h6 className={styles.header}>{props.header}</h6>
                 <p className={styles.description}>{props.description}</p>
