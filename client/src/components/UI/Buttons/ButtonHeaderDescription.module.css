@@ -4,7 +4,7 @@
     grid-template-columns: 50px auto;
     padding: 10px 13px 10px 13px;
     margin: 7px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .buttonContainer:hover {
