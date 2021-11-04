@@ -2,16 +2,16 @@ import React from "react";
 import styles from "./Menu.module.css";
 import { useState } from "react";
 import EditBox from "./UI/EditBox";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy, faEllipsisH, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import Popover from "../pages/Popover";
 import ButtonHeaderDescription from "./UI/Buttons/ButtonHeaderDescription.js";
 import DuplicateSVG from "./SVG/DuplicateSVG";
+import PrintSVG from "./SVG/PrintSVG";
+import ReportSVG from "./SVG/ReportSVG";
 
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler} ) {
 
-    let dupButtonDescription = "Click here to duplicate the current Account.";
     const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
     const [selectState, setSelectState] = useState(activeRecord.category);
@@ -21,6 +21,24 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
         let value = e.target.innerHTML;
         handleChangeClient(e, 'status', value);
     }
+
+    const topRows = [
+        {
+            icon: <DuplicateSVG/>,
+            header: "Duplicate",
+            description: "Click here to duplicate the current Account."
+        },
+        {
+            icon: <PrintSVG/>,
+            header: "Print",
+            description: "Click here to print the current Account in Detail Form."
+        },
+        {
+            icon: <ReportSVG/>,
+            header: "Report",
+            description: "Click here to view this Account's list report."
+        }
+    ]
 
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"} ${"no-select"}`}>
@@ -40,8 +58,11 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
 
             <Popover icon={faEllipsisH}>
                 {/* any thing in between the popover will be in the menu */}
-                <ButtonHeaderDescription icon={<DuplicateSVG/>} header={"Duplicate"} description={dupButtonDescription} />
-                {/* <ButtonHeaderDescription function={deleteHandler} icon={faTrashAlt} color={"red"} header={"Delete " +activeRecord.accountName}  /> */}
+                
+                {topRows.map((row) => (
+                    <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
+                ))}
+                
                 <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
             </Popover>
 
