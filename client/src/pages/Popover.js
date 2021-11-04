@@ -24,6 +24,7 @@ const Popover = (props) => {
     ],
     });
 
+    // opens and closes Popover
     const handleClick = () => {
         setVisible(!visible);
     }
