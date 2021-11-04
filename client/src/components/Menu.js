@@ -9,7 +9,7 @@ import DuplicateSVG from "./SVG/DuplicateSVG";
 import PrintSVG from "./SVG/PrintSVG";
 import ReportSVG from "./SVG/ReportSVG";
 import AddressSVG from "./SVG/AddressSVG";
-
+import TrashSVG from "./SVG/TrashSVG";
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler} ) {
 
@@ -84,8 +84,16 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
                 ))}
 
                 <div className={styles.menu__lineBreak}/>
+
+                <div className={styles.menu__deleteButton}>
+                    <TrashSVG/>
+
+                    {/*  ${activeRecord.accountName} */}
+                    <button className={styles.button__popup__delete}>{`Delete`}</button>
+                </div>
+
                 
-                <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
+                
             </Popover>
 
             <label className={"no-select"}>Type</label>
