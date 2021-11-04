@@ -22,7 +22,7 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
     }
 
     return (
-        <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
+        <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"} ${"no-select"}`}>
 
             {/* Width prop lets you change width of EditBox */}
             {/* If no width is specified it defaults to 100% width */}
@@ -44,7 +44,7 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
                 <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
             </Popover>
 
-            <label>Type</label>
+            <label className={"no-select"}>Type</label>
             <select value={activeRecord.category}>
                 <option className={styles.menu__chooseOption}>Choose...</option>
             </select>
