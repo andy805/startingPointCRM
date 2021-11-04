@@ -77,10 +77,13 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
                     <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
                 ))}
                 
+                <div className={styles.menu__lineBreak}/>
                                 
                 {bottomRows.map((row) => (
                     <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
                 ))}
+
+                <div className={styles.menu__lineBreak}/>
                 
                 <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
             </Popover>

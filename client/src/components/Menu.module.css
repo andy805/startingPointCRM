@@ -95,7 +95,11 @@
 }
 
 .button__popup:hover, .button__popup__delete:hover {
-
     background-color: #f6f6f6;
     cursor: pointer;
+}
+
+.menu__lineBreak {
+    border-bottom: 1px solid var(--fmsp-light-gray);
+    width: 348px;
 }
