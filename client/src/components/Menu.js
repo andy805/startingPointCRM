@@ -11,7 +11,7 @@ import DuplicateSVG from "./SVG/DuplicateSVG";
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler} ) {
 
-    let dupButtonDescription = "Click here to duplicate the current account";
+    let dupButtonDescription = "Click here to duplicate the current Account.";
     const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
     const [selectState, setSelectState] = useState(activeRecord.category);

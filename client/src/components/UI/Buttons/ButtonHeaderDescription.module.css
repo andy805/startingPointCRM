@@ -1,5 +1,6 @@
 .buttonContainer {
     display: flex;
+    align-items: center;
     border-radius: 5px;
     width: 348px;
     height: 54px;
@@ -20,10 +21,20 @@
 
 .textContainer {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     padding-left: 5px;
-    align-self: center;
+}
 
+/* Blue text on popover menu row */
+.textContainer > h6 {
+    font-weight: 100;
+    font-size: 13px;
+}
+
+/* Grey text on popover menu row */
+.textContainer > p {
+    font-size: 10px;
 }
 
 .header {
@@ -40,7 +51,9 @@
    font-size: 13px;
 }
 
+/* Left icon for rows of Popover menu */
 .buttonContainer svg {
     fill: var(--fmsp-blue);
-    width: 26px
+    width: 26px;
+    margin: 0 6px 0 10px;
 }
