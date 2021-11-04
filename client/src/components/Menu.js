@@ -8,6 +8,7 @@ import ButtonHeaderDescription from "./UI/Buttons/ButtonHeaderDescription.js";
 import DuplicateSVG from "./SVG/DuplicateSVG";
 import PrintSVG from "./SVG/PrintSVG";
 import ReportSVG from "./SVG/ReportSVG";
+import AddressSVG from "./SVG/AddressSVG";
 
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler} ) {
@@ -40,6 +41,19 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
         }
     ]
 
+    const bottomRows = [
+        {
+            icon: <AddressSVG/>,
+            header: "View Address Labels",
+            description: "Click here to view this Account's address labels."
+        },
+        {
+            icon: <PrintSVG/>,
+            header: "Print Labels",
+            description: "Click here to print the current found set of 33 record(s) in an Avery 5160 Label format."
+        }
+    ]
+
     return (
         <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"} ${"no-select"}`}>
 
@@ -60,6 +74,11 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
                 {/* any thing in between the popover will be in the menu */}
                 
                 {topRows.map((row) => (
+                    <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
+                ))}
+                
+                                
+                {bottomRows.map((row) => (
                     <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
                 ))}
                 
