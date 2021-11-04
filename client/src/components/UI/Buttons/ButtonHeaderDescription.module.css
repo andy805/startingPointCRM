@@ -1,10 +1,8 @@
-
 .buttonContainer {
-    display: grid;
-    grid-template-columns: 50px auto;
-    padding: 10px 13px 10px 13px;
-    margin: 7px;
+    display: flex;
     border-radius: 5px;
+    width: 348px;
+    height: 54px;
 }
 
 .buttonContainer:hover {
