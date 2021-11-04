@@ -10,6 +10,7 @@ import multer from "multer"
 //routes
 import {accountRouter} from './routes/accounts.js'
 import {contactRouter} from './routes/contacts.js'
+import {userRouter} from './routes/user.js'
 // const express = require('express')
 
 // require('dotenv').config('.env')
@@ -37,6 +38,7 @@ app.use(methodOverride('_method'))
 
 app.use('/accounts', accountRouter)
 app.use('/contacts', contactRouter)
+app.use('/user', userRouter)
 
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)
