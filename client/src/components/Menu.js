@@ -13,7 +13,6 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
     let dupButtonDescription = "Click here to duplicate the current account";
     const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
-    console.log(activeRecord.category);
     const [selectState, setSelectState] = useState(activeRecord.category);
 
     const handleButtonClick = (e) => {
