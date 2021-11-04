@@ -17,6 +17,7 @@
 }
 
 .div__button {
-    display: inline !important;
-    cursor: pointer;
+  position: absolute;
+  margin-left: 306px;
+  cursor: pointer;
 }

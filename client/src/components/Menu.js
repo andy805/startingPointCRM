@@ -26,25 +26,23 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
 
             {/* Width prop lets you change width of EditBox */}
             {/* If no width is specified it defaults to 100% width */}
-            <div>
-                <EditBox
-                    fieldName={"Account"}
-                    activeRecord={activeRecord}
-                    width={{ width: "270px" }}
-                    keyName={"accountName"}
-                    fieldData={activeRecord.accountName}
-                    handleChange={handleChange}
-                    handleChangeClient={handleChangeClient}
+            <EditBox
+                fieldName={"Account"}
+                activeRecord={activeRecord}
+                width={{ width: "270px" }}
+                keyName={"accountName"}
+                fieldData={activeRecord.accountName}
+                handleChange={handleChange}
+                handleChangeClient={handleChangeClient}
 
-                />
-                {/* <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon> */}
-                <Popover icon={faEllipsisH}>
-                    {/* any thing in between the popover will be in the menu */}
-                    <ButtonHeaderDescription icon={faCopy} header={"Duplicate"} description={dupButtonDescription} />
-                    <ButtonHeaderDescription function={deleteHandler} icon={faTrashAlt} color={"red"} header={"Delete " +activeRecord.accountName}  />
-                    <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
-                </Popover>
-            </div>
+            />
+
+            <Popover icon={faEllipsisH}>
+                {/* any thing in between the popover will be in the menu */}
+                <ButtonHeaderDescription icon={faCopy} header={"Duplicate"} description={dupButtonDescription} />
+                <ButtonHeaderDescription function={deleteHandler} icon={faTrashAlt} color={"red"} header={"Delete " +activeRecord.accountName}  />
+                <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
+            </Popover>
 
             <label>Type</label>
             <select value={activeRecord.category}>
