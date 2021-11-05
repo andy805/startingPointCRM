@@ -16,6 +16,9 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
     const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
     const [selectState, setSelectState] = useState(activeRecord.category);
+    
+    // stops "undefined" from showing up on button
+    let accountName = activeRecord.accountName === undefined ? "" : activeRecord.accountName
 
     const handleButtonClick = (e) => {
 
@@ -87,13 +90,8 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
 
                 <div className={styles.menu__deleteButton}>
                     <TrashSVG/>
-
-                    {/*  ${activeRecord.accountName} */}
-                    <button className={styles.button__popup__delete}>{`Delete`}</button>
-                </div>
-
-                
-                
+                    {`Delete ${accountName}`}
+                </div>    
             </Popover>
 
             <label className={"no-select"}>Type</label>
