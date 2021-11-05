@@ -2,18 +2,19 @@ import React from "react";
 import styles from "./Menu.module.css";
 import { useState } from "react";
 import EditBox from "./UI/EditBox";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy, faEllipsisH, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import Popover from "../pages/Popover";
 import ButtonHeaderDescription from "./UI/Buttons/ButtonHeaderDescription.js";
-
+import DuplicateSVG from "./SVG/DuplicateSVG";
+import PrintSVG from "./SVG/PrintSVG";
+import ReportSVG from "./SVG/ReportSVG";
+import AddressSVG from "./SVG/AddressSVG";
+import TrashSVG from "./SVG/TrashSVG";
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler} ) {
 
-    let dupButtonDescription = "Click here to duplicate the current account";
     const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
-    console.log(activeRecord.category);
     const [selectState, setSelectState] = useState(activeRecord.category);
 
     const handleButtonClick = (e) => {
@@ -22,32 +23,80 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
         handleChangeClient(e, 'status', value);
     }
 
+    const topRows = [
+        {
+            icon: <DuplicateSVG/>,
+            header: "Duplicate",
+            description: "Click here to duplicate the current Account."
+        },
+        {
+            icon: <PrintSVG/>,
+            header: "Print",
+            description: "Click here to print the current Account in Detail Form."
+        },
+        {
+            icon: <ReportSVG/>,
+            header: "Report",
+            description: "Click here to view this Account's list report."
+        }
+    ]
+
+    const bottomRows = [
+        {
+            icon: <AddressSVG/>,
+            header: "View Address Labels",
+            description: "Click here to view this Account's address labels."
+        },
+        {
+            icon: <PrintSVG/>,
+            header: "Print Labels",
+            description: "Click here to print the current found set of 33 record(s) in an Avery 5160 Label format."
+        }
+    ]
+
     return (
-        <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"}`}>
+        <div className={`${styles.menu} ${"box-shadow"} ${"flex-center"} ${"no-select"}`}>
 
             {/* Width prop lets you change width of EditBox */}
             {/* If no width is specified it defaults to 100% width */}
-            <div>
-                <EditBox
-                    fieldName={"Account"}
-                    activeRecord={activeRecord}
-                    width={{ width: "270px" }}
-                    keyName={"accountName"}
-                    fieldData={activeRecord.accountName}
-                    handleChange={handleChange}
-                    handleChangeClient={handleChangeClient}
+            <EditBox
+                fieldName={"Account"}
+                activeRecord={activeRecord}
+                width={{ width: "270px" }}
+                keyName={"accountName"}
+                fieldData={activeRecord.accountName}
+                handleChange={handleChange}
+                handleChangeClient={handleChangeClient}
 
-                />
-                {/* <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon> */}
-                <Popover icon={faEllipsisH}>
-                    {/* any thing in between the popover will be in the menu */}
-                    <ButtonHeaderDescription icon={faCopy} header={"Duplicate"} description={dupButtonDescription} />
-                    <ButtonHeaderDescription function={deleteHandler} icon={faTrashAlt} color={"red"} header={"Delete " +activeRecord.accountName}  />
-                    <button className={styles.button__popup__delete}>{`Delete ${activeRecord.accountName}`}</button>
-                </Popover>
-            </div>
+            />
 
-            <label>Type</label>
+            <Popover icon={faEllipsisH}>
+                {/* any thing in between the popover will be in the menu */}
+                
+                {topRows.map((row) => (
+                    <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
+                ))}
+                
+                <div className={styles.menu__lineBreak}/>
+                                
+                {bottomRows.map((row) => (
+                    <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
+                ))}
+
+                <div className={styles.menu__lineBreak}/>
+
+                <div className={styles.menu__deleteButton}>
+                    <TrashSVG/>
+
+                    {/*  ${activeRecord.accountName} */}
+                    <button className={styles.button__popup__delete}>{`Delete`}</button>
+                </div>
+
+                
+                
+            </Popover>
+
+            <label className={"no-select"}>Type</label>
             <select value={activeRecord.category}>
                 <option className={styles.menu__chooseOption}>Choose...</option>
             </select>

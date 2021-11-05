@@ -55,11 +55,6 @@
     border-right: 1px solid var(--fmsp-blue) !important;
 }
 
-.menu > svg[data-icon="ellipsis-h"] {
-    position: absolute;
-    margin-left: 306px;
-}
-
 .menu,
 .menu__buttons {
     display: flex;
@@ -85,11 +80,11 @@
 .button__popup__delete {
     border-radius: 10px;
     border-style: none;
-    color: red;
+    color: var(--fmsp-red);
     padding: 10px;
     margin: 10px;
-    background-color: white;
 }
+
 .button__popup {
     border-radius: 10px;
     border-style: none;
@@ -100,7 +95,26 @@
 }
 
 .button__popup:hover, .button__popup__delete:hover {
-
     background-color: #f6f6f6;
     cursor: pointer;
+}
+
+.menu__lineBreak {
+    border-bottom: 1px solid var(--fmsp-light-gray);
+    width: 348px;
+}
+
+.menu__deleteButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 348px;
+    height: 42px;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+}
+
+.menu__deleteButton svg {
+    width: 16px;
+    fill: var(--fmsp-red);
 }

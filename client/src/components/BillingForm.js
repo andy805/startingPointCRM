@@ -2,7 +2,6 @@ import React from 'react';
 import EditBox from './UI/EditBox';
 
 const BillingForm = (props) => {
-    console.log(props.activeRecord)
     return (
         <>
             <EditBox handleChangeClient={props.handleChangeClient} fieldName={"Address 1"} keyName={"billingAddress1"} fieldData={props.activeRecord.billingAddress1} handleChange={props.handleChange}/>
