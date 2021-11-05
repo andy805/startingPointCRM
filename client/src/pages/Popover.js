@@ -17,13 +17,14 @@ const Popover = (props) => {
       },
       {name: 'offset',
       options: {
-          offset: [375, 1]
+          offset: [353, 1]
         }
       }
     
     ],
     });
 
+    // opens and closes Popover
     const handleClick = () => {
         setVisible(!visible);
     }

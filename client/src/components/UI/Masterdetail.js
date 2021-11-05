@@ -23,7 +23,7 @@ const Masterdetail = ({ masterRecords, basePath, cardClick, newAccount, find }) 
     const cardClickMaster = (id) => {
         cardClick(id);
     };
-    console.log(masterRecords)
+    
     return (
         <div className={style.masterDetail}>
             <div className={style.masterDetail__topMenu}>

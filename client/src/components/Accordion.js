@@ -6,13 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const Accordion = (props) => {
-    console.log(props.className);
 
     const [slideOpen, setSlideOpen] = useState(false);
 
     const slide = (ev) => {
         
-        // console.log(ev.target.nextElementSibling.style.display);
         // ev.target.nextElementSibling.style.display ="block";
         setSlideOpen(prevState => !prevState);
     }
