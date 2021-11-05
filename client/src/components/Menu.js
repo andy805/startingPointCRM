@@ -79,14 +79,18 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
                 {topRows.map((row) => (
                     <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
                 ))}
+
+                <div className={styles.menu__labels}>
+                    <div className={styles.menu__lineBreak}/>
+                    <span>Labels</span>
+                </div>
                 
-                <div className={styles.menu__lineBreak}/>
                                 
                 {bottomRows.map((row) => (
                     <ButtonHeaderDescription icon={row.icon} header={row.header} description={row.description} />
                 ))}
 
-                <div className={styles.menu__lineBreak}/>
+                <div className={styles.menu__lineBreak} style={{margin: "13px 0"}}/>
 
                 <div className={styles.menu__deleteButton}>
                     <TrashSVG/>

@@ -1,5 +1,6 @@
 .dropdown {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: #FFFFFF;
@@ -9,7 +10,6 @@
     width: 375px;
     height: 408px;
     z-index: 2;
-    padding: 15px 0 0 0;
 }
 
 .dropdown__invisible {
