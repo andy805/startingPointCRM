@@ -11,4 +11,4 @@ const Schema = Mongoose.Schema;
      
      }, {timestamps: true});
 
-export const user = Mongoose.model("user", userSchema)
+export const User = Mongoose.model("user", userSchema)
