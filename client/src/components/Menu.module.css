@@ -107,7 +107,7 @@
     border-radius: 5px;
     font-size: 13px;
     color: var(--fmsp-red);
-    margin-top: 20px;
+    margin-top: 18px;
     font-weight: 600;
 }
 
@@ -116,4 +116,23 @@
     width: 16px;
     fill: var(--fmsp-red);
     margin-right: 5px;
+}
+
+/* labels line break container */
+.menu__labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 17px 0 7px 0;
+}
+
+/* "Labels" text */
+.menu__labels > span {
+    position: absolute;
+    background-color: white;
+    padding: 0 22px;
+    color: var(--fmsp-gray);
+    font-size: 13px;
+    font-family: Helvetica;
+    font-weight: 500;
 }
