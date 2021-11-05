@@ -77,14 +77,6 @@
     color: var(--fmsp-blue);
 }
 
-.button__popup__delete {
-    border-radius: 10px;
-    border-style: none;
-    color: var(--fmsp-red);
-    padding: 10px;
-    margin: 10px;
-}
-
 .button__popup {
     border-radius: 10px;
     border-style: none;
@@ -104,6 +96,7 @@
     width: 348px;
 }
 
+/* container of delete button */
 .menu__deleteButton {
     display: flex;
     justify-content: center;
@@ -112,9 +105,15 @@
     height: 42px;
     background-color: #F6F6F6;
     border-radius: 5px;
+    font-size: 13px;
+    color: var(--fmsp-red);
+    margin-top: 20px;
+    font-weight: 600;
 }
 
+/* Trash can icon for delete button */
 .menu__deleteButton svg {
     width: 16px;
     fill: var(--fmsp-red);
+    margin-right: 5px;
 }
