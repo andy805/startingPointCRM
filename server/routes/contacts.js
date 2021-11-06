@@ -5,6 +5,6 @@ const router = express.Router()
 
 
 router.get('/', index)
-router.push('/create' , createContact )
+router.post('/create' , createContact )
 
 export {router as contactRouter}
