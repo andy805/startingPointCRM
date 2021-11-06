@@ -10,9 +10,25 @@ export const contactSchema = new Schema({
     account: {type:Schema.Types.ObjectId , ref: 'account'},//[accountSchema]
     firstName:String,
     lastName:String,
+    category: String,
+    status: String,
     phone1:String,
     phone2:String,
-    email: String
+    email: String,
+    website: String,
+    billingAddress1: String, 
+    billingAddress2: String,
+    billingCity: String,
+    billingState: String,
+    billingZipCode: String,
+    billingCountry: String,
+    shippingAddress1: String,
+    shippingAddress2: String,
+    shippingCity: String,
+    shippingState: String,
+    shippingCountry: String,
+    createdBy: String,
+    modifiedBy: String
 } , {timestamps: true});
 
 export const Contact = Mongoose.model("contact", contactSchema);
