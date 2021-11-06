@@ -19,13 +19,13 @@ const Login = ()=>{
 return(
 
     <GoogleLogin
-clientId = "500461040639-pk88u5ga6vttpfam2gjonmjd0dh62ogi.apps.googleusercontent.com"
-buttonText="Log in with Google"
-cookiePolicy={'single_host_origin'}
-onSuccess={responseGoogle}
-onFailure={responseGoogle}
-isSignedIn={true}
-/>
+        clientId = "500461040639-pk88u5ga6vttpfam2gjonmjd0dh62ogi.apps.googleusercontent.com"
+        buttonText="Log in with Google"
+        cookiePolicy={'single_host_origin'}
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        isSignedIn={true}
+    />
 )}
 
 export default Login

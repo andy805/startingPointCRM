@@ -6,6 +6,7 @@ import Masterdetail from "../components/UI/Masterdetail"
 import styles from "./pages.module.css"
 import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
+import Menu from '../components/Menu.js'
 
 const basePath = "https://shielded-oasis-43540.herokuapp.com/"
 
@@ -15,11 +16,15 @@ const navItems = [ {label: "Accounts" , path: "/Accounts", active: false},
 ]
 
 
+const contactArray = [];
 
 const Contacts = () => {
-    const [masterRecords, setMasterRecords] = useState({ data: []})
+    const [refetch, setRefetch] = useState(0)
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [masterRecords, setMasterRecords] = useState({ data: contactArray, active: 0, currDocument: contactArray[0] });
+    const [activeRecord, setActiveRecord] = useState({});
 
-const addContacts = (contacts) => {''
+const addRecords = (contacts) => {''
     setMasterRecords(prevState => ({
         ...prevState, data: [...prevState.data, ...contacts]
     }));
@@ -29,9 +34,10 @@ const addContacts = (contacts) => {''
 useEffect(()=>{
     console.log('hit fetch')
     const fetchContacts = async ()=>{
-        const response = await axios.get(basePath+"/contacts")  
+        const response = await axios.get(basePath+"contacts")  
         console.log('hit', response)
-        addContacts(response.data)
+        addRecords(response.data)
+        setActiveRecord(masterRecords.data[0])
     }
   
 fetchContacts()
@@ -44,7 +50,13 @@ fetchContacts()
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
             <h1>Contacts</h1>
-            <Masterdetail masterRecords={masterRecords}/>
+            <Masterdetail 
+            masterRecords={masterRecords}
+            createPath={basePath+"contacts/create"}
+            />
+            {/* <Menu>
+                activeRecord={activeRecord}
+            </Menu> */}
         </div>
     )
 
