@@ -6,7 +6,8 @@ const Schema = Mongoose.Schema;
          _userId: Schema.Types.ObjectId,
          userName: String,
          userEmail: String,
-         googleId: String
+         googleId: String,
+        secret: String
 
      
      }, {timestamps: true});
