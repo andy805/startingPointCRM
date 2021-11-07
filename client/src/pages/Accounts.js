@@ -228,6 +228,7 @@ const Accounts = () => {
                 newAccount={newAccount} 
                 find={find} 
                 createPath={basePath+"accounts/create"}
+                mainLabel={["accountName"]}
             />
             <div className={styles.accordion__comms}>
                 <Menu
