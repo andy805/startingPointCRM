@@ -9,7 +9,7 @@ import ListViewSVG from "../SVG/ListViewSVG";
 import DetailViewSVG from "../SVG/DetailViewSVG";
 import SearchBar from "./SearchBar";
 
-const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find }) => {
+const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find, mainLabel }) => {
     
     // let createPath = basePath + "accounts/create" /*passed to the createButton Component */
     // Dummy variables for bottom menu
@@ -50,11 +50,13 @@ const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find }
             </div>
 
             {masterRecords.data.map((masterRecord, index) => (
+
                 <PortalRow
                     className={style.PortalRow}
                     status={masterRecord.status}
                     headerLabel={masterRecord.accountInfo}
-                    mainLabel={masterRecord.accountName}
+                    // mainLabel={masterRecord.accountName}
+                    mainLabel={createMainLabel(masterRecord, mainLabel)}
                     phone1={masterRecord.phone1}
                     state={
                         index === masterRecords.active ? "active" : "inactive"
@@ -66,5 +68,23 @@ const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find }
         </div>
     )
 };
+
+/*record is an object with many key value pairs */
+/*field names is an array of all the fieldnames that will be used to create 
+ * the main label
+ */
+const createMainLabel = (record ,fieldNames) => {
+
+    let label = "";
+    for(let i = 0; i < fieldNames.length ; i++) {
+        if(i !== 0){
+            label = label + " " + record[fieldNames[i]];
+        }
+        else {
+            label = record[fieldNames[i]];
+        }
+    }
+    return label;
+}
 
 export default Masterdetail;
