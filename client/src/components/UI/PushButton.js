@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import styles from "./PushButton.module.css";
 
-function PushButton({ svgElement, width, height, title, counterField }) {
+function PushButton({ svgElement, width, height, title, counterField, slideFunc, activeSlide }) {
     // state to determine whether component is in focus
     const [focus, setFocus] = useState(false);
 
     // toggle focus when component is clicked
-    const changeStyle = () => {
-        if (focus) {
-            setFocus(false);
-        } else {
+    const changeStyle = (ev) => {
             setFocus(true);
-        }
+            slideFunc(ev, title);
     };
 
     // Determine which styling to use for component depending on focus state
-    const computedClassName = focus
+    const computedClassName = activeSlide === title
         ? `${styles.pushButton} ${styles.pushButton__active}`
         : `${styles.pushButton}`;
 
