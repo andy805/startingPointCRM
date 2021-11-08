@@ -1,7 +1,1 @@
-{
-"scripts": {
-       "test": "echo \"Error: no test specified\" && exit 1",
-       "prestart" : "npm i --prefix server",
-       "start": "npm start --prefix server"
-    }
-}
+{"scripts":{"test":"echo \"Error: no test specified\" && exit 1","prestart":"npm i --prefix server","start":"npm start --prefix server"},"dependencies":{"cookie-session":"^1.4.0","passport":"^0.5.0","passport-google-oauth20":"^2.0.0"}}

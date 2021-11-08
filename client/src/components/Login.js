@@ -3,14 +3,13 @@ import GoogleLogin from 'react-google-login';
 import axios from 'axios'
 const Login = ()=>{
 
-    const basePath = "https://shielded-oasis-43540.herokuapp.com/"
-//  const basePath = "http://localhost:3000/"
+    // const basePath = "https://shielded-oasis-43540.herokuapp.com/"
+ const basePath = "http://localhost:3000"
 
-    const responseGoogle = (response) => {
-        console.log(response);
+    const responseGoogle = async (response) => {
         axios({
-            method: "POST",
-            url: basePath + "user",
+            method: "GET",
+            url: basePath + "/auth/google",
             data:{response}
         }).then(response =>{
             console.log(response)
