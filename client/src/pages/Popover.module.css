@@ -21,3 +21,7 @@
   margin-left: 306px;
   cursor: pointer;
 }
+
+.popover__background {
+  z-index: 1;
+}
