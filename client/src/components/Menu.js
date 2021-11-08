@@ -13,7 +13,7 @@ import TrashSVG from "./SVG/TrashSVG";
 
 export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler} ) {
 
-    const inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
+    let inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
     
     const [selectState, setSelectState] = useState(activeRecord.category);
     
