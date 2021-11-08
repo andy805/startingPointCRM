@@ -1,0 +1,41 @@
+
+.slide-inactive {
+    display: none;
+}
+.slide-active {
+    display:block
+}
+
+.slide {
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-duration: 2s;
+    animation: slide 0.5s forwards;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes slide {
+    100% {left: 0;}
+}
+
+@keyframes slide  {
+
+    100% {left: 0;}
+    
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }

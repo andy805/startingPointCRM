@@ -59,6 +59,7 @@ const Accounts = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const [masterRecords, setMasterRecords] = useState({ data: accountArray, active: 0, currDocument: accountArray[0] });
     const [activeRecord, setActiveRecord] = useState({});
+    const [activeSlide, setActiveSlide] = useState("Contacts");
 
     // possible way to get keys 
     // const [activeRecordKeys, setActiveRecordKeys] = usestate([])
@@ -68,6 +69,11 @@ const Accounts = () => {
             ...prevState, data: [...prevState.data, ...accounts]
         }));
 
+    }
+
+    const changeActiveSlideHandler = (ev, title) => {
+        console.log(title);
+        setActiveSlide(title);
     }
 
     const changeActiveStateHandler = (i) => {
@@ -286,7 +292,10 @@ const Accounts = () => {
                     />
                 </Accordion>
             </div>
-            <MainMenu />
+            <MainMenu
+                changeSlides={changeActiveSlideHandler}
+                activeSlide={activeSlide}
+            />
         </div>
     )
 }
