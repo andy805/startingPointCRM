@@ -3,12 +3,13 @@ const Schema = Mongoose.Schema;
 
     const userSchema = new Schema({
 
-         _userId: Schema.Types.ObjectId,
-         userName: String,
-         userEmail: String,
-         googleId: String,
-        secret: String
-
+        _userId: Schema.Types.ObjectId,
+        userName: String,
+        userEmail: String,
+        googleId: String,
+        secret: String,
+        image: String
+            
      
      }, {timestamps: true});
 

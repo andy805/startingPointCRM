@@ -1,5 +1,5 @@
 import Mongoose from "mongoose";
-import {Account} from "../models/accounts.js";
+import {Account} from "../models/Account.js";
 
 const index = (req, res) => {
     Account.find({}, (err, Accounts) => {

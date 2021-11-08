@@ -1,6 +1,6 @@
 import  Mongoose  from "mongoose";
-import { contactSchema, Contact } from "./contacts.js";
-import { accountSchema, Account } from "./accounts.js";
+import { contactSchema, Contact } from "./Contact.js";
+import { accountSchema, Account } from "./Account.js";
 const Schema = Mongoose.Schema;
 
 export const noteSchema = new Mongoose.Schema({

@@ -12,8 +12,8 @@ import passport from 'passport'
 //routes
 import {accountRouter} from './routes/accounts.js'
 import {contactRouter} from './routes/contacts.js'
-import {userRouter} from './routes/user.js'
-
+// import {userRouter} from './routes/user.js'
+import {authRouter} from './routes/authentication.js'
 
 
 const app = express()
@@ -45,8 +45,8 @@ app.use(cookieSession({
 
 app.use('/accounts', accountRouter)
 app.use('/contacts', contactRouter)
-app.use('/user', userRouter)
-
+// app.use('/user', userRouter)
+app.use('/auth', authRouter)
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)
 
