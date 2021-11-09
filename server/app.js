@@ -8,7 +8,8 @@ import methodOverride from "method-override"
 import multer from "multer"
 import cookieSession from 'cookie-session'
 import passport from 'passport'
-
+import passportConfig from "./config/passport.js";
+passportConfig(passport);
 //routes
 import {accountRouter} from './routes/accounts.js'
 import {contactRouter} from './routes/contacts.js'
@@ -39,8 +40,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 
 app.use(cookieSession({
-    name: 'session-name',
-  keys: ['key1', 'key2']
+  maxAge: 30*24*60*60*1000,
+  keys: [process.env.COOKIE_KEY]
 }))
 
 app.use('/accounts', accountRouter)

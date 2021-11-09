@@ -15,11 +15,16 @@ router.get(
   '/google/callback', passport.authenticate('google')
 )
 
+router.get('/api/current_user', (req,res)=>{
+    res.send(req.user)
+})
+
 // @desc    Logout user
 // @route   /auth/logout
 router.get('/logout', (req, res) => {
   req.logout()
   res.redirect('/')
 })
+
 
 export {router as authRouter}
