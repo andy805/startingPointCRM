@@ -10,8 +10,10 @@ import ToDoSVG from './SVG/ToDoSVG'
 import ProductsSVG from './SVG/ProductsSVG'
 import NotesSVG from './SVG/NotesSVG'
 import FilesSVG from './SVG/FilesSVG'
-import CreateButton from "./UI/CreateButton";
-import MainMenuPortal from './UI/MainMenuPortal'
+import CreateButton from "./UI/CreateButton.js";
+import MainMenuPortal from './UI/MainMenuPortal.js'
+import Slideshow from './UI/Slideshow.js'
+import Slide from './UI/Slide.js'
 
 const buttonBar = [{ icon:ContactsSVG , width:"73px", height:"61px", title:"Contacts", counterField:0, active: false},
                 {icon: InvoicesSVG, width:"73px", height:"61px", title:"Invoices", counterField:0, active:false},
@@ -27,7 +29,7 @@ const MainMenu = (props) => {
             <div className={styles.mainMenu__buttons}>
                 {buttonBar.map((button, index) => (
                     <PushButton svgElement={<button.icon />} width={button.width} height={button.height} title={button.title}
-                    counterField={button.counterField} active={button.active} />
+                    counterField={button.counterField} active={button.active} slideFunc={props.changeSlides} activeSlide={props.activeSlide}/>
 
                 ))}
                 {/* <PushButton svgElement={<ContactsSVG />} width={"73px"} height={"61px"} title={"Contacts"} counterField={0} />
@@ -40,13 +42,29 @@ const MainMenu = (props) => {
                 <PushButton svgElement={<FilesSVG />} width={"73px"} height={"61px"} title={"Files"} counterField={0} /> */}
             </div>
 
-            <div className={styles.mainMenu__addButton}>
-                <CreateButton /> 
-                <span>Add Contacts</span>
-                <div className={styles.mainMenu__lineBreak}></div>
-            </div>
-            
-            <MainMenuPortal />
+            <Slideshow>
+                <Slide name={"Contacts"} activeSlide={props.activeSlide}>
+                    <div className={styles.mainMenu__addButton}>
+                        <CreateButton /> 
+                        <span>Add Contacts</span>
+                        <div className={styles.mainMenu__lineBreak}></div>
+                    </div>
+                    <MainMenuPortal />
+                </Slide>
+                <Slide name={'Invoices'} activeSlide={props.activeSlide}>
+                    <h1> Invoices</h1>
+                </Slide>
+                <Slide name={'Projects'} activeSlide={props.activeSlide} >
+                    <h1> Projects</h1>
+                </Slide>
+                <Slide name={'Notes'} activeSlide={props.activeSlide}>
+                    <h1> Notes </h1>
+                </Slide>
+                <Slide name={'Files'} activeSlide={props.activeSlide}>
+                    <h1> Files</h1>
+                </Slide>
+            </Slideshow>
+
 
         </div>        
     )
