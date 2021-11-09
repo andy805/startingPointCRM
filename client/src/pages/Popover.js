@@ -38,7 +38,7 @@ const Popover = (props) => {
         Reference element
       </button> */}
 
-      <div ref={setPopperElement}  style={styles.popper } {...attributes.popper}>
+      <div ref={setPopperElement} className={newStyles.popover__background}  style={styles.popper } {...attributes.popper}>
             <div ref={setArrowElement} style={styles.arrow} />
           <DropdownMenu visible={visible}>
               {props.children}
