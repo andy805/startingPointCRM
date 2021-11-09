@@ -1,7 +1,7 @@
 import express from "express";
 import passport  from "passport"
 const router = express.Router()
-import {signIn} from "../config/passport.js"
+
 
 // @desc    Auth with Google
 // @route   GET /auth/google

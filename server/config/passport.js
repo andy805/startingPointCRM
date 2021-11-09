@@ -4,42 +4,35 @@ import mongoose from 'mongoose'
 import {User} from '../models/User.js'
 
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
 
-passport.serializeUser((user, done)=> {
-    done(null, user._userId);
-   });
-
-   passport.deserializeUser(function(user, done) {
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
     done(null, user);
-   });
+  });
+});
 
 passport.use(
-    new GoogleStrategy(
-     {
-      clientID: '500461040639-pk88u5ga6vttpfam2gjonmjd0dh62ogi.apps.googleusercontent.com',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/callback"
-     },
-     function(accessToken, refreshToken, profile, done) {
-        User.findOne({googleID: profile.id}).then(existingUser=>{
-            if (existingUser){
-                done(null, existingUser)
-
-            }else{
-                new User({
-                    googleId: profile.id,
-                    userEmail: profile.emails[0].value,
-                    userName: profile.displayName
-                }).save().then(user=>(done, user))
-            }
-        })
-     }
-    )
-   );
-   const signIn = (req, res) =>{
-    console.log(req)
-    console.log('hit signin')
-    res.json({hello: 'hi'})
+  new GoogleStrategy(
+    {
+      clientID: keys.googleClientID,
+      clientSecret: keys.googleClientSecret,
+      callbackURL: '/auth/google/callback'
+    },
+    (accessToken, refreshToken, profile, done) => {
+      User.findOne({ googleId: profile.id }).then(existingUser => {
+        if (existingUser) {
+          // we already have a record with the given profile ID
+          done(null, existingUser);
+        } else {
+          // we don't have a user record with this ID, make a new record!
+          new User({ googleId: profile.id })
+            .save()
+            .then(user => done(null, user));
+        }
+      });
     }
-    
-export {signIn}
+  )
+);
