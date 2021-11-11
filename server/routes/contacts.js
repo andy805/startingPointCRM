@@ -1,9 +1,10 @@
 import express from "express";
-import {index} from "../controllers/contacts.js"
+import {index, createContact} from "../controllers/contacts.js"
 
 const router = express.Router()
 
 
 router.get('/', index)
+router.post('/create' , createContact )
 
 export {router as contactRouter}

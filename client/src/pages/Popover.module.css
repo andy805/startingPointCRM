@@ -29,5 +29,8 @@
   top: 12px;
   background-color: white;
   color: hsl(0, 0%, 17%);
+}
+
+.popover__background {
   z-index: 1;
 }

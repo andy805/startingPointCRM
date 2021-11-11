@@ -10,6 +10,11 @@
     padding: 2px;
 }
 
+.accordionButton:hover {
+    cursor: pointer
+
+}
+
 .accordionButton SVG {
     width: 23px;
 }

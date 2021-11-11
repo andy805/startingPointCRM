@@ -33,7 +33,7 @@ const shippingTextElement = (
 
 //this broke my build what is it for?
 // import { STATES } from 'mongoose';
-const basePath = "https://shielded-oasis-43540.herokuapp.com/"
+const basePath = "http://shielded-oasis-43540.herokuapp.com/"
 //  const basePath = "http://localhost:3000/"
 
 const navItems = [{ label: "Accounts", path: "/Accounts", active: true },
@@ -50,23 +50,7 @@ const accountArray = [
     //     phone1: "(243) 932-5834",
     //     category: "Company"
     // },
-    // {
-    //     status: "Inactive",
-    //     accountInfo: "ACT002 > Company > Los Angeles (CA)",
-    //     accountName: "Molestie Sed Foundation",
-    //     phone1: "(666) 420-6969",
-    //     category: "non-profit"
-    // },
-    // {
-    //     status: "Disregard",
-    //     accountInfo: "ACT003 > Company > Las Vegas (NV)",
-    //     accountName: "Arcu Sed Institute",
-    //     phone1: "(437) 890-4563",
-    //     category: "small business"
-
-    // }
 ]
-
 
 const Accounts = () => {
 
@@ -75,6 +59,7 @@ const Accounts = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const [masterRecords, setMasterRecords] = useState({ data: accountArray, active: 0, currDocument: accountArray[0] });
     const [activeRecord, setActiveRecord] = useState({});
+    const [activeSlide, setActiveSlide] = useState("Contacts");
 
     // possible way to get keys 
     // const [activeRecordKeys, setActiveRecordKeys] = usestate([])
@@ -84,6 +69,11 @@ const Accounts = () => {
             ...prevState, data: [...prevState.data, ...accounts]
         }));
 
+    }
+
+    const changeActiveSlideHandler = (ev, title) => {
+        console.log(title);
+        setActiveSlide(title);
     }
 
     const changeActiveStateHandler = (i) => {
@@ -96,6 +86,7 @@ const Accounts = () => {
 
     }
 
+    /*used to update the state only ---> see createButton component to see push request to server */
     const newAccount = (account) => {
         const oldAccounts = masterRecords.data
         const newAccounts = [account, ...oldAccounts]
@@ -237,7 +228,14 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Masterdetail masterRecords={masterRecords} cardClick={changeActiveStateHandler} newAccount={newAccount} find={find} basePath={basePath} />
+            <Masterdetail 
+                masterRecords={masterRecords} 
+                cardClick={changeActiveStateHandler} 
+                newAccount={newAccount} 
+                find={find} 
+                createPath={basePath+"accounts/create"}
+                mainLabel={["accountName"]}
+            />
             <div className={styles.accordion__comms}>
                 <Menu
                     account={masterRecords}
@@ -252,7 +250,7 @@ const Accounts = () => {
                     icon={faChevronDown}
                     buttons={[
                         <AccordionButton icon={<PhoneSVG />} label={'Call Primary'} />,
-                        <AccordionButton icon={<EmailSVG />} label={'Send Email'} />,
+                        <AccordionButton icon={<EmailSVG />} label={'Send Email'} email={activeRecord.email}/>,
                         <AccordionButton icon={<WebsiteSVG />} label={'Visit Website'} />
                     ]}
                 >
@@ -294,7 +292,10 @@ const Accounts = () => {
                     />
                 </Accordion>
             </div>
-            <MainMenu />
+            <MainMenu
+                changeSlides={changeActiveSlideHandler}
+                activeSlide={activeSlide}
+            />
         </div>
     )
 }
