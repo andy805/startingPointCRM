@@ -235,6 +235,8 @@ const Accounts = () => {
                 find={find} 
                 createPath={basePath+"accounts/create"}
                 mainLabel={["accountName"]}
+                changeSlides={changeActiveSlideHandler}
+                activeSlide={activeSlide}
             />
             <div className={styles.accordion__comms}>
                 <Menu
