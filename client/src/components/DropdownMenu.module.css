@@ -15,3 +15,14 @@
 .dropdown__invisible {
     display: none;
 }
+
+/* close button for popover */
+.dropdown svg[data-icon = "times-circle"] {
+    position: relative;
+    left: 186px;
+    bottom: 395px;
+    background-color: white;
+    color: hsl(0, 0%, 17%);
+    z-index: 4;
+    cursor: pointer;
+  }

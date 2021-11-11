@@ -3,7 +3,6 @@ import { usePopper } from "react-popper";
 import DropdownMenu from "../components/DropdownMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import newStyles from "./Popover.module.css";
-import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Popover = (props) => {
     const [visible, setVisible] = useState(false);
@@ -38,15 +37,6 @@ const Popover = (props) => {
                     icon={props.icon}
                     onClick={visible ? "" : handleClick}
                 />
-
-                {/* Close button for popover */}
-                {visible && (
-                    <FontAwesomeIcon
-                        icon={faTimesCircle}
-                        onClick={visible ? handleClick : ""}
-                        style={styles.close}
-                    />
-                )}
             </div>
 
             <div
@@ -55,7 +45,7 @@ const Popover = (props) => {
                 {...attributes.popper}
             >
                 <div ref={setArrowElement} style={styles.arrow} />
-                <DropdownMenu visible={visible}>{props.children}</DropdownMenu>
+                <DropdownMenu visible={visible} setVisible={setVisible}>{props.children}</DropdownMenu>
             </div>
         </>
     );

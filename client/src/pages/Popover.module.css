@@ -22,16 +22,6 @@
   cursor: pointer;
 }
 
-/* close button for popover */
-.div__button svg[data-icon = "times-circle"] {
-  position: relative;
-  left: 345px;
-  top: 12px;
-  background-color: white;
-  color: hsl(0, 0%, 17%);
-  z-index: 4;
-}
-
 .popover__background {
   z-index: 1;
 }
