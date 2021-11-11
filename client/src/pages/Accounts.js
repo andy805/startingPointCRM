@@ -60,6 +60,7 @@ const Accounts = () => {
     const [masterRecords, setMasterRecords] = useState({ data: accountArray, active: 0, currDocument: accountArray[0] });
     const [activeRecord, setActiveRecord] = useState({});
     const [activeSlide, setActiveSlide] = useState("Contacts");
+    const [activeView, setActiveView] = useState("DetailView");
 
     // possible way to get keys 
     // const [activeRecordKeys, setActiveRecordKeys] = usestate([])
@@ -74,6 +75,11 @@ const Accounts = () => {
     const changeActiveSlideHandler = (ev, title) => {
         console.log(title);
         setActiveSlide(title);
+    }
+
+    // Handles active push button in MasterDetail
+    const changeActiveViewHandler = (ev, title) => {
+        setActiveView(title);
     }
 
     const changeActiveStateHandler = (i) => {
@@ -235,8 +241,8 @@ const Accounts = () => {
                 find={find} 
                 createPath={basePath+"accounts/create"}
                 mainLabel={["accountName"]}
-                changeSlides={changeActiveSlideHandler}
-                activeSlide={activeSlide}
+                changeSlides={changeActiveViewHandler}
+                activeSlide={activeView}
             />
             <div className={styles.accordion__comms}>
                 <Menu
