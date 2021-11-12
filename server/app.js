@@ -32,6 +32,11 @@ if(port == null || port == "") {
 //midleware
 
 app.use(cors())
+app.use(cookieSession({
+  maxAge: 30*24*60*60*1000,
+  keys: [process.env.COOKIE_KEY]
+}))
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(upload.none())
@@ -39,10 +44,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 
-app.use(cookieSession({
-  maxAge: 30*24*60*60*1000,
-  keys: [process.env.COOKIE_KEY]
-}))
+
 
 app.use('/accounts', accountRouter)
 app.use('/contacts', contactRouter)

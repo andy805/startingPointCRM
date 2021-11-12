@@ -6,6 +6,9 @@ const index = (req, res) => {
       if (err) {
         return err;
       } else {
+        if (req.user){
+          console.log(req.user)
+        }
         res.json( 
           Accounts,
         );

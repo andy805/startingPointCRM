@@ -16,7 +16,7 @@ router.get(
 )
 
 router.get('/api/current_user', (req,res)=>{
-    res.json(req)
+    res.json(req.user)
 })
 
 // @desc    Logout user
