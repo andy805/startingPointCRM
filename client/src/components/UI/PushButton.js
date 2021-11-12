@@ -20,7 +20,9 @@ function PushButton({ svgElement, width, height, title, counterField, slideFunc,
         <div className={computedClassName} onClick={changeStyle} style={{ width, height}}>
             {svgElement}
             <div className={styles.pushButton__label}>
-                {title && `${title} (${counterField})`}
+
+                {/* This stops the titles of Masterdetail push buttons from showing */}
+                {!title.includes("View") && `${title} (${counterField})`}
             </div>
         </div>
     );

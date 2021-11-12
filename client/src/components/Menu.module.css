@@ -31,6 +31,7 @@
     border: 1px solid var(--fmsp-blue);
     justify-content: center;
     height: 30px;
+    cursor: pointer;
 }
 
 .menu__buttons > button {
@@ -75,6 +76,7 @@
 
 .menu__buttons > button {
     color: var(--fmsp-blue);
+    cursor: pointer;
 }
 
 .button__popup {
@@ -107,8 +109,9 @@
     border-radius: 5px;
     font-size: 13px;
     color: var(--fmsp-red);
-    margin-top: 18px;
+    margin-top: 4px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 /* Trash can icon for delete button */

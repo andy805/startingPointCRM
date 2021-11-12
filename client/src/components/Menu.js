@@ -92,7 +92,7 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
 
                 <div className={styles.menu__lineBreak} style={{margin: "13px 0"}}/>
 
-                <div className={styles.menu__deleteButton}>
+                <div className={styles.menu__deleteButton} onClick={deleteHandler}>
                     <TrashSVG/>
                     {`Delete ${accountName}`}
                 </div>    

@@ -60,6 +60,7 @@ const Accounts = () => {
     const [masterRecords, setMasterRecords] = useState({ data: accountArray, active: 0, currDocument: accountArray[0] });
     const [activeRecord, setActiveRecord] = useState({});
     const [activeSlide, setActiveSlide] = useState("Contacts");
+    const [activeView, setActiveView] = useState("DetailView");
 
     // possible way to get keys 
     // const [activeRecordKeys, setActiveRecordKeys] = usestate([])
@@ -74,6 +75,11 @@ const Accounts = () => {
     const changeActiveSlideHandler = (ev, title) => {
         console.log(title);
         setActiveSlide(title);
+    }
+
+    // Handles active push button in MasterDetail
+    const changeActiveViewHandler = (ev, title) => {
+        setActiveView(title);
     }
 
     const changeActiveStateHandler = (i) => {
@@ -185,6 +191,11 @@ const Accounts = () => {
             
             const response = await axios.get(basePath+"accounts")
             addAccounts(response.data)
+            if(response.data.lenth === 0){
+            }
+            else{
+                setActiveRecord(response.data[0])
+            }
         }
         fetchAccounts()
     }, [refetch])
@@ -235,6 +246,8 @@ const Accounts = () => {
                 find={find} 
                 createPath={basePath+"accounts/create"}
                 mainLabel={["accountName"]}
+                changeSlides={changeActiveViewHandler}
+                activeSlide={activeView}
             />
             <div className={styles.accordion__comms}>
                 <Menu

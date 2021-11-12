@@ -6,6 +6,7 @@
 /* global css variables */
 :root {
     --fmsp-blue: #4497f1;
+    --fmsp-light-blue: #70B4FF;
     --fmsp-gray: #9a9a9a;
     --fmsp-light-gray: #eaeaea;
     --fmsp-gray-3: hsl(0, 0%, 95%);
@@ -57,7 +58,7 @@ svg[data-icon="plus"] {
 }
 
 svg[data-icon="plus"]:hover {
-  color: #70B4FF;
+  color: var(--fmsp-light-blue);
 }
 
 svg[data-icon="ellipsis-h"] {

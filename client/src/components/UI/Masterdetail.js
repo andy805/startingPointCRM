@@ -9,7 +9,7 @@ import ListViewSVG from "../SVG/ListViewSVG";
 import DetailViewSVG from "../SVG/DetailViewSVG";
 import SearchBar from "./SearchBar";
 
-const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find, mainLabel }) => {
+const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find, mainLabel, changeSlides, activeSlide }) => {
     
     // let createPath = basePath + "accounts/create" /*passed to the createButton Component */
     // Dummy variables for bottom menu
@@ -27,8 +27,8 @@ const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find, 
     return (
         <div className={style.masterDetail}>
             <div className={style.masterDetail__topMenu}>
-                <PushButton svgElement={<DetailViewSVG />} width={"54px"} height={"46px"}/>
-                <PushButton svgElement={<ListViewSVG />} width={"54px"} height={"46px"}/>
+                <PushButton svgElement={<DetailViewSVG />} width={"54px"} height={"46px"} slideFunc={changeSlides} title={"DetailView"} active={false} activeSlide={activeSlide}/>
+                <PushButton svgElement={<ListViewSVG />} width={"54px"} height={"46px"} slideFunc={changeSlides} title={"ListView"} active={false} activeSlide={activeSlide}/>
                 <SearchBar width={"138px"} find={find} />
             </div>
 
