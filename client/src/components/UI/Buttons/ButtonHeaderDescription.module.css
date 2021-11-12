@@ -57,3 +57,8 @@
     fill: var(--fmsp-light-blue);
     color: var(--fmsp-light-blue);
 }
+
+/* Add margin to the top of first row in popover */
+.buttonContainer:first-of-type {
+    margin-top: 10px;
+}
