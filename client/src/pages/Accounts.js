@@ -191,6 +191,11 @@ const Accounts = () => {
             
             const response = await axios.get(basePath+"accounts")
             addAccounts(response.data)
+            if(response.data.lenth === 0){
+            }
+            else{
+                setActiveRecord(response.data[0])
+            }
         }
         fetchAccounts()
     }, [refetch])
