@@ -21,7 +21,7 @@ const Dashboard = (props) => {
     return (
         <div className={styles.dashboard}>
             <DashboardHeader className={styles.header} header={"Hello User, Today is "}></DashboardHeader>
-            {/* <Login/> */}
+            <Login/>
             <Card className={styles["card-button-area"]}> 
                 <ButtonWithIcon className={styles["card-grid-cell-center"] +" "+ styles["card-grid-cell-one-one"]} icon={"users"} history={props.historyLayout} path={"/Accounts"} label={"Account"}/>
                 <ButtonWithIcon className={`${styles["card-grid-cell-center"]} ${styles["card-grid-cell-one-two"]}`} icon={"user"}  history={props.historyLayout} path={"/Contacts"} label={"Contacts"}/>
