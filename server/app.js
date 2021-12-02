@@ -13,7 +13,7 @@ passportConfig(passport);
 //routes
 import {accountRouter} from './routes/accounts.js'
 import {contactRouter} from './routes/contacts.js'
-// import {userRouter} from './routes/user.js'
+import {userRouter} from './routes/user.js'
 import {authRouter} from './routes/authentication.js'
 
 
