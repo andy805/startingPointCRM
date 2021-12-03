@@ -16,6 +16,7 @@ router.get(
 )
 
 router.get('/api/current_user', (req,res)=>{
+    console.log(req.user)
     res.json(req.user)
 })
 

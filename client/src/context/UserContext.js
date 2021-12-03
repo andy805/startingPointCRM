@@ -12,11 +12,14 @@ import React from "react"
  export const CurrentUserProvider = ({ children }) => {
    const [currentUser, setCurrentUser] = React.useState(null)
  
+   
    const fetchCurrentUser = async () => {
-     let response = await fetch(basePath + "/auth/api/current_user")
-     response = await response.json()
+    let test = basePath + "/auth/api/current_user"
+    console.log(test)
+     let response = await axios.get(basePath + "/auth/api/current_user", {withCredentials: true})
      console.log(response)
-     setCurrentUser(response)
+     console.log(response.data)
+    setCurrentUser(response.data)
    }
  
    return (

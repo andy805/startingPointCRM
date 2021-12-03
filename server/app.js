@@ -31,7 +31,9 @@ if(port == null || port == "") {
 
 //midleware
 
-app.use(cors())
+app.use(cors({
+  credentials:true , origin:'http://localhost:3001'
+}))
 app.use(cookieSession({
   maxAge: 30*24*60*60*1000,
   keys: [process.env.COOKIE_KEY]
