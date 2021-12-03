@@ -5,7 +5,7 @@ import Accounts from './pages/Accounts.js';
 import Contacts from './pages/Contacts';
 import Invoices from './pages/Invoices';
 import Products from './pages/Products';
-import {UserContext} from './context/UserContext.js'
+import { CurrentUserProvider } from "./context/UserContext.js"
 import {Router, Switch, Route, Link, BrowserRouter, useHistory} from 'react-router-dom';
 import React from 'react';
 import {library} from '@fortawesome/fontawesome-svg-core'
@@ -30,7 +30,7 @@ function App() {
   let history = useHistory();
 
   return (
-   
+    <CurrentUserProvider>
     <React.Fragment>
         <Switch>
         
@@ -54,7 +54,7 @@ function App() {
         </Switch>
     </React.Fragment>
 
-
+    </CurrentUserProvider>
 
 
   

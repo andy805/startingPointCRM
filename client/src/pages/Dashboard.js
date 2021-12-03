@@ -6,9 +6,10 @@ import { useHistory } from 'react-router-dom';
 import ButtonWithIcon from '../components/ButtonWithIcon.js';
 import DashboardHeader from '../components/DashboardHeader';
 import Login from './Login.js'
+import { useCurrentUser } from "../context/UserContext.js"
 
 const Dashboard = (props) => {
-
+    const { currentUser, fetchCurrentUser } = useCurrentUser()
     const goToAccounts = () => {
         let pathToAccounts = "/Accounts";
         props.historyLayout.push(pathToAccounts);
@@ -17,10 +18,12 @@ const Dashboard = (props) => {
         let pathToAccounts = "/Contacts";
         props.historyLayout.push(pathToAccounts);
     }
+    React.useEffect(() => fetchCurrentUser(), [])
 
     return (
         <div className={styles.dashboard}>
             <DashboardHeader className={styles.header} header={"Hello User, Today is "}></DashboardHeader>
+            <h1>{currentUser}</h1>
             <Login/>
             <Card className={styles["card-button-area"]}> 
                 <ButtonWithIcon className={styles["card-grid-cell-center"] +" "+ styles["card-grid-cell-one-one"]} icon={"users"} history={props.historyLayout} path={"/Accounts"} label={"Account"}/>
