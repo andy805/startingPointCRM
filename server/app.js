@@ -30,14 +30,24 @@ if(port == null || port == "") {
 }
 
 //midleware
-
+const whiteList = ['http://localhost:3001','https://accounts.google.com/o/oauth2/auth','https://starting-point-330823.web.app/'] 
 app.use(cors({
-  credentials:true , origin:'http://localhost:3001'
+  credentials:true, 
+  origin:['https://starting-point-330823.web.app','http://localhost:2000'],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 }))
+
 app.use(cookieSession({
-  maxAge: 30*24*60*60*1000,
-  keys: [process.env.COOKIE_KEY]
+  keys: [process.env.COOKIE_KEY],
+        maxAge: 24 * 60 * 60 * 100,
+        secure: true,
+        httpOnly: true,
+        sameSite: 'none'
 }))
+app.use((req, res, next)=>{
+  req["sessionCookies"].secure = true;
+  next();
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -48,7 +58,7 @@ app.use(methodOverride('_method'))
 
 
 
-app.use('/accounts', accountRouter)
+app.use('/accounts'   , accountRouter)
 app.use('/contacts', contactRouter)
 // app.use('/user', userRouter)
 app.use('/auth', authRouter)

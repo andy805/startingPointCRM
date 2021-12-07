@@ -12,8 +12,8 @@ import React from "react"
  export const CurrentUserProvider = ({ children }) => {
    const [currentUser, setCurrentUser] = React.useState(null)
  
-   
-   const fetchCurrentUser = async () => {
+
+  const fetchCurrentUser = async () => {
     let test = basePath + "/auth/api/current_user"
     console.log(test)
      let response = await axios.get(basePath + "/auth/api/current_user", {withCredentials: true})
