@@ -33,8 +33,6 @@ router.get('/login/success', (req,res)=>{
 });
 
 router.get('/api/current_user', (req,res)=>{
-    console.log(req.headers)
-    console.log(req.user)
     res.json(req.user)
 })
 

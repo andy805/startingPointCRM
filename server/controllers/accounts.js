@@ -2,7 +2,9 @@ import Mongoose from "mongoose";
 import {Account} from "../models/Account.js";
 
 const index = (req, res) => {
-    Account.find({'_id' : req.user._id}, (err, Accounts) => {
+  const user = req.query.userID
+  console.log("query ", req)
+    Account.find({'_userID' : user}, (err, Accounts) => {
       if (err) {
         return err;
       } else {
@@ -29,8 +31,6 @@ await Account.find({'accountName' : {$regex:req.query.accountName}}, (err, Accou
 
 }
   const createAccount = async (req, res)=>{
-    console.log(req.body)
-    console.log('hit newAccount', req.body.currentUser)
     const newAccount = new Account({
       // _id: new Types.ObjectId(),
       _userID :req.body.currentUser._id,

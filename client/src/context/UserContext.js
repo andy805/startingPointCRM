@@ -15,19 +15,15 @@ import React from "react"
 
   const fetchCurrentUser = async () => {
     let test = basePath + "/auth/api/current_user"
-    console.log(test)
+    
      let response = await axios.get(basePath + "/auth/api/current_user", {withCredentials: true})
-     console.log(response)
-     console.log(response.data)
     setCurrentUser(response.data)
    }
    useEffect(()=>{
     const fetchCurrentUser = async () => {
       let test = basePath + "/auth/api/current_user"
-      console.log(test)
+   
        let response = await axios.get(basePath + "/auth/api/current_user", {withCredentials: true})
-       console.log(response)
-       console.log(response.data)
       setCurrentUser(response.data)
     };
      fetchCurrentUser()},

@@ -4,7 +4,7 @@ import Mongoose  from "mongoose";
 
 
 // Mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true})
-console.log(process.env);
+
 Mongoose.connect(process.env.DATABASE_URL)
 
 

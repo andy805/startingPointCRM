@@ -8,11 +8,10 @@ import { useContext } from 'react';
 const CreateButton = ({fetchAccounts, changeActive, masterRecords, newAccount, path, user})=> {
    
 
-   console.log(user)
+ 
     const createRecord = async ()=>{
       
         const response = await axios.post(path, user)
-        console.log(response.data)
      newAccount(response.data)
       changeActive(0)
     }

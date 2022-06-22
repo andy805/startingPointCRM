@@ -37,7 +37,7 @@ const shippingTextElement = (
 
 
 // const basePath = "http://shielded-oasis-43540.herokuapp.com/"
- const basePath = "http://localhost:3000/"
+const basePath = "http://localhost:3000/"
 
 const navItems = [{ label: "Accounts", path: "/Accounts", active: true },
 { label: "Contacts", path: "/Contacts", active: false }, { label: "Invoices", path: "/Invoices", active: false },
@@ -64,13 +64,13 @@ const Accounts = () => {
     const [activeRecord, setActiveRecord] = useState({});
     const [activeSlide, setActiveSlide] = useState("Contacts");
     const [activeView, setActiveView] = useState("DetailView");
-   const currentUser = useContext(CurrentUserContext)
+    const currentUser = useContext(CurrentUserContext)
 
     // possible way to get keys 
     // const [activeRecordKeys, setActiveRecordKeys] = usestate([])
 
     const addAccounts = (accounts) => {
-        console.log('hit addAccounts')
+
         setMasterRecords(prevState => ({
             ...prevState, data: [...prevState.data, ...accounts]
         }));
@@ -78,7 +78,6 @@ const Accounts = () => {
     }
 
     const changeActiveSlideHandler = (ev, title) => {
-        console.log(title);
         setActiveSlide(title);
     }
 
@@ -109,7 +108,7 @@ const Accounts = () => {
 
     const handleChangeClient = (e, fieldName, value) => {
         /* fieldname and value are optional paramters */
-        if(fieldName == null){
+        if (fieldName == null) {
             /* this is default case. this run when we are updated the fields(input tags) */
             setActiveRecord({
                 ...activeRecord,
@@ -129,34 +128,33 @@ const Accounts = () => {
             const newData = masterRecords.data
             newData[activeIndex][fieldName] = value;
             setMasterRecords(prevState => ({
-                ...prevState, 
-                data: newData 
+                ...prevState,
+                data: newData
             }));
 
-            axios.put(basePath+"accounts/update", activeRecord)
+            axios.put(basePath + "accounts/update", activeRecord)
 
-            }
+        }
     }
 
     const handleChange = async (e) => {
-        console.log('hit handlechange')
         setActiveRecord({
             ...activeRecord,
             [e.target.name]: e.target.value
 
         })
 
-        await axios.put(basePath+"accounts/update", activeRecord)
+        await axios.put(basePath + "accounts/update", activeRecord)
         const id = activeRecord._id;
         let i = 0;
-        while(i < masterRecords.data.length){
-            if(masterRecords.data[i]._id === id){
+        while (i < masterRecords.data.length) {
+            if (masterRecords.data[i]._id === id) {
                 let newObj = JSON.stringify(activeRecord);
                 masterRecords.data[i] = JSON.parse(newObj)
             }
             i++;
         }
-        
+
 
     }
 
@@ -174,7 +172,7 @@ const Accounts = () => {
 
     const find = async (query) => {
         console.log(query)
-        const response = await axios.get(basePath+"accounts/find",
+        const response = await axios.get(basePath + "accounts/find",
             {
                 params: {
                     accountName: query
@@ -191,15 +189,21 @@ const Accounts = () => {
     }
     useEffect(() => {
 
-
         const fetchAccounts = async () => {
-            console.log('hit fetch user', currentUser)
-            const response = await axios.get(basePath+"accounts",
-)
-            addAccounts(response.data)
-            if(response.data.lenth === 0){
+           
+           const id = currentUser.currentUser._id
+            console.log('id for param', id)
+            const response = await axios.get(basePath + "accounts", {
+                params: {
+                    userID: id
+                }
             }
-            else{
+            )
+            console.log('accounts ',response)
+            addAccounts(response.data)
+            if (response.data.lenth === 0) {
+            }
+            else {
                 setActiveRecord(response.data[0])
             }
         }
@@ -208,8 +212,8 @@ const Accounts = () => {
 
     const deleteRecord = async () => {
         const currIndex = masterRecords.active;
-        const res = await axios.delete(basePath+"accounts/delete", {
-            data: {_id: activeRecord._id}
+        const res = await axios.delete(basePath + "accounts/delete", {
+            data: { _id: activeRecord._id }
         })
         console.log(res);
         let newArray = masterRecords.data.splice(masterRecords.active, 1);
@@ -217,20 +221,19 @@ const Accounts = () => {
          * 1. delete the last element
          * 2. delete the first element
          * 3. delete the only element
-         */ 
+         */
         if (masterRecords.active === 0 && masterRecords.data.length === 1) {
             /* we are deleting the only element in the array */
         }
-        else if(masterRecords.active === 0) {
+        else if (masterRecords.active === 0) {
             setActiveIndex(0);
             setActiveRecord(masterRecords.data[0]);
-            setMasterRecords({data: masterRecords.data, active: 0, currDocument: masterRecords.data[0]})
+            setMasterRecords({ data: masterRecords.data, active: 0, currDocument: masterRecords.data[0] })
         }
-        else
-        {
-            setActiveIndex(currIndex-1);
-            setActiveRecord(masterRecords.data[currIndex-1]);
-            setMasterRecords({data:masterRecords.data, active: currIndex-1, currDocument: masterRecords.data[currIndex-1]})
+        else {
+            setActiveIndex(currIndex - 1);
+            setActiveRecord(masterRecords.data[currIndex - 1]);
+            setMasterRecords({ data: masterRecords.data, active: currIndex - 1, currDocument: masterRecords.data[currIndex - 1] })
         }
     }
 
@@ -245,13 +248,13 @@ const Accounts = () => {
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
-            <Masterdetail 
-                masterRecords={masterRecords} 
-                cardClick={changeActiveStateHandler} 
+            <Masterdetail
+                masterRecords={masterRecords}
+                cardClick={changeActiveStateHandler}
                 newAccount={newAccount}
-                user={currentUser} 
-                find={find} 
-                createPath={basePath+"accounts/create"}
+                user={currentUser}
+                find={find}
+                createPath={basePath + "accounts/create"}
                 mainLabel={["accountName"]}
                 changeSlides={changeActiveViewHandler}
                 activeSlide={activeView}
@@ -270,7 +273,7 @@ const Accounts = () => {
                     icon={faChevronDown}
                     buttons={[
                         <AccordionButton icon={<PhoneSVG />} label={'Call Primary'} />,
-                        <AccordionButton icon={<EmailSVG />} label={'Send Email'} email={activeRecord.email}/>,
+                        <AccordionButton icon={<EmailSVG />} label={'Send Email'} /*email={activeRecord.email}*/ />,
                         <AccordionButton icon={<WebsiteSVG />} label={'Visit Website'} />
                     ]}
                 >
@@ -289,9 +292,9 @@ const Accounts = () => {
                     ]}
                     text={billingTextElement}
                 >
-                    <BillingForm 
-                        activeRecord={activeRecord} 
-                        handleChange={handleChange} 
+                    <BillingForm
+                        activeRecord={activeRecord}
+                        handleChange={handleChange}
                         handleChangeClient={handleChangeClient}
                     />
 
@@ -305,10 +308,10 @@ const Accounts = () => {
                     ]}
                     text={shippingTextElement}
                 >
-                    <ShippingForm 
-                    activeRecord={activeRecord} 
-                    handleChange={handleChange} 
-                    handleChangeClient={handleChangeClient}
+                    <ShippingForm
+                        activeRecord={activeRecord}
+                        handleChange={handleChange}
+                        handleChangeClient={handleChangeClient}
                     />
                 </Accordion>
             </div>
