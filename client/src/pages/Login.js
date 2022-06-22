@@ -13,8 +13,7 @@ const Login = ()=>{
         
       }
 return(
-
-   <button onClick={responseGoogle}>Sign in with Google</button>
-)}
+   <button onClick={responseGoogle}>Sign in with Google
+   </button>)}
 
 export default Login

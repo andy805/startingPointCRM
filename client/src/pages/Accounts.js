@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios'
 import styles from "./pages.module.css"
 import Masterdetail from "../components/UI/Masterdetail"
@@ -16,6 +16,7 @@ import EmailSVG from '../components/SVG/EmailSVG';
 import WebsiteSVG from '../components/SVG/WebsiteSVG';
 import MapSVG from '../components/SVG/MapSVG';
 import MainMenu from '../components/MainMenu';
+import { CurrentUserContext, useCurrentUser } from "../context/UserContext.js"
 
 const billingTextElement = (
     <div className={styles.card__text}>
@@ -33,6 +34,8 @@ const shippingTextElement = (
 
 //this broke my build what is it for?
 // import { STATES } from 'mongoose';
+
+
 // const basePath = "http://shielded-oasis-43540.herokuapp.com/"
  const basePath = "http://localhost:3000/"
 
@@ -61,11 +64,13 @@ const Accounts = () => {
     const [activeRecord, setActiveRecord] = useState({});
     const [activeSlide, setActiveSlide] = useState("Contacts");
     const [activeView, setActiveView] = useState("DetailView");
+   const currentUser = useContext(CurrentUserContext)
 
     // possible way to get keys 
     // const [activeRecordKeys, setActiveRecordKeys] = usestate([])
 
     const addAccounts = (accounts) => {
+        console.log('hit addAccounts')
         setMasterRecords(prevState => ({
             ...prevState, data: [...prevState.data, ...accounts]
         }));
@@ -188,8 +193,9 @@ const Accounts = () => {
 
 
         const fetchAccounts = async () => {
-            
-            const response = await axios.get(basePath+"accounts")
+            console.log('hit fetch user', currentUser)
+            const response = await axios.get(basePath+"accounts",
+)
             addAccounts(response.data)
             if(response.data.lenth === 0){
             }
@@ -242,7 +248,8 @@ const Accounts = () => {
             <Masterdetail 
                 masterRecords={masterRecords} 
                 cardClick={changeActiveStateHandler} 
-                newAccount={newAccount} 
+                newAccount={newAccount}
+                user={currentUser} 
                 find={find} 
                 createPath={basePath+"accounts/create"}
                 mainLabel={["accountName"]}

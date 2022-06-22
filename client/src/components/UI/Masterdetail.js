@@ -9,7 +9,7 @@ import ListViewSVG from "../SVG/ListViewSVG";
 import DetailViewSVG from "../SVG/DetailViewSVG";
 import SearchBar from "./SearchBar";
 
-const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find, mainLabel, changeSlides, activeSlide }) => {
+const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find, mainLabel, changeSlides, activeSlide, user }) => {
     
     // let createPath = basePath + "accounts/create" /*passed to the createButton Component */
     // Dummy variables for bottom menu
@@ -42,9 +42,10 @@ const Masterdetail = ({ masterRecords, createPath, cardClick, newAccount, find, 
                 </div>
                 <FontAwesomeIcon icon={faEllipsisH} />
                 <CreateButton
+                    user= {user}
                     changeActive={cardClick}
                     masterRecords={masterRecords}
-                    newAccount={newAccount}
+                    newRecord={newAccount}
                     path={createPath}
                 />
             </div>

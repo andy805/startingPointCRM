@@ -5,8 +5,9 @@ const Schema = Mongoose.Schema;
 
 export const accountSchema = new Schema({
 
-   // user: { type: Schema.Types.ObjectId, ref: User },
-    pk: Schema.Types.ObjectId,
+
+    // _id: Schema.Types.ObjectId,
+    _userID: String,
     notes: [{type: Schema.Types.ObjectId, ref: 'note'}],
     contacts: [{type:Schema.Types.ObjectId, ref: 'contact'}],
     accountName: String,
