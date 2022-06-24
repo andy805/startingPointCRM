@@ -187,11 +187,16 @@ const Accounts = () => {
         refetchSetter()
 
     }
+
+    const createRelatedRecord = (target) =>{
+
+    }
+
     useEffect(() => {
 
         const fetchAccounts = async () => {
-           
-           const id = currentUser.currentUser._id
+
+            const id = currentUser.currentUser._id
             console.log('id for param', id)
             const response = await axios.get(basePath + "accounts", {
                 params: {
@@ -199,7 +204,7 @@ const Accounts = () => {
                 }
             }
             )
-            console.log('accounts ',response)
+            console.log('accounts ', response)
             addAccounts(response.data)
             if (response.data.lenth === 0) {
             }
