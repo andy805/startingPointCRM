@@ -18,6 +18,8 @@ import MapSVG from '../components/SVG/MapSVG';
 import MainMenu from '../components/MainMenu';
 import { CurrentUserContext, useCurrentUser } from "../context/UserContext.js"
 
+//test
+import CreateButton from '../components/UI/CreateButton'
 const billingTextElement = (
     <div className={styles.card__text}>
         <p>Ap #886-1276 Feugiat Rd.</p>
@@ -248,15 +250,16 @@ const Accounts = () => {
      */
 
     return (
+        
         <div className={styles.page}>
-
+    
             <TopNav className={styles.navbar}>
                 <Navbar navItems={navItems}></Navbar>
             </TopNav>
             <Masterdetail
                 masterRecords={masterRecords}
                 cardClick={changeActiveStateHandler}
-                newAccount={newAccount}
+                newRecord={newAccount}
                 user={currentUser}
                 find={find}
                 createPath={basePath + "accounts/create"}
@@ -323,6 +326,7 @@ const Accounts = () => {
             <MainMenu
                 changeSlides={changeActiveSlideHandler}
                 activeSlide={activeSlide}
+                user={currentUser}
             />
         </div>
     )

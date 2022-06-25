@@ -22,9 +22,16 @@ const buttonBar = [{ icon:ContactsSVG , width:"73px", height:"61px", title:"Cont
                 {icon: FilesSVG, width:"73px", height:"61px", title:"Files", counterField:0, active:false}
 ];
 
+// const basePath = "http://shielded-oasis-43540.herokuapp.com/"
+const basePath = "http://localhost:3000/"
+
 const MainMenu = (props) => {
     const [active, setActive] = useState(0);
+
+    
     return (
+        
+        
         <div className={`${styles.mainMenu} ${'box-shadow'}`}>
             <div className={styles.mainMenu__buttons}>
                 {buttonBar.map((button, index) => (
@@ -41,12 +48,19 @@ const MainMenu = (props) => {
                 <PushButton svgElement={<NotesSVG />} width={"73px"} height={"61px"} title={"Notes"} counterField={0} />
                 <PushButton svgElement={<FilesSVG />} width={"73px"} height={"61px"} title={"Files"} counterField={0} /> */}
             </div>
-
+  
             <Slideshow>
+        {/* make this dynamic using active slide */}
+            <CreateButton 
+            path={basePath+"contacts/create"}
+            user= {props.user}
+            /> 
+
+
                 <Slide name={"Contacts"} activeSlide={props.activeSlide}>
                     <div className={styles.mainMenu__addButton}>
-                        <CreateButton /> 
-                        <span>Add Contacts</span>
+                        <span>
+                            Add Contacts</span>
                         <div className={styles.mainMenu__lineBreak}></div>
                     </div>
                     <MainMenuPortal />
