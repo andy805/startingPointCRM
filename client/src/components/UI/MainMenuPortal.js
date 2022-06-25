@@ -1,8 +1,9 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react'
 import styles from "./MainMenuPortal.module.css";
 import MainMenuPortalRow from './MainMenuPortalRow';
 
-const MainMenuPortal = () => {
+const MainMenuPortal = (props) => {
 
     const sampleData = [
         {
@@ -20,11 +21,30 @@ const MainMenuPortal = () => {
             phone: "(458) 777-0123"
         }
     ]
+    //state
+    const [portalRecords, setPortalRecords] = useState({data:[], active:0})
+    const [activePortalRecord, setActivePortalRecord] = useState({})
+
+    useEffect(() => {
+      const fetchRecords = async ()=>{
+          const queryID = props.activeRecord._id
+          console.log('fetching docs with', queryID)
+           const response = await axios.get(props.path, {params:{
+            queryID: queryID}
+           })
+           console.log('menu portal res', response)
+      }
+      fetchRecords()
+    }, [props.activeRecord])
+
+
+
 
     return (
         <div className={styles.mainMenuPortal}>
             {sampleData.map(element =>
                 <MainMenuPortalRow
+                    
                     firstName={element.firstName}
                     lastName={element.lastName}
                     position={element.position}

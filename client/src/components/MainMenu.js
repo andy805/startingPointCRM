@@ -64,7 +64,7 @@ const MainMenu = (props) => {
                             Add Contacts</span>
                         <div className={styles.mainMenu__lineBreak}></div>
                     </div>
-                    <MainMenuPortal />
+                    <MainMenuPortal activeRecord={props.activeRecord} path={basePath+"contacts"} />
                 </Slide>
                 <Slide name={'Invoices'} activeSlide={props.activeSlide}>
                     <h1> Invoices</h1>
