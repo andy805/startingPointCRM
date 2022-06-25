@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useCurrentUser} from "../../context/UserContext.js"
 import { useContext } from 'react';
 
-const CreateButton = ({changeActive, path, user, newRecord})=> {
+const CreateButton = ({changeActive, path, user, newRecord, recordRef})=> {
    
     const createRecord = async ()=>{
         console.log('hit create', path)   
-        const response = await axios.post(path, user)
+        const response = await axios.post(path, {user, recordRef})
         console.log(response.data)
    //   newAccount(response.data)
    if(newRecord != undefined){

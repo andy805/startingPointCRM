@@ -15,7 +15,9 @@ const index = (req, res) => {
 
 /*create a record */
 const createContact = async (req, res) => {
+    console.log('hit contact create'. req.body)
     const newContact = new Contact({
+        account: req.body.recordRef,
         firstName: "New Contact",
         lastName: "",
         category: "",

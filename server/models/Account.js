@@ -8,8 +8,12 @@ export const accountSchema = new Schema({
 
     // _id: Schema.Types.ObjectId,
     _userID: String,
+
+    //this was a mistake made coming from realtional dbs we need to store account in these schemas see Principle of Least Cardinality
     notes: [{type: Schema.Types.ObjectId, ref: 'note'}],
     contacts: [{type:Schema.Types.ObjectId, ref: 'contact'}],
+    
+    
     accountName: String,
     category: String,
     status: String,

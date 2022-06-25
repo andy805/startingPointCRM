@@ -327,6 +327,7 @@ const Accounts = () => {
                 changeSlides={changeActiveSlideHandler}
                 activeSlide={activeSlide}
                 user={currentUser}
+                activeRecord= {activeRecord}
             />
         </div>
     )
