@@ -8,8 +8,12 @@ import { useContext } from 'react';
 const CreateButton = ({changeActive, path, user, newRecord, recordRef})=> {
    
     const createRecord = async ()=>{
-        console.log('hit create', path)   
-        const response = await axios.post(path, {user, recordRef})
+        console.log('hit create', path, user, recordRef)   
+        const response = await axios.post(path, 
+         { user: user.currentUser,
+           recordRef: recordRef._id 
+      
+      })
         console.log(response.data)
    //   newAccount(response.data)
    if(newRecord != undefined){

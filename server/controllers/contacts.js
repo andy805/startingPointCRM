@@ -15,7 +15,8 @@ const index = (req, res) => {
 
 /*create a record */
 const createContact = async (req, res) => {
-    console.log('hit contact create'. req.body)
+    console.log('hit contact create')
+    console.log(req.body)
     const newContact = new Contact({
         account: req.body.recordRef,
         firstName: "New Contact",
@@ -41,7 +42,8 @@ const createContact = async (req, res) => {
     console.log(newContact);
     
     await newContact.save();
-    res.send(newAccount);
+   await newContact.populate("account")
+    res.send(newContact);
 }
 
 export {index, createContact}
