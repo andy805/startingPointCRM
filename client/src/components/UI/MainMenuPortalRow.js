@@ -4,23 +4,23 @@ import DeleteSVG from "./../SVG/DeleteSVG";
 import MailSVG from "../SVG/MailSVG";
 import ChevronRightSVG from "../SVG/ChevronRightSVG";
 
-const MainMenuPortalRow = ({firstName, lastName, position, address, phone}) => {
+const MainMenuPortalRow = (props) => {
     return (
         <div className={styles.mainMenuPortalRow}>
             <div className={styles.mainMenuPortalRow__deleteButton}>
                 <DeleteSVG />
             </div>
 
-            <div className={styles.mainMenuPortalRow__initials}>{firstName[0]}{lastName[0]}</div>
+            <div className={styles.mainMenuPortalRow__initials}>{props.rightLabelTwo[0]}{props.rightLabelOne[0]}</div>
 
             <div className={styles.mainMenuPortalRow__nameTitle}>
-                <span>{lastName}, {firstName}</span>
-                <span>{position}</span>
+                <span>{props.rightLabelOne}, {props.rightLabelTwo}</span>
+                <span>{props.position}</span>
             </div>
 
             <div className={styles.mainMenuPortalRow__addressPhone}>
-                <span>{address}</span>
-                <span>{phone}</span>
+                <span>{props.leftLabel}</span>
+                <span>{props.leftSubLabel}</span>
             </div>
 
             <div className={styles.mainMenuPortalRow__emailButton}>

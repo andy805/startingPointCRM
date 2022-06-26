@@ -55,6 +55,7 @@ const MainMenu = (props) => {
             path={basePath+"contacts/create"}
             user= {props.user}
             recordRef = {props.activeRecord}
+            masterTable={props.masterTable}
             /> 
 
 

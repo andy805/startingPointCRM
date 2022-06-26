@@ -1,14 +1,15 @@
 import Mongoose from "mongoose"
 import { Note, noteSchema } from "./Note.js";
 import {accountSchema, Account} from './Account.js';
+import {userSchema, User} from './User.js'
 
 const Schema = Mongoose.Schema
 
 export const contactSchema = new Schema({
     _idContact: Schema.Types.ObjectId,
     /*ref has to point to the model name*/
-    notes: [{type:Schema.Types.ObjectId, ref:'note'}],
     account: {type:Schema.Types.ObjectId , ref: 'account'},//[accountSchema]
+    user:{type:Schema.Types.ObjectId, ref:'user'},
     firstName:String,
     lastName:String,
     category: String,

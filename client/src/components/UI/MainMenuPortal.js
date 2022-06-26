@@ -25,6 +25,11 @@ const MainMenuPortal = (props) => {
     const [portalRecords, setPortalRecords] = useState({data:[], active:0})
     const [activePortalRecord, setActivePortalRecord] = useState({})
 
+    const addRecords=(records)=>{
+        setPortalRecords(prevState =>({
+            ...prevState, data:[ ...records]
+        }))
+    }
     useEffect(() => {
       const fetchRecords = async ()=>{
           const queryID = props.activeRecord._id
@@ -33,6 +38,8 @@ const MainMenuPortal = (props) => {
             queryID: queryID}
            })
            console.log('menu portal res', response)
+           addRecords(response.data)
+           console.log("checking portal records state ", portalRecords)
       }
       fetchRecords()
     }, [props.activeRecord])
@@ -45,11 +52,11 @@ const MainMenuPortal = (props) => {
             {sampleData.map(element =>
                 <MainMenuPortalRow
                     
-                    firstName={element.firstName}
-                    lastName={element.lastName}
-                    position={element.position}
-                    address={element.address}
-                    phone={element.phone}
+                rightLabelOne={element.firstName}
+                rightLabelTwo={element.lastName}
+                rightSubLabel={element.position}
+                leftLabel={element.address}
+                leftSubLabel={element.phone}
                 />
             )}
         </div>

@@ -1,8 +1,14 @@
 import  Mongoose  from 'mongoose'
 import { Contact } from '../models/Contact.js'
+import {Account} from '../models/Account.js'
+
+/*note currently hard coding to search for account_id this can and should be refactored to account for mutiple search fields
+ie account==account id or user==userid */
 
 const index = (req, res) => {
-    Contact.find({}, (err, Contacts) => {
+    const query= req.query.masterTable
+    Contact.find({[query] :req.query.queryID }, (err, Contacts) => {
+        console.log(req.query)
         if (err) {
             return err
         } else {
@@ -15,10 +21,11 @@ const index = (req, res) => {
 
 /*create a record */
 const createContact = async (req, res) => {
-    console.log('hit contact create')
+    
     console.log(req.body)
     const newContact = new Contact({
         account: req.body.recordRef,
+        user: req.body.user._id,
         firstName: "New Contact",
         lastName: "",
         category: "",
@@ -42,7 +49,6 @@ const createContact = async (req, res) => {
     console.log(newContact);
     
     await newContact.save();
-   await newContact.populate("account")
     res.send(newContact);
 }
 

@@ -53,7 +53,7 @@ const Masterdetail = ({ masterRecords, createPath, cardClick, newRecord, find, m
             {masterRecords.data.map((masterRecord, index) => (
 
                 <PortalRow 
-                    
+                    key={index}
                     className={style.PortalRow}
                     status={masterRecord.status}
                     headerLabel={masterRecord.accountInfo}

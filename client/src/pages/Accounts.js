@@ -70,6 +70,7 @@ const Accounts = () => {
 
     // possible way to get keys 
     // const [activeRecordKeys, setActiveRecordKeys] = usestate([])
+    const masterTable = "account" 
 
     const addAccounts = (accounts) => {
 
@@ -271,6 +272,7 @@ const Accounts = () => {
                 <Menu
                     account={masterRecords}
                     activeRecord={activeRecord}
+                    masterTable={masterTable}
                     handleChange={handleChange}
                     handleChangeClient={handleChangeClient}
                     deleteHandler={deleteRecord}
@@ -328,6 +330,7 @@ const Accounts = () => {
                 activeSlide={activeSlide}
                 user={currentUser}
                 activeRecord= {activeRecord}
+                masterTable={masterTable}
             />
         </div>
     )
