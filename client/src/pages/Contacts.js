@@ -1,14 +1,17 @@
 import React from 'react';
 import axios from 'axios'
-import {useState, setState, useEffect} from 'react'
+import {useState, setState, useEffect, useContext} from 'react'
 import { useHistory } from "react-router";
 import Masterdetail from "../components/UI/Masterdetail"
 import styles from "./pages.module.css"
 import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
 import Menu from '../components/Menu.js'
+import { CurrentUserContext, useCurrentUser } from "../context/UserContext.js"
 
-const basePath = "https://shielded-oasis-43540.herokuapp.com/"
+//const basePath = "https://shielded-oasis-43540.herokuapp.com/"
+const basePath = "http://localhost:3000/"
+const masterTable = "contacts"
 
 const navItems = [ {label: "Accounts" , path: "/Accounts", active: false}, 
 {label: "Contacts" , path: "/Contacts", active: true} ,{label: "Invoices" , path: "/Invoices", active: false}, 
@@ -24,10 +27,13 @@ const test = {
 const contactArray = [];
 
 const Contacts = () => {
+
+    //state
     const [refetch, setRefetch] = useState(0)
     const [activeIndex, setActiveIndex] = useState(0)
     const [masterRecords, setMasterRecords] = useState({ data: contactArray, active: 0, currDocument: contactArray[0] });
     const [activeRecord, setActiveRecord] = useState({});
+    const currentUser = useContext(CurrentUserContext)
 
 const addRecords = (contacts) => {''
     setMasterRecords(prevState => ({
@@ -91,9 +97,15 @@ const addRecords = (contacts) => {''
 
 
 useEffect(()=>{
-    console.log('hit fetch')
+    const id = currentUser.currentUser._id
     const fetchContacts = async ()=>{
-        const response = await axios.get(basePath+"contacts")  
+        const response = await axios.get(basePath+"contacts",{
+          params:  {
+                masterTable: 'user',
+                queryID: id
+            }
+        }
+        )  
         console.log('hit', response)
         addRecords(response.data)
         // setActiveRecord(masterRecords.data[0])

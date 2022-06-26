@@ -35,6 +35,7 @@ const MainMenuPortal = (props) => {
           const queryID = props.activeRecord._id
           console.log('fetching docs with', queryID)
            const response = await axios.get(props.path, {params:{
+               masterTable:props.masterTable,
             queryID: queryID}
            })
            console.log('menu portal res', response)
@@ -49,7 +50,7 @@ const MainMenuPortal = (props) => {
 
     return (
         <div className={styles.mainMenuPortal}>
-            {sampleData.map(element =>
+            {portalRecords.data.map(element =>
                 <MainMenuPortalRow
                     
                 rightLabelOne={element.firstName}

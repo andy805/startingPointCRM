@@ -7,6 +7,7 @@ ie account==account id or user==userid */
 
 const index = (req, res) => {
     const query= req.query.masterTable
+    
     Contact.find({[query] :req.query.queryID }, (err, Contacts) => {
         console.log(req.query)
         if (err) {
