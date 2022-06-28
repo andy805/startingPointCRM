@@ -136,9 +136,36 @@ fetchContacts()
             mainLabel={['firstName', 'lastName']}
             cardClick={changeActiveStateHandler}
             />
+            <card>
+
+            </card>
+            {/* In order to make menu dynamic must pass prop displayInfo 
+            key:{
+                fieldName:"name of field were targeting"
+                label: "How user sees field"
+                value: activeRecord.fieldName
+            } 
+            Can pass mutiple keys
+            */ 
+            
+            }
             <Menu
                     account={masterRecords}
                     activeRecord={activeRecord}
+                    displayInfo = {
+                        {
+                          firstName:{
+                            fieldName:'firstName',
+                            label: "First Name",
+                            value:activeRecord.firstName
+                    },
+                          lastName:{
+                              fieldName:'lastName',
+                              label:"Last Name",
+                              value:activeRecord.lastName
+                          }
+                    
+                    }}
                     // handleChange={handleChange}
                     // handleChangeClient={handleChangeClient}
                     // deleteHandler={deleteRecord}

@@ -276,6 +276,12 @@ const Accounts = () => {
                     handleChange={handleChange}
                     handleChangeClient={handleChangeClient}
                     deleteHandler={deleteRecord}
+        //trying to make menu dynamic with this prop key will be field name and value will be field value
+                    displayInfo = {{Account:
+                    {fieldName:"accountName",
+                    value:activeRecord.accountName
+                    }
+                    }}
                 />
 
                 <Accordion
@@ -330,7 +336,6 @@ const Accounts = () => {
                 activeSlide={activeSlide}
                 user={currentUser}
                 activeRecord= {activeRecord}
-                masterTable={masterTable}
             />
         </div>
     )

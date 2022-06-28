@@ -11,10 +11,12 @@ import ReportSVG from "./SVG/ReportSVG";
 import AddressSVG from "./SVG/AddressSVG";
 import TrashSVG from "./SVG/TrashSVG";
 
-export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler} ) {
+
+// this needs to be heavily refactored to account for other tables 
+export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler, displayInfo} ) {
 
     let inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
-    
+    const keys = Object.keys(displayInfo) 
     const [selectState, setSelectState] = useState(activeRecord.category);
     
     // stops "undefined" from showing up on button
@@ -62,16 +64,18 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
 
             {/* Width prop lets you change width of EditBox */}
             {/* If no width is specified it defaults to 100% width */}
+            {keys?keys.map((field, i)=>
             <EditBox
-                fieldName={"Account"}
+                fieldName={keys[i]}
                 activeRecord={activeRecord}
                 width={{ width: "270px" }}
-                keyName={"accountName"}
-                fieldData={activeRecord.accountName}
+                keyName={displayInfo[field].fieldName}
+                fieldData={displayInfo[field].value}
                 handleChange={handleChange}
                 handleChangeClient={handleChangeClient}
 
             />
+            ):""}
 
             <Popover icon={faEllipsisH}>
                 {/* any thing in between the popover will be in the menu */}

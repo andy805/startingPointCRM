@@ -7,12 +7,13 @@ ie account==account id or user==userid */
 
 const index = (req, res) => {
     const query= req.query.masterTable
-    
+
     Contact.find({[query] :req.query.queryID }, (err, Contacts) => {
         console.log(req.query)
         if (err) {
             return err
         } else {
+            Contacts.populate("accounts")
             res.json(
                 Contacts
             )
@@ -48,8 +49,9 @@ const createContact = async (req, res) => {
         shippingCountry:  "",
     });
     console.log(newContact);
-    
+    await newContact.populate('account')
     await newContact.save();
+    // await newContact.populate('account')
     res.send(newContact);
 }
 
