@@ -1,10 +1,11 @@
 import express from "express";
-import {index, createContact} from "../controllers/contacts.js"
+import { updateAccount } from "../controllers/accounts.js";
+import {index, createContact, updateContact} from "../controllers/contacts.js"
 
 const router = express.Router()
 
 
 router.get('/', index)
 router.post('/create' , createContact )
-
+router.put('/update', updateAccount)
 export {router as contactRouter}

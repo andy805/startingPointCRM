@@ -166,8 +166,8 @@ fetchContacts()
                           }
                     
                     }}
-                    // handleChange={handleChange}
-                    // handleChangeClient={handleChangeClient}
+                    handleChange={handleChange}
+                    handleChangeClient={handleChangeClient}
                     // deleteHandler={deleteRecord}
             />
             {/* <Menu>

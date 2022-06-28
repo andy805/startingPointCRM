@@ -5,15 +5,15 @@ import {Account} from '../models/Account.js'
 /*note currently hard coding to search for account_id this can and should be refactored to account for mutiple search fields
 ie account==account id or user==userid */
 
-const index = (req, res) => {
+const index = async (req, res) => {
     const query= req.query.masterTable
-
-    Contact.find({[query] :req.query.queryID }, (err, Contacts) => {
-        console.log(req.query)
+console.log(req.query)
+    Contact.find({[query] :req.query.queryID }).populate('account').exec((err, Contacts) => {
+        console.log(Contacts)
         if (err) {
             return err
         } else {
-            Contacts.populate("accounts")
+         
             res.json(
                 Contacts
             )
@@ -55,4 +55,13 @@ const createContact = async (req, res) => {
     res.send(newContact);
 }
 
-export {index, createContact}
+const updateContact = async (req, res) => {
+
+    console.log('body', req.body)
+    // console.log("id", query)
+    await Contact.findByIdAndUpdate(req.body._id, req.body)
+    res.send('updated')
+  
+  }
+
+export {index, createContact, updateContact}

@@ -279,6 +279,7 @@ const Accounts = () => {
         //trying to make menu dynamic with this prop key will be field name and value will be field value
                     displayInfo = {{Account:
                     {fieldName:"accountName",
+                    label: "Account",
                     value:activeRecord.accountName
                     }
                     }}

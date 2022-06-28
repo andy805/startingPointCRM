@@ -66,7 +66,7 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
             {/* If no width is specified it defaults to 100% width */}
             {keys?keys.map((field, i)=>
             <EditBox
-                fieldName={keys[i]}
+                fieldName={displayInfo[field].label}
                 activeRecord={activeRecord}
                 width={{ width: "270px" }}
                 keyName={displayInfo[field].fieldName}

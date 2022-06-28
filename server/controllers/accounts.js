@@ -5,7 +5,6 @@ import { Account } from "../models/Account.js";
 
 const index = (req, res) => {
   const user = req.query.userID
-  console.log("query ", req)
   Account.find({ '_userID': user }, (err, Accounts) => {
     if (err) {
       return err;
