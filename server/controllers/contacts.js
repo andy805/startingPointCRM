@@ -8,7 +8,7 @@ ie account==account id or user==userid */
 
 const index = async (req, res) => {
     const query= req.query.masterTable
-console.log(req.query)
+console.log('hit index', req.query)
     Contact.find({[query] :req.query.queryID }).populate('account').exec((err, Contacts) => {
         
         if (err) {

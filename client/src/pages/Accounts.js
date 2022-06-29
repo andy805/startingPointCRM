@@ -337,6 +337,7 @@ const Accounts = () => {
                 activeSlide={activeSlide}
                 user={currentUser}
                 activeRecord= {activeRecord}
+                masterTable={"account"}
             />
         </div>
     )

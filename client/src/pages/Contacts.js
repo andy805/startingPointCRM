@@ -191,12 +191,13 @@ fetchContacts()
                         <AccordionButton icon={<WebsiteSVG />} label={'Visit Website'} />
                     ]}
                 >
-            </Accordion>
-            <CommunicationForm
+                      <CommunicationForm
                         activeRecord={activeRecord}
                         handleChange={handleChange}
                         handleChangeClient={handleChangeClient}
                     />
+            </Accordion>
+          
             
 
         </div>
