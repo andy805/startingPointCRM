@@ -16,12 +16,17 @@ import TrashSVG from "./SVG/TrashSVG";
 export default function Menu( {activeRecord, handleChange, handleChangeClient, deleteHandler, displayInfo} ) {
 
     let inactive = activeRecord.status === "Inactive" ? styles['button__focus'] : "" ;
-    const keys = Object.keys(displayInfo) 
+  
+
+    
     const [selectState, setSelectState] = useState(activeRecord.category);
     
     // stops "undefined" from showing up on button
-    let accountName = activeRecord.accountName === undefined ? "" : activeRecord.accountName
+    let check = Object.keys(activeRecord).length
+    console.log('key length check active record', check)
 
+    const keys = Object.keys(displayInfo)
+    console.log(activeRecord)
     const handleButtonClick = (e) => {
 
         let value = e.target.innerHTML;
@@ -64,7 +69,7 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
 
             {/* Width prop lets you change width of EditBox */}
             {/* If no width is specified it defaults to 100% width */}
-            {keys?keys.map((field, i)=>
+            {check?keys.map((field, i)=>
             <EditBox
                 fieldName={displayInfo[field].label}
                 activeRecord={activeRecord}
@@ -98,7 +103,7 @@ export default function Menu( {activeRecord, handleChange, handleChangeClient, d
 
                 <div className={styles.menu__deleteButton} onClick={deleteHandler}>
                     <TrashSVG/>
-                    {`Delete ${accountName}`}
+                    {`Delete`}
                 </div>    
             </Popover>
 

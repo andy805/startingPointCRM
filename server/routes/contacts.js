@@ -7,5 +7,5 @@ const router = express.Router()
 
 router.get('/', index)
 router.post('/create' , createContact )
-router.put('/update', updateAccount)
+router.put('/update', updateContact)
 export {router as contactRouter}

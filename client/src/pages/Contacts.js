@@ -8,6 +8,13 @@ import TopNav from '../components/UI/TopNav.js';
 import Navbar from '../components/Navbar';
 import Menu from '../components/Menu.js'
 import { CurrentUserContext, useCurrentUser } from "../context/UserContext.js"
+import Accordion from '../components/Accordion';
+import CommunicationForm from '../components/CommunicationForm';
+import PhoneSVG from '../components/SVG/PhoneSVG'
+import EmailSVG from '../components/SVG/EmailSVG';
+import AccordionButton from '../components/UI/AccordionButton';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import WebsiteSVG from '../components/SVG/WebsiteSVG';
 
 //const basePath = "https://shielded-oasis-43540.herokuapp.com/"
 const basePath = "http://localhost:3000/"
@@ -94,7 +101,15 @@ const addRecords = (contacts) => {''
         
 
     }
+    const changeActiveStateHandler = (i) => {
+        setMasterRecords(prevState => ({
+            ...prevState, active: i
+        }));
+        setActiveIndex(i)
+        setActiveRecord(masterRecords.data[i])
+        // setActiveRecordKeys(activeRecord)
 
+    }
 
 useEffect(()=>{
     const id = currentUser.currentUser._id
@@ -105,7 +120,8 @@ useEffect(()=>{
                 queryID: id
             }
         }
-        )  
+        ) 
+        setActiveRecord(response.data[0]) 
         console.log('hit', response)
         addRecords(response.data)
         // setActiveRecord(masterRecords.data[0])
@@ -115,15 +131,7 @@ useEffect(()=>{
 fetchContacts()
 },[])
 
-    const changeActiveStateHandler = (i) => {
-        setMasterRecords(prevState => ({
-            ...prevState, active: i
-        }));
-        setActiveIndex(i)
-        setActiveRecord(masterRecords.data[i])
-        // setActiveRecordKeys(activeRecord)
-
-    }
+  
 
     return(
         <div className={styles.page}>
@@ -136,9 +144,6 @@ fetchContacts()
             mainLabel={['firstName', 'lastName']}
             cardClick={changeActiveStateHandler}
             />
-            <card>
-
-            </card>
             {/* In order to make menu dynamic must pass prop displayInfo 
             key:{
                 fieldName:"name of field were targeting"
@@ -146,9 +151,12 @@ fetchContacts()
                 value: activeRecord.fieldName
             } 
             Can pass mutiple keys
+
+            Final Note may need to pass class type for drop downs and such
             */ 
             
             }
+            
             <Menu
                     account={masterRecords}
                     activeRecord={activeRecord}
@@ -163,16 +171,34 @@ fetchContacts()
                               fieldName:'lastName',
                               label:"Last Name",
                               value:activeRecord.lastName
+                          },
+                          account:{
+                            fieldName:".account.accountName",
+                            label:"Account",
+                            value:Object.keys(activeRecord).length? activeRecord.account.accountName: ""  
                           }
-                    
                     }}
                     handleChange={handleChange}
                     handleChangeClient={handleChangeClient}
                     // deleteHandler={deleteRecord}
             />
-            {/* <Menu>
-                activeRecord={activeRecord}
-            </Menu> */}
+            <Accordion
+                    label={"Communication"}
+                    icon={faChevronDown}
+                    buttons={[
+                        <AccordionButton icon={<PhoneSVG />} label={'Call Primary'} />,
+                        <AccordionButton icon={<EmailSVG />} label={'Send Email'} /*email={activeRecord.email}*/ />,
+                        <AccordionButton icon={<WebsiteSVG />} label={'Visit Website'} />
+                    ]}
+                >
+            </Accordion>
+            <CommunicationForm
+                        activeRecord={activeRecord}
+                        handleChange={handleChange}
+                        handleChangeClient={handleChangeClient}
+                    />
+            
+
         </div>
     )
 

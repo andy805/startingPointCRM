@@ -2,6 +2,7 @@ import  Mongoose  from 'mongoose'
 import { Contact } from '../models/Contact.js'
 import {Account} from '../models/Account.js'
 
+
 /*note currently hard coding to search for account_id this can and should be refactored to account for mutiple search fields
 ie account==account id or user==userid */
 
@@ -9,7 +10,7 @@ const index = async (req, res) => {
     const query= req.query.masterTable
 console.log(req.query)
     Contact.find({[query] :req.query.queryID }).populate('account').exec((err, Contacts) => {
-        console.log(Contacts)
+        
         if (err) {
             return err
         } else {
@@ -57,10 +58,11 @@ const createContact = async (req, res) => {
 
 const updateContact = async (req, res) => {
 
-    console.log('body', req.body)
-    // console.log("id", query)
-    await Contact.findByIdAndUpdate(req.body._id, req.body)
-    res.send('updated')
+    console.log('body', req.body._id)
+  contact= await Contact.findByIdAndUpdate(req.body._id, req.body)
+    //  await Contact.findByIdAndUpdate(req.body._id, req.body)
+    console.log(contact)
+    res.send('updated' )
   
   }
 
