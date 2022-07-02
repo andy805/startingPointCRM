@@ -28,7 +28,7 @@ const basePath = "http://localhost:3000/"
 const MainMenu = (props) => {
     const [active, setActive] = useState(0);
 
-    
+    console.log(props.masterTable)
     return (
         
         

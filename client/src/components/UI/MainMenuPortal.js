@@ -1,4 +1,4 @@
- import axios from 'axios';
+import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import styles from "./MainMenuPortal.module.css";
 import MainMenuPortalRow from './MainMenuPortalRow';
@@ -33,7 +33,7 @@ const MainMenuPortal = (props) => {
     useEffect(() => {
       const fetchRecords = async ()=>{
           const queryID = props.activeRecord._id
-          console.log('fetching docs with', queryID)
+          console.log('fetching docs with', props.masterTable, queryID)
            const response = await axios.get(props.path, {params:{
                masterTable:props.masterTable,
             queryID: queryID}

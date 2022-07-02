@@ -15,6 +15,10 @@ import EmailSVG from '../components/SVG/EmailSVG';
 import AccordionButton from '../components/UI/AccordionButton';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import WebsiteSVG from '../components/SVG/WebsiteSVG';
+import MapSVG from '../components/SVG/MapSVG';
+import BillingForm from '../components/BillingForm';
+
+
 
 //const basePath = "https://shielded-oasis-43540.herokuapp.com/"
 const basePath = "http://localhost:3000/"
@@ -178,7 +182,7 @@ fetchContacts()
                             value:Object.keys(activeRecord).length? activeRecord.account.accountName: ""  
                           }
                     }}
-                    handleChange={handleChange}
+                    ç
                     handleChangeClient={handleChangeClient}
                     // deleteHandler={deleteRecord}
             />
@@ -187,7 +191,7 @@ fetchContacts()
                     icon={faChevronDown}
                     buttons={[
                         <AccordionButton icon={<PhoneSVG />} label={'Call Primary'} />,
-                        <AccordionButton icon={<EmailSVG />} label={'Send Email'} /*email={activeRecord.email}*/ />,
+                        <AccordionButton icon={<EmailSVG />} label={'Send Email'} email={activeRecord.email} />,
                         <AccordionButton icon={<WebsiteSVG />} label={'Visit Website'} />
                     ]}
                 >
@@ -198,6 +202,21 @@ fetchContacts()
                     />
             </Accordion>
           
+            <Accordion
+                    label={"Billing"}
+                    icon={faChevronDown}
+                    buttons={[
+                        <AccordionButton icon={<MapSVG />} label={'Open in Map'} />
+                    ]}
+                    // text={billingTextElement}
+                >
+                    <BillingForm
+                        activeRecord={activeRecord}
+                        handleChange={handleChange}
+                        handleChangeClient={handleChangeClient}
+                    />
+
+                </Accordion>
             
 
         </div>
